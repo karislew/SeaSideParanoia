@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using GHEvtSystem;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,18 +12,28 @@ public class MouseInputSystem : MonoBehaviour
    
     public void OnMouseDown()
     {
-          print("we down fr");
+        MouseInteract mouseInteract = new MouseInteract()
+        {
+            MouseClicked = true
+        };
+        EventDispatcher.Instance.RaiseEvent<MouseInteract>(mouseInteract);
+        print($"we down fr {this.name}");
     }
     public void OnMouseEnter()
     {
-        print($"ON Mouse Enter {this.name}!");
+       
+    }
+    public void OnMouseExit()
+    {
+        
+        
     }
 
 
     // Start is called before the first frame update
     void Start()
    {
-       print("is this workign");
+
    }
 
 
