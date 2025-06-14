@@ -7,10 +7,7 @@ namespace GHEvtSystem
     {
 
     }
-    public class MouseInteract : GHEvtSystem.Event
-    {
-        public bool MouseClicked;
-    }
+  
     public class EventDispatcher
     {
         private static EventDispatcher _instance = null;

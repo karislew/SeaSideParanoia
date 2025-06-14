@@ -268,11 +268,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172148037}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f41611bf2889a4a14bfe5dbf7ac606c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a78e451499654698a31745c375b2aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleNode: 
 --- !u!1 &645796226
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,11 +412,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645796226}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f41611bf2889a4a14bfe5dbf7ac606c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a78e451499654698a31745c375b2aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleNode: AmandaStart
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,11 +684,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785686583}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f41611bf2889a4a14bfe5dbf7ac606c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a78e451499654698a31745c375b2aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleNode: KnifeStart
 --- !u!1 &899885831
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,26 +699,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 899885833}
-  - component: {fileID: 899885832}
+  - component: {fileID: 899885834}
   m_Layer: 0
-  m_Name: PlayerMouse
+  m_Name: MouseManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &899885832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899885831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f41611bf2889a4a14bfe5dbf7ac606c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &899885833
 Transform:
   m_ObjectHideFlags: 0
@@ -731,6 +722,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &899885834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899885831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f41611bf2889a4a14bfe5dbf7ac606c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,7 +1151,7 @@ GameObject:
   - component: {fileID: 1815319821}
   - component: {fileID: 1815319820}
   m_Layer: 0
-  m_Name: Object
+  m_Name: InteractableManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1190,7 +1193,7 @@ SceneRoots:
   - {fileID: 1259346803}
   - {fileID: 785686588}
   - {fileID: 172148042}
-  - {fileID: 1509487602}
   - {fileID: 645796228}
-  - {fileID: 899885833}
+  - {fileID: 1509487602}
   - {fileID: 1815319821}
+  - {fileID: 899885833}
