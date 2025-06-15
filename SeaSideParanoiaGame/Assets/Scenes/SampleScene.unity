@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 899885833}
   - component: {fileID: 899885832}
   m_Layer: 0
-  m_Name: PlayerMouse
+  m_Name: MouseManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1148,7 +1148,7 @@ GameObject:
   - component: {fileID: 1815319821}
   - component: {fileID: 1815319820}
   m_Layer: 0
-  m_Name: Object
+  m_Name: InteractionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1189,8 +1189,8 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 1259346803}
   - {fileID: 785686588}
+  - {fileID: 645796228}
   - {fileID: 172148042}
   - {fileID: 1509487602}
-  - {fileID: 645796228}
   - {fileID: 899885833}
   - {fileID: 1815319821}
