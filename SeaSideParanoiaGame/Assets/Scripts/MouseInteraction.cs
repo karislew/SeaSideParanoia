@@ -52,26 +52,15 @@ public class MouseInputSystem : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, layerMask))
             {
                 mousePosition = raycastHit.point;
+                MouseInteract mouseInteract = new MouseInteract()
+                {
+                    position = mousePosition
+                };
+                EventDispatcher.Instance.RaiseEvent<MouseInteract>(mouseInteract);
 
             }
             //if 2d object
-            else
-            {
-                Vector3 mouse2DPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-                RaycastHit2D raycastHit2D = Physics2D.Raycast(mouse2DPosition, Vector2.zero, Mathf.Infinity, layerMask);
-                if (raycastHit2D.collider != null)
-                {
-                    mousePosition = raycastHit2D.point;
-
-                }
-
-            }
-            //raising event
-             MouseInteract mouseInteract = new MouseInteract()
-            {
-                position = mousePosition
-            };
-            EventDispatcher.Instance.RaiseEvent<MouseInteract>(mouseInteract);
+            
 
         }
    }
