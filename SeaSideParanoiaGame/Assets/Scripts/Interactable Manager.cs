@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GHEvtSystem;
 using System.Drawing.Printing;
-public class MouseInteract : GHEvtSystem.Event
-    {
-        public GameObject clickedObject;
-    }
+
 
 public class InteractableManager : MonoBehaviour
 {

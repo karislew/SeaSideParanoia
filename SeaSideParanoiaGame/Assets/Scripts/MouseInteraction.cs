@@ -12,10 +12,9 @@ public class MouseInputSystem : MonoBehaviour
    
     public void OnMouseDown()
     {
-        
         MouseInteract mouseInteract = new MouseInteract()
         {
-            clickedObject = this.gameObject
+            MouseClicked = true
         };
         EventDispatcher.Instance.RaiseEvent<MouseInteract>(mouseInteract);
         print($"we down fr {this.name}");
