@@ -49,16 +49,15 @@ public class MouseInputSystem : MonoBehaviour
         {
             //if 3d object
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, layerMask))
+            
+            MouseInteract mouseInteract = new MouseInteract()
             {
-                mousePosition = raycastHit.point;
-                MouseInteract mouseInteract = new MouseInteract()
-                {
-                    position = mousePosition
-                };
-                EventDispatcher.Instance.RaiseEvent<MouseInteract>(mouseInteract);
+                raycast = ray,
+                layerMask = layerMask
+            };
+            EventDispatcher.Instance.RaiseEvent<MouseInteract>(mouseInteract);
 
-            }
+            
             //if 2d object
             
 
@@ -69,3 +68,23 @@ public class MouseInputSystem : MonoBehaviour
 
 
 
+/*
+Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, layerMask))
+            {
+                if (raycastHit.collider != null)
+                {
+                    
+                    mousePosition = raycastHit.point;
+                    MouseInteract mouseInteract = new MouseInteract()
+                    {
+                        position = mousePosition,
+                        raycast = ray,
+                        layerMask = layerMask
+                    };
+                    EventDispatcher.Instance.RaiseEvent<MouseInteract>(mouseInteract);
+
+                    
+                }
+            
+*/
