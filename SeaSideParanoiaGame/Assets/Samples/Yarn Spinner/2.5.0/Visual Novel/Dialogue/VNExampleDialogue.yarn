@@ -1,0 +1,69 @@
+title: Start
+tags: 
+colorID: 0
+position: 0,0
+---
+
+// sets background image to sprite called "bg_office"
+<<Scene bg_office>>
+// start playing audioclip "ambient_birds" at 50% volume, loop forever
+<<PlayAudio ambient_birds 0.5 loop>>
+
+A VISUAL NOVEL EXAMPLE
+
+// adds actor named "Eve" using sprite "cool-girl", placed in left-half + center of screen, with green text label
+<<Act Marco cool-girl left center green>>
+
+Marco: Finally, a quiet day at the office. Maybe I'll be able to get some work done.
+
+// adds actor "Adam" with sprite "biz-guy" off-screen right, with blue-ish text label
+<<Act Adam biz-guy 1.25 center #226677>>
+
+// animate Adam into new position in right-half + center, within 0.5 seconds
+<<Move Adam right center 0.5>>
+<<PlayAudio music_funny 1.0 loop>>
+
+Adam: Hey Marco! I have a question!
+Marco: Oh no...
+
+// horizontally flips Marco actor to face Adam
+<<Flip Marco>>
+
+// Yarn shortcut choices, an easy way to make branching options
+-> Marco gets upset with Adam
+	<<Shake Marco 1.0>>
+	Marco: WHAT DO YOU WANT???
+	Adam: I just wanted to see if you liked using Yarn Spinner.
+	Marco: ... It's fine. Thanks. Now leave me alone.
+-> Adam asks Marco a question
+	Adam: Do you think Yarn Spinner is easy to use?
+	Marco: Not when you're bothering me.
+	Adam: Oh, I didn't realize you were busy. Sorry.
+
+// hide Adam actor and remove from the scene
+<<Hide Adam>>
+// Stop all sound playback
+<<StopAudioAll>>
+
+Marco: Ok, now to finally write that visual novel.
+<<Flip Marco>>
+<<PlayAudio music_romantic>>
+Marco: I can finally write my epic romance about -
+<<StopAudioAll>>
+<<Flip Marco>>
+<<wait 1.5>>
+<<Flip Marco>>
+Marco: Wait... where's my laptop? It's not here.
+<<Shake Marco>>
+Marco: Adam! Have you seen my laptop???
+
+<<PlayAudio music_funny>>
+<<Flip Marco>>
+<<Move Marco 1.25 center 1.0>>
+Marco: ADDDDAAAMMMMMMM!!!
+
+// fade to black, from 0% opacity to 100% opacity, in 2.0 seconds
+<<Fade black 0.0 1.0 2.0>>
+THE END.
+
+===
