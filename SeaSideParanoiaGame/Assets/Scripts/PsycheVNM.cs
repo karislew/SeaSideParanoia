@@ -38,7 +38,13 @@ namespace Yarn.Unity.Seaside
         // store sprite references for "actors" (characters, etc.)
         [HideInInspector] public Dictionary<string, VNActor> actors = new Dictionary<string, VNActor>(); // tracks names to sprites
 
-        static Vector2 screenSize = new Vector2(1280f, 720f); // needed for position calcuations, e.g. what does "left" mean?
+        //static Vector2 screenSize = new Vector2(1280f, 720f); // needed for position calcuations, e.g. what does "left" mean?
+        // dimensions will be grabbed from the referenced canvas' width and height in Awake().
+
+        [Header("Testing Section"), Tooltip("For testing purposes, remove later")]
+        public RectTransform canvasDims;
+        public Vector2 screenSize = new Vector2(1280f, 720f);
+        public string activeSpeaker;
 
         void Awake()
         {
@@ -76,6 +82,10 @@ namespace Yarn.Unity.Seaside
                 var allAudioInResources = Resources.LoadAll<AudioClip>("");
                 loadAudio.AddRange(allAudioInResources);
             }
+
+            bgImage.gameObject.SetActive(true);
+            activeSpeaker = "";
+            screenSize = canvasDims.rect.size;
         }
 
         #region YarnCommands
@@ -430,9 +440,21 @@ namespace Yarn.Unity.Seaside
 
             if (string.IsNullOrEmpty(actorName) == false && actors.ContainsKey(actorName))
             {
-                HighlightSprite(actors[actorName].actorImage);
-                nameplateBG.color = actors[actorName].actorColor;
-                nameplateBG.gameObject.SetActive(true);
+                if (!string.Equals(activeSpeaker, actorName))
+                {
+                    // Unhightlight old sprite
+                    if (string.IsNullOrEmpty(activeSpeaker) == false && actors.ContainsKey(activeSpeaker))
+                    {
+                        UnHighlightSprite(actors[activeSpeaker].actorImage);
+                        Debug.Log("noe");
+                    }
+                    // update active speaker
+                    activeSpeaker = actorName;
+                    // highlight new sprite
+                    HighlightSprite(actors[actorName].actorImage);
+                    nameplateBG.color = actors[actorName].actorColor;
+                    nameplateBG.gameObject.SetActive(true);
+                }
             }
             else
             {
@@ -449,7 +471,7 @@ namespace Yarn.Unity.Seaside
         }
 
         // called by HighlightSprite
-        IEnumerator HighlightSpriteCoroutine(Image highlightedSprite)
+        IEnumerator HighlightSpriteCoroutine(Image spr)
         {
             float t = 0f;
             // over time, gradually change sprites to be "normal" or
@@ -457,21 +479,34 @@ namespace Yarn.Unity.Seaside
             while (t < 1f)
             {
                 t += Time.deltaTime / 2f;
-                foreach (var spr in sprites)
-                {
-                    Vector3 regularScalePreserveXFlip = new Vector3(Mathf.Sign(spr.transform.localScale.x), 1f, 1f);
-                    if (spr != highlightedSprite)
-                    { // set back to normal
-                        spr.transform.localScale = Vector3.MoveTowards(spr.transform.localScale, regularScalePreserveXFlip, Time.deltaTime);
-                        spr.color = Color.Lerp(spr.color, defaultTint, Time.deltaTime * 5f);
-                    }
-                    else
-                    { // a little bit bigger / brighter
-                        spr.transform.localScale = Vector3.MoveTowards(spr.transform.localScale, regularScalePreserveXFlip * 1.05f, Time.deltaTime);
-                        spr.color = Color.Lerp(spr.color, highlightTint, Time.deltaTime * 5f);
-                        spr.transform.SetAsLastSibling();
-                    }
-                }
+                Vector3 regularScalePreserveXFlip = new Vector3(Mathf.Sign(spr.transform.localScale.x), 1f, 1f);
+                // a little bit bigger / brighter
+                spr.transform.localScale = Vector3.MoveTowards(spr.transform.localScale, regularScalePreserveXFlip * 1.05f, Time.deltaTime);
+                spr.color = Color.Lerp(spr.color, highlightTint, Time.deltaTime * 5f);
+                spr.transform.SetAsLastSibling();
+                yield return 0;
+            }
+        }
+
+        public void UnHighlightSprite(Image sprite)
+        {
+            StopCoroutine("UnHighlightSpriteCoroutine"); // use StartCoroutine(string) overload so that we can Stop and Start the coroutine (it doesn't work otherwise?)
+            StartCoroutine("UnHighlightSpriteCoroutine", sprite);
+        }
+
+        IEnumerator UnHighlightSpriteCoroutine(Image spr)
+        {
+            float t = 0f;
+            // over time, gradually change sprites to be "normal" or
+            // "highlighted"
+
+            while (t < 1f)
+            {
+                t += Time.deltaTime / 2f;
+                Vector3 regularScalePreserveXFlip = new Vector3(Mathf.Sign(spr.transform.localScale.x), 1f, 1f);
+                // set back to normal
+                spr.transform.localScale = Vector3.MoveTowards(spr.transform.localScale, regularScalePreserveXFlip, Time.deltaTime);
+                spr.color = Color.Lerp(spr.color, defaultTint, Time.deltaTime * 5f);
                 yield return 0;
             }
         }
@@ -686,6 +721,12 @@ namespace Yarn.Unity.Seaside
 
             Debug.LogErrorFormat(this, "VN Manager can't find asset [{0}]... maybe it is misspelled, or isn't imported as {1}?", assetName, typeof(T).ToString());
             return null; // didn't find any matching asset
+        }
+
+        public void TestComplete(string something)
+        {
+            Debug.Log("dialogue is complete, signal:" + something);
+            HideAllSprites();
         }
 
 
