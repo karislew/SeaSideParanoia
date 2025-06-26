@@ -1194,7 +1194,7 @@ MonoBehaviour:
   - {fileID: 686271677114264161}
   - {fileID: 5203793848268739854}
   - {fileID: 4574464193187161706}
-  startNode: Scene_03
+  startNode: Scene_01
   startAutomatically: 1
   runSelectedOptionAsLine: 0
   lineProvider: {fileID: 0}
@@ -1224,9 +1224,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 686271677114264161}
+        m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
+        m_MethodName: StopAllCoroutines
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 686271677114264161}
         m_TargetAssemblyTypeName: Yarn.Unity.Seaside.VNManager, Assembly-CSharp
-        m_MethodName: TestComplete
-        m_Mode: 5
+        m_MethodName: HideAllSprites
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

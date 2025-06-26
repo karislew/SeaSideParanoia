@@ -4,8 +4,6 @@ colorID: 0
 position: 0,0
 ---
 
-//<<Reset>>
-
 <<Scene solar_eclipse>>
 
 THE FIRST SCENE
@@ -60,11 +58,44 @@ GL: uh...
 
 Narrator: Are there more stars in the sky or grains of sand on earth?
 -> More stars.
+    GL: More stars.
     Narrator: Nope!
 -> More grains of sand.
+    GL: More grains of sand.
     Narrator: Correct!
 Narrator: There are more grains of sand on Earth than there are stars in the universe!
 Narrator: Isn't that freaky?
 
+
+===
+title: Scene_04
+tags:
+colorID: 0
+position: 0,0
+---
+
+<<Act GL gl_js offleft center green>>
+<<Act  Sim  sims4 offright center blue>>
+
+GL: doot doo dooo~
+
+<<Move GL left center 2>>
+
+GL: lalalalalaaa~~
+
+<<Move Sim right center 2>>
+
+Sim: ...hi
+
+GL: ...bye
+
+<<Move GL offleft topedge 1>>
+
+Sim:
+Sim:...
+Sim: Well, forget you too!
+
+<<Move Sim right topedge 1>>
+<<wait 1>>
 
 ===

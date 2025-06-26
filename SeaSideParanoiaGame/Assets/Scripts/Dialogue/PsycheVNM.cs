@@ -446,7 +446,6 @@ namespace Yarn.Unity.Seaside
                     if (string.IsNullOrEmpty(activeSpeaker) == false && actors.ContainsKey(activeSpeaker))
                     {
                         UnHighlightSprite(actors[activeSpeaker].actorImage);
-                        Debug.Log("noe");
                     }
                     // update active speaker
                     activeSpeaker = actorName;
@@ -462,7 +461,6 @@ namespace Yarn.Unity.Seaside
                 if (string.IsNullOrEmpty(activeSpeaker) == false && actors.ContainsKey(activeSpeaker))
                 {
                     UnHighlightSprite(actors[activeSpeaker].actorImage);
-                    Debug.Log("noe");
                 }
                 // update active speaker
                 activeSpeaker = "";
@@ -507,7 +505,6 @@ namespace Yarn.Unity.Seaside
             float t = 0f;
             // over time, gradually change sprites to be "normal" or
             // "highlighted"
-
             while (t < 1f)
             {
                 t += Time.deltaTime / 2f;
@@ -729,12 +726,6 @@ namespace Yarn.Unity.Seaside
 
             Debug.LogErrorFormat(this, "VN Manager can't find asset [{0}]... maybe it is misspelled, or isn't imported as {1}?", assetName, typeof(T).ToString());
             return null; // didn't find any matching asset
-        }
-
-        public void TestComplete(string something)
-        {
-            Debug.Log("dialogue is complete, signal:" + something);
-            HideAllSprites();
         }
 
 
