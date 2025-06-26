@@ -458,6 +458,14 @@ namespace Yarn.Unity.Seaside
             }
             else
             {
+                // Unhightlight old sprite
+                if (string.IsNullOrEmpty(activeSpeaker) == false && actors.ContainsKey(activeSpeaker))
+                {
+                    UnHighlightSprite(actors[activeSpeaker].actorImage);
+                    Debug.Log("noe");
+                }
+                // update active speaker
+                activeSpeaker = "";
                 nameplateBG.gameObject.SetActive(false);
             }
 
