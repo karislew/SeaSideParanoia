@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Items
+[CreateAssetMenu]
+public class Items : ScriptableObject
 {
     public string itemName;
     public Sprite imageIcon;
@@ -11,14 +12,7 @@ public class Items
     public string itemDescription;
     public bool hasItem = false;
 
-    public Items(string name, string description, Sprite icon, bool itemBool)
-    {
-        itemName = name;
-        itemDescription = description;
-        imageIcon = icon;
-        hasItem = itemBool;
-    
-    }
+
 
 }
 

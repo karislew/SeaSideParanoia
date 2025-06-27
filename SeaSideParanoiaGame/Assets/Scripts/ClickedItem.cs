@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class ClickedItem : Interactable
 {
-    public string itemName;
-    public string itemDescription;
-    public Sprite itemIcon;
-    public bool hasItem;
+    public Items items;
    
 
    
     public override void OnInteract()
     {
-        bool addedItem = Inventory.instance.AddItem(new Items(itemName, itemDescription, itemIcon, hasItem));
+        bool addedItem = Inventory.instance.AddItem(items);
         if (addedItem)
         {
             Debug.Log("I was able to add the item once");
