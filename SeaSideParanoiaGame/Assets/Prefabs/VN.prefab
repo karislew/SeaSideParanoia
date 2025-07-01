@@ -1619,15 +1619,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runner: {fileID: 402522995242146018}
-  loadSprites:
-  - {fileID: 21300000, guid: 2cb01c01a57ba031abea201ef6df8243, type: 3}
-  - {fileID: 21300000, guid: 572486290dfac57db82cbb3f2091b385, type: 3}
-  - {fileID: 21300000, guid: 229b217aad4387cb5adc601d776579b4, type: 3}
-  - {fileID: 21300000, guid: 208ed543e700542889e65b59bcb234da, type: 3}
+  loadSprites: []
   loadAudio: []
-  useResourcesFolders: 0
-  defaultTint: {r: 1, g: 1, b: 1, a: 1}
-  highlightTint: {r: 0.9411765, g: 0.9529412, b: 0.40784314, a: 1}
+  useResourcesFolders: 1
+  defaultTint: {r: 0.384857, g: 0.4835629, b: 0.6126398, a: 1}
+  highlightTint: {r: 1, g: 1, b: 1, a: 1}
   spriteGroup: {fileID: 2289985223778232358}
   bgImage: {fileID: 7398818779872434052}
   fadeBG: {fileID: 7413085292590140367}
