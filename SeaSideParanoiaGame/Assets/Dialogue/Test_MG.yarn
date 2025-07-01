@@ -50,8 +50,6 @@ colorID: 0
 position: 0,0
 ---
 
-<<Act  Narrator narrator_sprite offleft top black>>
-
 Narrator: Hello, I'm going to give you a quiz.
 
 <<Act GL gl_js right center green>>
