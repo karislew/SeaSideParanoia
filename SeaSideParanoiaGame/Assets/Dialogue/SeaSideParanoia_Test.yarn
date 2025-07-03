@@ -5,12 +5,12 @@ position: 13,-12
 ---
 
 // sets background image to sprite called "bg_office"
-<<Scene bg_office>>
+//<<Scene Placholder>>
 // start playing audioclip "ambient_birds" at 50% volume, loop forever
-<<PlayAudio ambient_birds 0.5 loop>>
+//<<PlayAudio PlaceHolder 0.5 loop>>
+// Can Change volume by 0.5=50 0.20% and to loop just put loop at end 
 
-A VISUAL NOVEL EXAMPLE
-
+Prologue
 // adds actor named "Eve" using sprite "cool-girl", placed in left-half + center of screen, with green text label
 <<Act Marco Marco_Neutral left center green>>
 Marco: I think this should be good.
@@ -32,6 +32,10 @@ Marco: This... This can't be real
 Marco: I feel sick..
 <<Shake Marco>> 
 Marco: I need to go... 
+//<<StopAudioAll>>
+//Maybe StopAudio will specifcally stop a certain audio? Test Later
+//<<Scene Placeholder>> 
+//<<PlayAudio Placeholder>>
 
 Marco: Raul! 
 <<Act Raul Raul_Static right center blue>>
@@ -54,10 +58,16 @@ Raul: Marco maybe you saw some things?
     Raul: Ok I.. Show me where 
     Marco: Thank you... 
 
+//Could start adding If stuff here but we'll talk later 
+//<<Scene Placeholder>>
+//<<PlayAudio Placeholder>>
+
 Marco: Cmon It's just up ahead 
 Raul: Marco the snow is starting to pick up 
 Marco: Cmon! It's not far.. 
 Raul:... 
+
+//<<Scene Placeholder>>
 
 Marco: See it's right there! 
 Raul: Marco.. there's nothing there.. 
@@ -76,7 +86,7 @@ Raul:...
     Marco: Believe me... 
     Raul: Marco.. I can't see anything 
     Raul: Describe the body
-
+//<<PlayAudio Placeholder>>
 //This is where the point and click distortion and body scene starts 
 
 Marco: There's a scar on the body... and I found some glasses 
@@ -92,6 +102,10 @@ Marco:...
 <<Act Marco Marco_Neutral left center green>>
 Marco: I feel sick..
 Raul: We should go
+
+//<<StopAudioAll>>
+//<<Scene Placeholder>>
+//<<PlayAudio Placeholder>>
 
 Raul: Back home... 
 Raul: Shit what do we do..
@@ -114,6 +128,9 @@ title: Deserter
 color: red
 position: -134,253
 ---
+//<<StopAudioAll>>
+//<<PlayAudio Placeholder>>
+//<<Scene Placeholder>>
 Marco: Ok  
 Marco: Packed... 
 Raul: Same... 
@@ -142,7 +159,7 @@ Raul: Alright
 //Scene Bathroom Mirror 
 Marco: I can't believe what I saw... 
 Marco: Will others... 
-
+//<<StopAudioAll>>
 The End for now...
 <<Fade black 0.0 1.0 2.0>>
 ===
