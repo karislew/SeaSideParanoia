@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using GHEvtSystem;
 
 
@@ -16,7 +17,7 @@ public class InvestigationSystem : MonoBehaviour
     public Dictionary<Clue, List<Clue>> connection_data = new Dictionary<Clue, List<Clue>>();
     public Dictionary<Clue, bool> clue_status;
 
-    public SpriteRenderer confirmaiton;
+    public Image confirmation;
 
     private Selected currentSelection = new Selected();
 
@@ -71,7 +72,7 @@ public class InvestigationSystem : MonoBehaviour
         {
             Debug.Log(currentSelection.first.name + " connects with " + currentSelection.second.name);
             // TODO: make string appear
-            confirmaiton.color = Color.green;
+            //confirmation.color = Color.green;
         }
     }
 
@@ -94,11 +95,12 @@ public class InvestigationSystem : MonoBehaviour
             currentSelection.second = null;
             Debug.Log("deselected " + evt.selected.name);
         }
-
-        if (confirmaiton.color == Color.green)
+        /*
+        if (confirmation.color == Color.green)
         {
-            confirmaiton.color = Color.white;
+            confirmation.color = Color.white;
         }
+        */
     }
 
     bool Connects()

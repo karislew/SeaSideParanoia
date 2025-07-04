@@ -8,7 +8,7 @@ namespace GHEvtSystem
     public class SelectedPanel : Event
     {
         public Clue selected;
-        public BoardPanel caller;
+        public BoardSlot caller;
     }
 
     public class DeselectedPanel : Event
@@ -18,6 +18,6 @@ namespace GHEvtSystem
 
     public class ReverseSelection : Event
     {
-        public BoardPanel caller;
+        public BoardSlot caller;
     }
 }
