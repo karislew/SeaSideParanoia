@@ -50,7 +50,7 @@ public class JournalUI : MonoBehaviour
         {
             if (i < journal.items.Count)
             {
-                clueSlots[i].AddItem(journal.items[i]);
+                itemSlots[i].AddItem(journal.items[i]);
             }
             else
             {

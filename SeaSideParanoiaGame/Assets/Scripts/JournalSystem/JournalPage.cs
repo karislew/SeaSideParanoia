@@ -5,16 +5,16 @@ using UnityEngine;
 using UnityEngine.UI;
 public class JournalPage : MonoBehaviour
 {
-    Items item;
+    Clue item;
 
 
     public Image icon;
 
-    public void AddItem(Items newItem)
+    public void AddItem(Clue newItem)
     {
         Debug.Log("Adding that item baby");
         item = newItem;
-        icon.sprite = item.imageIcon;
+        icon.sprite = item.journal_page;
         icon.enabled = true;
     }
     public void ClearSlot()

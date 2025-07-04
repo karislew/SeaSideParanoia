@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ClickedItem : Interactable
 {
-    public Items items;
+    public Clue items;
    
 
    

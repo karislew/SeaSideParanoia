@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class JournalManager : MonoBehaviour
 {
-    public List<Items> items = new List<Items>();
+    public List<Clue> items = new List<Clue>();
     public static JournalManager instance;
     public delegate void onUpdateJournal();
     
     public int inventorySpace;
     public onUpdateJournal onJournalChangedCallback;
-    public delegate void onJournalClicked(Items item);
+    public delegate void onJournalClicked(Clue item);
     public onJournalClicked onJournalClickedCallback;
     void Awake()
     {
@@ -21,12 +21,12 @@ public class JournalManager : MonoBehaviour
         }
         instance = this;
     }
-    public bool AddItem(Items newItem)
+    public bool AddItem(Clue newItem)
     {
         //want to have a better way of checking if item is in list 
         for (int i = 0; i < items.Count; i++)
         {
-            if (items[i].itemName == newItem.itemName)
+            if (items[i].name == newItem.name)
             {
 
                 return false;
@@ -37,7 +37,7 @@ public class JournalManager : MonoBehaviour
 
         items.Add(newItem);
         Debug.Log("added item to list");
-        newItem.hasItem = true;
+        //newItem.hasItem = true;
         //updating the UI 
         if (onJournalChangedCallback != null)
         {
@@ -57,7 +57,7 @@ public class JournalManager : MonoBehaviour
     {
         foreach (var i in items)
         {
-            Debug.Log("Item: " + i.itemName);
+            Debug.Log("Item: " + i.name);
         }
     }
 }
