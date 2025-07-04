@@ -1,0 +1,17 @@
+﻿title: Test_02
+tags:
+---
+
+A SCENE!
+
+===
+title: Scene_A
+---
+
+Scene A
+
+<<Act  Cherry gl_js right top green>>
+
+Cherry: I'm flying!
+
+===
