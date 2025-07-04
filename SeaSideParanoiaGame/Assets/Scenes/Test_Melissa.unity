@@ -325,6 +325,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1049232240 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9177480170998911431, guid: 85b76e9bb8ca93c96a66d06791e7b82b, type: 3}
+  m_PrefabInstance: {fileID: 1532115810}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1172853174
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,6 +450,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 402522995242146018, guid: 85b76e9bb8ca93c96a66d06791e7b82b, type: 3}
+      propertyPath: startNode
+      value: Example01
+      objectReference: {fileID: 0}
     - target: {fileID: 1776776761827318400, guid: 85b76e9bb8ca93c96a66d06791e7b82b, type: 3}
       propertyPath: m_Name
       value: VN
@@ -515,11 +530,92 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6584579261236549071, guid: 85b76e9bb8ca93c96a66d06791e7b82b, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1532115816}
+    - target: {fileID: 6584579261236549071, guid: 85b76e9bb8ca93c96a66d06791e7b82b, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnContinueClicked
+      objectReference: {fileID: 0}
+    - target: {fileID: 6584579261236549071, guid: 85b76e9bb8ca93c96a66d06791e7b82b, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SeasideLineView, Assembly-CSharp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6440186256840243313, guid: 85b76e9bb8ca93c96a66d06791e7b82b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1532115816}
   m_SourcePrefab: {fileID: 100100000, guid: 85b76e9bb8ca93c96a66d06791e7b82b, type: 3}
+--- !u!114 &1532115811 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7236443034996671123, guid: 85b76e9bb8ca93c96a66d06791e7b82b, type: 3}
+  m_PrefabInstance: {fileID: 1532115810}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1532115812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4799120729757328271, guid: 85b76e9bb8ca93c96a66d06791e7b82b, type: 3}
+  m_PrefabInstance: {fileID: 1532115810}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1532115813 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2422549269810204267, guid: 85b76e9bb8ca93c96a66d06791e7b82b, type: 3}
+  m_PrefabInstance: {fileID: 1532115810}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1532115814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6440186256840243313, guid: 85b76e9bb8ca93c96a66d06791e7b82b, type: 3}
+  m_PrefabInstance: {fileID: 1532115810}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &1532115815 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 1052262447724012699, guid: 85b76e9bb8ca93c96a66d06791e7b82b, type: 3}
+  m_PrefabInstance: {fileID: 1532115810}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1532115816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1532115814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e172cd27b905ba3a01df7d55c8ab5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1532115815}
+  useFadeEffect: 1
+  fadeInTime: 0.25
+  fadeOutTime: 0.05
+  lineText: {fileID: 1049232240}
+  showCharacterNameInLineView: 0
+  characterNameText: {fileID: 1532115811}
+  characterNameContainer: {fileID: 1532115812}
+  useTypewriterEffect: 1
+  onCharacterTyped:
+    m_PersistentCalls:
+      m_Calls: []
+  onPauseStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onPauseEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  typewriterEffectSpeed: 80
+  continueButton: {fileID: 1532115813}
+  holdTime: 1
+  autoAdvance: 0
+  palette: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
