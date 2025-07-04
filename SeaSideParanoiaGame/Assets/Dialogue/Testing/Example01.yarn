@@ -1,0 +1,21 @@
+﻿title: Example01
+tags:
+---
+
+Tutorial Example.
+
+<<Act "John Stewart" gl_js right top green>>
+
+John Stewart: I'm flying!
+
+<<Act HBO test_sprite_01 left center red>>
+
+HBO: Woooowwww!!!
+
+John Stewart: When's the new episode of "__"?
+-> Next year
+-> tomorrow
+-> never
+-> July 4th
+
+===

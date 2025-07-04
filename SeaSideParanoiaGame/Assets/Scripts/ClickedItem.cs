@@ -10,8 +10,9 @@ public class ClickedItem : Interactable
    
     public override void OnInteract()
     {
-        bool addedItem = Inventory.instance.AddItem(items);
-        if (addedItem)
+        //bool addedItem = Inventory.instance.AddItem(items);
+        bool addJournalClue = JournalManager.instance.AddItem(items);
+        if (addJournalClue)
         {
             Debug.Log("I was able to add the item once");
         }
