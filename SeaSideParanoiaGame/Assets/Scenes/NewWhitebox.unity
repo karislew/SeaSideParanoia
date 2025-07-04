@@ -868,6 +868,10 @@ PrefabInstance:
       propertyPath: startNode
       value: Test
       objectReference: {fileID: 0}
+    - target: {fileID: 402522995242146018, guid: 85b76e9bb8ca93c96a66d06791e7b82b, type: 3}
+      propertyPath: startAutomatically
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1776776761827318400, guid: 85b76e9bb8ca93c96a66d06791e7b82b, type: 3}
       propertyPath: m_Name
       value: VN
@@ -3377,8 +3381,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4453263af93bd40f299a51a3250a9803, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: abf9afdce47cb4097877eb1652bf6488, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3424,7 +3428,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 572486290dfac57db82cbb3f2091b385, type: 3}
+  m_Sprite: {fileID: 21300000, guid: abf9afdce47cb4097877eb1652bf6488, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
