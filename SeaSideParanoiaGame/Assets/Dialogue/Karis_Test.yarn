@@ -1,0 +1,29 @@
+﻿title: Test
+tags:
+colorID: 0
+position: 0,0
+---
+
+//<<Scene solar_eclipse>>
+
+THE FIRST SCENE
+
+<<Act Marco Marco_Neutral left bottom green>>
+
+Marco: Whoa who's dead body is that
+Marco: You might want to click on it to gather some clues
+
+
+
+===
+title: ClickTest1
+tags:
+colorID: 0
+position: 0,0
+---
+<<Act Marco Shocked_Marco left bottom green>>
+
+Marco: This cant be real 
+Marco: Who did this!!
+
+===
