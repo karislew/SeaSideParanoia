@@ -53,7 +53,17 @@ public class ClueManager : Singleton<ClueManager>
         return target.itemDescription;
     }
 
-    public Sprite GetSprite(string clueName)
+    public Sprite GetWorldSprite(string clueName)
+    {
+        Clue target = GetClue(clueName);
+        if (target == null)
+        {
+            return null;
+        }
+        return target.worldSprite;
+    }
+
+    public Sprite GetJournalPage(string clueName)
     {
         Clue target = GetClue(clueName);
         if (target == null)
