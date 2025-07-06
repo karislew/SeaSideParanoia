@@ -5,19 +5,21 @@ using UnityEngine;
 namespace GHEvtSystem
 {
     /*** Murder Board Events ***/
-    public class SelectedPanel : Event
+    public class StateChangeRequest : Event
     {
-        public Clue selected;
-        public BoardPanel caller;
+        public string clueName;
+        public ButtonState currentState;
+        public string callerName;
     }
 
-    public class DeselectedPanel : Event
+    public class StateChangeResponse : Event
     {
-        public Clue selected;
+        public string callerName;
+        public ButtonState newState;
     }
 
-    public class ReverseSelection : Event
+    public class FoundClue : Event
     {
-        public BoardPanel caller;
+        public string clueName;
     }
 }
