@@ -5,123 +5,81 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using GHEvtSystem;
 
-/*
 public enum ButtonState
 {
     DISABLED,
     NORMAL,
     SELECTED
 }
-*/
 
 public class BoardSlot : MonoBehaviour
 {
-    public ButtonState state = ButtonState.NORMAL;
-    /*
-    public Sprite spriteDisabled;
-    public Sprite spriteNormal;
-    public Sprite spriteHighlighted;
-    public Sprite spritePressed;
-    public Sprite spriteSelected;
-    */
-    public Color colorDisabled = Color.gray;
-    public Color colorNormal = Color.white;
-    public Color colorSelected = Color.blue;
-
+    public ButtonState state = ButtonState.DISABLED;
 
     public Image clueDisplay;
-    public Image slotImage;
-    public Color currentColor;
-    public Clue clue;
-
-    private Dictionary<ButtonState, Color> stateColors = new Dictionary<ButtonState, Color>();
-    private Button thisButton;
+    public Image selectionHighlight;
+    public string clueName;
+    private Dictionary<ButtonState, float> stateOpacity = new Dictionary<ButtonState, float>();
 
 
     // Start is called before the first frame update
     void Start()
     {
-        stateColors.Add(ButtonState.DISABLED, colorDisabled);
-        stateColors.Add(ButtonState.NORMAL, colorNormal);
-        stateColors.Add(ButtonState.SELECTED, colorSelected);
-
-        thisButton = GetComponent<Button>();
-        if (thisButton != null)
-        {
-        }
-
-        switch (state)
-        {
-            case ButtonState.DISABLED:
-                currentColor = colorDisabled;
-                break;
-            case ButtonState.NORMAL:
-                currentColor = colorNormal;
-                break;
-            case ButtonState.SELECTED:
-                currentColor = colorSelected;
-                break;
-        }
-
-        slotImage.color = currentColor;
-
-        if (clue != null)
-        {
-            clueDisplay.sprite = clue.journal_page;
-        }
-
-        EventDispatcher.Instance.AddListener<ReverseSelection>(Deselect);
-
+        stateOpacity[ButtonState.NORMAL] = 0.0f;
+        stateOpacity[ButtonState.SELECTED] = 0.63f;
+        
+        EventDispatcher.Instance.AddListener<StateChangeResponse>(HandleStateChangeResponse);
     }
 
-    void OnClick()
+    Color ChangeAlpha(Color color, float alpha)
     {
-        if (thisButton.enabled == false)
+        return new Color(
+            color.r,
+            color.g,
+            color.b,
+            alpha
+        );
+    }
+
+    public void DoSomething()
+    {
+        if (state == ButtonState.DISABLED)
         {
+            Debug.Log("button not enabled!");
             return;
         }
         Debug.Log("click complete");
 
-        // state != SELECTED
-        if (gameObject != EventSystem.current.currentSelectedGameObject)
+        EventDispatcher.Instance.RaiseEvent<StateChangeRequest>(new StateChangeRequest
         {
-            state = ButtonState.SELECTED;
-            // TODO: raise event for selected panel
-            EventDispatcher.Instance.RaiseEvent<SelectedPanel>(new SelectedPanel
-            {
-                selected = clue,
-                caller = this
-            });
-        }
-        // state == SELECTED
-        else
-        {
-            state = ButtonState.NORMAL;
-            // TODO: raise event for deselected panel
-            EventDispatcher.Instance.RaiseEvent<DeselectedPanel>(new DeselectedPanel
-            { selected = clue });
-        }
-
-
-        currentColor = stateColors[state];
-        slotImage.color = currentColor;
+            clueName = clueName,
+            callerName = this.name,
+            currentState = state
+        });
     }
 
-    void Deselect(ReverseSelection evt)
+    void HandleStateChangeResponse(StateChangeResponse evt)
     {
-        if (this != evt.caller)
+        if (!evt.callerName.Equals(this.name) && !evt.callerName.Equals("all"))
         {
             return;
         }
-        // TODO
+
+        state = evt.newState;
+        selectionHighlight.color = ChangeAlpha(selectionHighlight.color, stateOpacity[state]);
+    }
+
+    public void ShowClue(Clue clue)
+    {
+        clueName = clue.name;
+        clueDisplay.sprite = clue.worldSprite;
+        clueDisplay.color = ChangeAlpha(clueDisplay.color, 1.0f);
         state = ButtonState.NORMAL;
-        currentColor = stateColors[state];
-        slotImage.color = currentColor;
     }
 
     void OnDestroy()
     {
-        EventDispatcher.Instance.RemoveListener<ReverseSelection>(Deselect);
+        EventDispatcher.Instance.AddListener<StateChangeResponse>(HandleStateChangeResponse);
     }
     
 }

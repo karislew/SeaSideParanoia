@@ -5,117 +5,154 @@ using UnityEngine.UI;
 using GHEvtSystem;
 
 
-public class Selected
-{
-    public Clue first = null;
-    public Clue second = null;
-}
-
 public class InvestigationSystem : MonoBehaviour
 {
-    public string path = "Testing/SO";
-    public Dictionary<Clue, List<Clue>> connection_data = new Dictionary<Clue, List<Clue>>();
-    public Dictionary<Clue, bool> clue_status;
-
     public Image confirmation;
-
-    private Selected currentSelection = new Selected();
+    public string first;
+    public string second;
+    public List<BoardSlot> slots = new List<BoardSlot>();
 
     void Start()
     {
-        Clue[] clues = Resources.LoadAll<Clue>(path);
-
-        foreach (Clue clue in clues)
-        {
-            connection_data[clue] = clue.connections;
-        }
-
-        EventDispatcher.Instance.AddListener<SelectedPanel>(HandleSelection);
-        EventDispatcher.Instance.AddListener<DeselectedPanel>(HandleDeselection);
+        EventDispatcher.Instance.AddListener<FoundClue>(ShowClue);
+        EventDispatcher.Instance.AddListener<StateChangeRequest>(HandleStateChangeRequest);
+        EventDispatcher.Instance.AddListener<StateChangeResponse>(HandleStateChangeResponse);
         Debug.Log("good morning");
     }
 
-    void HandleSelection(SelectedPanel evt)
+    void HandleStateChangeRequest(StateChangeRequest evt)
     {
-        // TODO
-        if (evt.selected == null)
+        switch (evt.currentState)
         {
-            return;
+            case ButtonState.DISABLED:
+                return;
+            case ButtonState.NORMAL:
+                if (string.IsNullOrEmpty(first))
+                {
+                    first = evt.clueName;
+                    Debug.Log("selected " + evt.clueName);
+                    EventDispatcher.Instance.RaiseEvent<StateChangeResponse>(new StateChangeResponse
+                    {
+                        callerName = evt.callerName,
+                        newState = ButtonState.SELECTED
+                    });
+                }
+                else if (string.IsNullOrEmpty(second))
+                {
+                    second = evt.clueName;
+                    Debug.Log("selected " + evt.clueName);
+                    EventDispatcher.Instance.RaiseEvent<StateChangeResponse>(new StateChangeResponse
+                    {
+                        callerName = evt.callerName,
+                        newState = ButtonState.SELECTED
+                    });
+                }
+                else
+                {
+                    Debug.Log("Two panels have already been selected.");
+                }
+                break;
+            case ButtonState.SELECTED:
+                if (first.Equals(evt.clueName))
+                {
+                    first = "";
+                    Debug.Log("deselected " + evt.clueName);
+                    EventDispatcher.Instance.RaiseEvent<StateChangeResponse>(new StateChangeResponse
+                    {
+                        callerName = evt.callerName,
+                        newState = ButtonState.NORMAL
+                    });
+                }
+                else if (second.Equals(evt.clueName))
+                {
+                    second = "";
+                    Debug.Log("deselected " + evt.clueName);
+                    EventDispatcher.Instance.RaiseEvent<StateChangeResponse>(new StateChangeResponse
+                    {
+                        callerName = evt.callerName,
+                        newState = ButtonState.NORMAL
+                    });
+                }
+                else
+                {
+                    Debug.Log("WARNING: \"" + evt.clueName + "\" is not selected but has state selected.");
+                }
+                break;
         }
-
-        if (currentSelection.first == null)
-        {
-            currentSelection.first = evt.selected;
-            Debug.Log("selected " + evt.selected.name);
-        }
-        else if (currentSelection.second == null)
-        {
-            currentSelection.second = evt.selected;
-            Debug.Log("selected " + evt.selected.name);
-        }
-        // I chose to do nothing if a third panel is selected.
-        else
-        {
-            Debug.Log("Two panels have already been selected.");
-            Debug.Log("caller: " + evt.caller.gameObject.name);
-            // TODO: raise event to tell board panel not to select itself.
-            EventDispatcher.Instance.RaiseEvent<ReverseSelection>(new ReverseSelection
-            {
-                caller = evt.caller
-            });
-            return;
-        }
-
-        if ((currentSelection.first != null) &&
-        (currentSelection.second != null) &&
+        
+        if (!string.IsNullOrEmpty(first) &&
+        !string.IsNullOrEmpty(second) &&
         Connects())
         {
-            Debug.Log(currentSelection.first.name + " connects with " + currentSelection.second.name);
-            // TODO: make string appear
-            //confirmation.color = Color.green;
+            Debug.Log(first + " connects with " + second);
+            // TODO: do confirmation
         }
     }
 
-    void HandleDeselection(DeselectedPanel evt)
+    void HandleStateChangeResponse(StateChangeResponse evt)
     {
-        if (evt.selected == null)
+        if (!evt.callerName.Equals("all"))
         {
             return;
         }
 
-        if ((currentSelection.first != null) &&
-        (currentSelection.first.name == evt.selected.name))
-        {
-            currentSelection.first = null;
-            Debug.Log("deselected " + evt.selected.name);
-        }
-        else if ((currentSelection.second != null) &&
-        (currentSelection.second.name == evt.selected.name))
-        {
-            currentSelection.second = null;
-            Debug.Log("deselected " + evt.selected.name);
-        }
-        /*
-        if (confirmation.color == Color.green)
-        {
-            confirmation.color = Color.white;
-        }
-        */
+        first = "";
+        second = "";
     }
 
     bool Connects()
     {
-        if ((connection_data[currentSelection.first].Contains(currentSelection.second)) ||
-        (connection_data[currentSelection.second].Contains(currentSelection.first)))
+        Clue firstClue = ClueManager.Instance.GetClue(first);
+        Clue secondClue = ClueManager.Instance.GetClue(second);
+        if ((firstClue == null) || (secondClue == null))
+        {
+            return false;
+        }
+        List<Clue> firstConnections = ClueManager.Instance.GetConnections(first);
+        List<Clue> secondConnections = ClueManager.Instance.GetConnections(second);
+        if ((firstConnections.Count == 0) || (secondConnections.Count == 0)) {
+            return false;
+        }
+
+        if (firstConnections.Contains(secondClue) ||
+        secondConnections.Contains(firstClue))
         {
             return true;
         }
         return false;
     }
 
+    void ShowClue(FoundClue evt)
+    {
+        if (ClueManager.Instance.GetStatus(evt.clueName))
+        {
+            Debug.Log("\"" + evt.clueName + "\" either doesn't exist or is already displayed.");
+            return;
+        }
+
+        foreach (BoardSlot slot in slots)
+        {
+            if (string.IsNullOrEmpty(slot.clueName))
+            {
+                Clue clue = ClueManager.Instance.GetClue(evt.clueName);
+                if (clue == null)
+                {
+                    Debug.Log("\"" + evt.clueName + "\" doesn't exist.");
+                    return;
+                }
+                Debug.Log("storing \"" + evt.clueName + "\" in a slot...");
+                slot.ShowClue(clue);
+                return;
+            }
+        }
+
+        Debug.Log("no more empty slots.");
+    }
+
     void OnDestroy()
     {
-        EventDispatcher.Instance.RemoveListener<SelectedPanel>(HandleSelection);
-        EventDispatcher.Instance.RemoveListener<DeselectedPanel>(HandleDeselection);
+        EventDispatcher.Instance.RemoveListener<FoundClue>(ShowClue);
+        EventDispatcher.Instance.RemoveListener<StateChangeRequest>(HandleStateChangeRequest);
+        EventDispatcher.Instance.RemoveListener<StateChangeResponse>(HandleStateChangeResponse);
     }
 }

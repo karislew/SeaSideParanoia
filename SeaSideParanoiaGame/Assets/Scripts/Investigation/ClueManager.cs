@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GHEvtSystem;
 
-public class ClueManager : MonoBehaviour
+public class ClueManager : Singleton<ClueManager>
 {
     public string path = "Testing/SO";
-    protected Dictionary<string, Clue> clues;
-    protected Dictionary<Clue, bool> clueStatus;
-    protected Dictionary<Clue, List<Clue>> connectionData = new Dictionary<Clue, List<Clue>>();
+    protected int count = 0;
+    protected Dictionary<string, Clue> clues = new Dictionary<string, Clue>();
+    protected Dictionary<string, bool> clueStatus = new Dictionary<string, bool>();
+    protected Dictionary<string, List<Clue>> connectionData = new Dictionary<string, List<Clue>>();
 
     // Start is called before the first frame update
     void Start()
@@ -16,41 +18,91 @@ public class ClueManager : MonoBehaviour
 
         foreach (Clue clue in clue_arr)
         {
+            count += 1;
             clues[clue.name] = clue;
-            connectionData[clue] = clue.connections;
-            clueStatus[clue] = false;
+            clueStatus[clue.name] = false;
+            connectionData[clue.name] = clue.connections;
         }
+
+        EventDispatcher.Instance.AddListener<FoundClue>(UpdateStatus);
+    }
+
+    public int Count()
+    {
+        return count;
     }
 
     public Clue GetClue(string clueName)
     {
         Clue target = null;
-        clues.TryGetValue(clueName, out target);
+        bool ret = clues.TryGetValue(clueName, out target);
+        if (ret == false)
+        {
+            return null;
+        }
         return target;
+    }
+
+    public string GetDesciption(string clueName)
+    {
+        Clue target = GetClue(clueName);
+        if (target == null)
+        {
+            return "";
+        }
+        return target.itemDescription;
+    }
+
+    public Sprite GetSprite(string clueName)
+    {
+        Clue target = GetClue(clueName);
+        if (target == null)
+        {
+            return null;
+        }
+        return target.journalPage;
     }
 
     public bool GetStatus(string clueName)
     {
-        Clue target = GetClue(clueName);
-        bool status = false;
-        if (target == null)
+        bool status = true;
+        bool ret = clueStatus.TryGetValue(clueName, out status);
+        if (ret == false)
         {
-            clueStatus.TryGetValue(target, out status);
-            return status;
+            // Tells game to *not* try to add clue to inventory
+            return true;
         }
-        // This will signal to game to *not* try to add clue to inventory
-        return true;
+        return status;
     }
-    
+
     public List<Clue> GetConnections(string clueName)
     {
-        Clue target = GetClue(clueName);
         List<Clue> connections = new List<Clue>();
-        if (target == null)
+        bool ret = connectionData.TryGetValue(clueName, out connections);
+        if (ret == false)
         {
-            connectionData.TryGetValue(target, out connections);
-            return connections;
+            return new List<Clue>();
         }
-        return new List<Clue>();
+        return connections;
+    }
+
+    void UpdateStatus(FoundClue evt)
+    {
+        bool status;
+        bool ret = clueStatus.TryGetValue(evt.clueName, out status);
+        if (ret == false)
+        {
+            return;
+        }
+        if (status == true)
+        {
+            return;
+        }
+        clueStatus[evt.clueName] = true;
+    }
+
+    void OnDestroy()
+    {
+        EventDispatcher.Instance.RemoveListener<FoundClue>(UpdateStatus);
     }
 }

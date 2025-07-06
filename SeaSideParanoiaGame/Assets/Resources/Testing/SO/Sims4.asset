@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Sims4
   m_EditorClassIdentifier: 
   name: Sims 4
-  journal_page: {fileID: 21300000, guid: 208ed543e700542889e65b59bcb234da, type: 3}
+  itemDescription: 
+  worldSprite: {fileID: 21300000, guid: 208ed543e700542889e65b59bcb234da, type: 3}
+  journalPage: {fileID: 21300000, guid: 208ed543e700542889e65b59bcb234da, type: 3}
   connections:
   - {fileID: 11400000, guid: e60bcfe1c29b119ec9c3180a408e1567, type: 2}

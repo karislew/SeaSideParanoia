@@ -8,6 +8,7 @@ public class Clue : ScriptableObject
 {
     public new string name;
     public string itemDescription;
-    public Sprite journal_page;
+    public Sprite worldSprite;
+    public Sprite journalPage;
     public List<Clue> connections;
 }
