@@ -14,7 +14,7 @@ public class JournalPage : MonoBehaviour
     {
         Debug.Log("Adding that item baby");
         item = newItem;
-        icon.sprite = item.journal_page;
+        icon.sprite = item.journalPage;
         icon.enabled = true;
     }
     public void ClearSlot()

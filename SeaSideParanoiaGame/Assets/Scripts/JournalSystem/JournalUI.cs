@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GHEvtSystem;
 
 public class JournalUI : MonoBehaviour
 {
@@ -24,7 +25,15 @@ public class JournalUI : MonoBehaviour
     {
         
         if (Input.GetKeyDown(KeyCode.E))
-        { 
+        {
+            if (journalUI.activeSelf == true)
+            {
+                EventDispatcher.Instance.RaiseEvent<StateChangeResponse>(new StateChangeResponse
+                {
+                    callerName = "all",
+                    newState = ButtonState.NORMAL
+                });
+            }
             journalUI.SetActive(!journalUI.activeSelf);
         }
 
