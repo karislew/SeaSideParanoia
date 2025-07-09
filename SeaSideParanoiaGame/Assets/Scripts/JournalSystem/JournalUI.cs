@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GHEvtSystem;
+using UnityEngine.InputSystem;
 
 public class JournalUI : MonoBehaviour
 {
@@ -28,12 +29,14 @@ public class JournalUI : MonoBehaviour
         {
             if (journalUI.activeSelf == true)
             {
+                
                 EventDispatcher.Instance.RaiseEvent<StateChangeResponse>(new StateChangeResponse
                 {
                     callerName = "all",
                     newState = ButtonState.NORMAL
                 });
             }
+           
             journalUI.SetActive(!journalUI.activeSelf);
         }
 

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36a9872d94a892432bc664583ab550d6, type: 3}
-  m_Name: Sims4
+  m_Name: Victim
   m_EditorClassIdentifier: 
   name: Sims 4
   itemDescription: 
