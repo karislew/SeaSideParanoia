@@ -2,10 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GHEvtSystem;
+using Unity.VisualScripting;
 
 public class ClickedItem : Interactable
 {
     public Clue items;
+    SpriteRenderer spriteRenderer;
+    protected override void Start()
+    {
+        base.Start();
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = items.worldSprite;
+        }
+
+
+    }
    
 
    

@@ -13,13 +13,15 @@ public class MouseInputSystem : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     private Vector3 mousePosition;
     [SerializeField] private LayerMask layerMask;
-   
+
+
+
 
     public void OnMouseDown()
     {
         //print($"we down fr {this.name}");
         //MouseInteract mouseInteract = new MouseInteract()
-        
+
         //EventDispatcher.Instance.RaiseEvent<MouseInteract>(mouseInteract);
 
     }
@@ -47,19 +49,25 @@ public class MouseInputSystem : MonoBehaviour
         //if clicked sending that mouse position and raising the event 
         if (Input.GetMouseButtonDown(0))
         {
+            
+
             //if 3d object
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            
+
             MouseInteract mouseInteract = new MouseInteract()
             {
                 raycast = ray,
                 layerMask = layerMask
             };
             EventDispatcher.Instance.RaiseEvent<MouseInteract>(mouseInteract);
+        
 
-            
-            //if 2d object
-            
+
+                //if 2d object
+
+
+
+
 
         }
    }
