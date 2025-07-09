@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour
 {
-    void Start()
+    protected virtual void Start()
     {
         InteractableManager.GetInstance().AddInteractable(this);
     }

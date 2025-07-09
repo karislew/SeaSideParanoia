@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 
@@ -11,6 +12,7 @@ public class Items : ScriptableObject
     [TextArea]
     public string itemDescription;
     public bool hasItem = false;
+  
 
 
 

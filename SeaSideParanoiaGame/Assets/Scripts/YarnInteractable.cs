@@ -27,9 +27,10 @@ public class YarnInteractable : MonoBehaviour
 
    private void EndConversation()
    {
-       if (isCurrentCoversation)
-       {
-           isCurrentCoversation = false;
+        if (isCurrentCoversation)
+        {
+            isCurrentCoversation = false;
+            
        }
    }
 
