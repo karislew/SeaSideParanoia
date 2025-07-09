@@ -920,9 +920,13 @@ PrefabInstance:
     - target: {fileID: 2678071618908635071, guid: 9e0841b82a4ebcd438730d23886e17e6, type: 3}
       propertyPath: yarnProject
       value: 
-      objectReference: {fileID: 7545569452688597077, guid: 6573e22e697ab4619b968b6ce2f80243, type: 3}
+      objectReference: {fileID: 7545569452688597077, guid: 5f21dc8b8bf810332a0b7e06ff4ce998, type: 3}
     - target: {fileID: 2678071618908635071, guid: 9e0841b82a4ebcd438730d23886e17e6, type: 3}
       propertyPath: startAutomatically
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6167349947878513351, guid: 9e0841b82a4ebcd438730d23886e17e6, type: 3}
+      propertyPath: useResourcesFolders
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6798407037274427283, guid: 9e0841b82a4ebcd438730d23886e17e6, type: 3}

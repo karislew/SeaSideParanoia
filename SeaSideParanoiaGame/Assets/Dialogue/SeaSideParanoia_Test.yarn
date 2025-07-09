@@ -1,4 +1,4 @@
-﻿title: Start
+title: Start
 tags: 
 colorID: 0
 position: 13,-12
@@ -28,7 +28,7 @@ Marco: What is this...
 
 Marco: This... This can't be real 
 <<Hide Marco>>
-<<Act Marco Panicked_Marco left center green>>
+<<Act Marco Marco_Sick left center green>>
 Marco: I feel sick..
 <<Shake Marco>> 
 Marco: I need to go... 
@@ -36,7 +36,8 @@ Marco: I need to go...
 //Maybe StopAudio will specifcally stop a certain audio? Test Later
 //<<Scene Placeholder>> 
 //<<PlayAudio Placeholder>>
-
+<<Hide Marco>>
+<<Act Marco Marco_Shocked left center green>>
 Marco: Raul! 
 <<Act Raul Raul_Static right center blue>>
 Raul: What Happened? 
@@ -48,6 +49,8 @@ Raul: Marco?
 Marco: There was a body!!
 Raul: What??
 Marco: I'm telling you there was a body Raul! 
+<<Hide Raul>>
+<<Act Raul Raul_Concerned right center blue>>
 Raul: Marco maybe you saw some things? 
 
 ->Im Telling you I didn't!
@@ -94,12 +97,12 @@ Raul: Holy shit...
 Raul: Can you make out the face?
 Marco:... I can't 
 <<Hide Marco>>
-<<Act Marco Panicked_Marco left center green>>
+<<Act Marco Marco_Dereal left center green>>
 Marco: Why.. Why can't I make out his face!
 Raul: Marco breathe... 
 Marco:... 
 <<Hide Marco>>
-<<Act Marco Marco_Neutral left center green>>
+<<Act Marco Marco_Sick left center green>>
 Marco: I feel sick..
 Raul: We should go
 
@@ -107,6 +110,8 @@ Raul: We should go
 //<<Scene Placeholder>>
 //<<PlayAudio Placeholder>>
 
+<<Hide Marco>>
+<<Act Marco Marco_Neutral left center green>>
 Raul: Back home... 
 Raul: Shit what do we do..
 Marco: Maybe we investigate more? 
