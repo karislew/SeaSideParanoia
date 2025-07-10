@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Props
+    uniqueID: 1521898539
+    locked: 0
+  - name: Characters
+    uniqueID: 3319135511
+    locked: 0
+  - name: Dialogue
+    uniqueID: 311231031
+    locked: 0
+  - name: Journal
+    uniqueID: 1170650419
+    locked: 0
+  - name: Pause
+    uniqueID: 688178861
+    locked: 0

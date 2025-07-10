@@ -11,6 +11,8 @@ public class ClickedItem : Interactable
     protected override void Start()
     {
         base.Start();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
         {
             spriteRenderer.sprite = items.worldSprite;

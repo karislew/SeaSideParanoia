@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GHEvtSystem;
 
 public class Journal : MonoBehaviour
 {
@@ -10,24 +11,28 @@ public class Journal : MonoBehaviour
     int index = -1;
     bool rotate = false;
     public GameObject lastPage;
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.D) && rotate != true)
-        {
-            RotateForward();
-        }
-        if (Input.GetKeyDown(KeyCode.A) && rotate != true)
-        {
-            RotateBack();
-        }
-        
-    }
+
     void Start()
     {
         InitialState();
         lastPage.SetActive(false);
         
+        EventDispatcher.Instance.AddListener<TurnPage>(HandlePaging);
     }
+
+    void HandlePaging(TurnPage evt)
+    {
+        if (!evt.left && rotate != true)
+        {
+            RotateForward();
+        }
+        if (evt.left && rotate != true)
+        {
+            RotateBack();
+        }
+        
+    }
+    
     public void InitialState()
     {
         for (int i = 0; i < pages.Count; i++)
@@ -37,6 +42,7 @@ public class Journal : MonoBehaviour
         }
         pages[0].SetAsLastSibling();
     }
+
     public void RotateForward()
     {
         if (rotate == true) { return; }
@@ -55,6 +61,7 @@ public class Journal : MonoBehaviour
         StartCoroutine(UpdatePage());
         StartCoroutine(Rotate(angle, true));
     }
+
     public void RotateBack()
     {
         if (rotate == true || index < 0) { return; }
@@ -63,6 +70,7 @@ public class Journal : MonoBehaviour
         StartCoroutine(UpdatePage());
         StartCoroutine(Rotate(angle, false));
     }
+
     IEnumerator Rotate(float angle, bool forward)
     {
         float value = 0f;
@@ -93,9 +101,14 @@ public class Journal : MonoBehaviour
             yield return null;
         }
     }
+
     IEnumerator UpdatePage() {
         yield return new WaitForEndOfFrame();
         pages[index].SetAsLastSibling();
+    }
+
+    void OnDestroy() {
+        EventDispatcher.Instance.RemoveListener<TurnPage>(HandlePaging);
     }
 
 }
