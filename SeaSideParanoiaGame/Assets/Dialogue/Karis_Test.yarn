@@ -1,21 +1,37 @@
-﻿title: Test
+﻿title: FlowerScene
 tags:
 colorID: 0
 position: 0,0
 ---
 
-//<<Scene solar_eclipse>>
-
-THE FIRST SCENE
+<<Scene Forest_BW>>
+<<Clickable Mushroom SSP_asset_mushroom>>
+<<Clickable Flower SSP_asset_daisy>>
 
 <<Act Marco Marco_Neutral left center green>>
 
-Marco: Whoa who's dead body is that
-Marco: You might want to click on it to gather some clues
-
-
+Marco: I love walking in the woods
+Marco: Look theres a mushroom
+Marco: let me write that down
 
 ===
+title: Daisy
+tags:
+colorID: 0
+position: 0,0 
+---
+<<Act Marco Marco_Neutral left center green>>
+Marco: Daisy's are Raul's favorite flower
+===
+title: Mushroom
+tags: 
+colorID: 0
+position: 0,0 
+---
+<<Act Marco Marco_Neutral left center green>>
+Marco: Mushrooms are cool 
+===
+
 title: ClickTest1
 tags:
 colorID: 0

@@ -4,6 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Yarn.Unity;
+using System.Data.Common;
+using UnityEngine.Rendering;
+using System.ComponentModel;
 
 public class VNManager : DialogueViewBase
 {
@@ -11,6 +14,7 @@ public class VNManager : DialogueViewBase
 
     [Header("Assets"), Tooltip("you can manually assign various assets here if you don't want to use /Resources/ folder")]
     public List<Sprite> loadSprites = new List<Sprite>();
+    public List<GameObject> loadObjects = new List<GameObject>();
     public List<AudioClip> loadAudio = new List<AudioClip>();
 
     [Tooltip("if enabled: will automatically load all Sprites and AudioClips in any /Resources/ folder including any subfolders")]
@@ -32,6 +36,7 @@ public class VNManager : DialogueViewBase
     // big lists to keep track of all instantiated objects
     List<AudioSource> sounds = new List<AudioSource>(); // big list of all instantiated sounds
     List<Image> sprites = new List<Image>(); // big list of all instantianted sprites
+    List<GameObject> objects = new List<GameObject>();
 
     // store sprite references for "actors" (characters, etc.)
     [HideInInspector] public Dictionary<string, VNActor> actors = new Dictionary<string, VNActor>(); // tracks names to sprites
@@ -43,6 +48,8 @@ public class VNManager : DialogueViewBase
     public RectTransform canvasDims;
     public Vector2 screenSize = new Vector2(1280f, 720f);
     public string activeSpeaker;
+    private GameObject prefabObject;
+    private GameObject instObj;
 
     void Awake()
     {
@@ -51,6 +58,8 @@ public class VNManager : DialogueViewBase
         // gives us a performance increase by avoiding GameObject.Find)
         runner.AddCommandHandler<string>("Scene", DoSceneChange);
         runner.AddCommandHandler<string, string, string, string, string>("Act", SetActor);
+        runner.AddCommandHandler<string, string>("Clickable", SetObject);
+        runner.AddCommandHandler<string, string>("Destory", DeleteObject);
         runner.AddCommandHandler<string, string, string>("Draw", SetSpriteYarn);
 
         runner.AddCommandHandler<string>("Hide", HideSprite);
@@ -77,6 +86,8 @@ public class VNManager : DialogueViewBase
         {
             var allSpritesInResources = Resources.LoadAll<Sprite>("");
             loadSprites.AddRange(allSpritesInResources);
+            var allObjectsInResources = Resources.LoadAll<GameObject>("");
+            loadObjects.AddRange(allObjectsInResources);
             var allAudioInResources = Resources.LoadAll<AudioClip>("");
             loadAudio.AddRange(allAudioInResources);
         }
@@ -92,6 +103,57 @@ public class VNManager : DialogueViewBase
     public void DoSceneChange(string spriteName)
     {
         bgImage.sprite = FetchAsset<Sprite>(spriteName);
+    }
+
+    public void SetObject(string actorName, string objectName)
+    {
+        Debug.Log("Adding Objecy");
+
+        foreach (GameObject obj in loadObjects)
+        {
+            Debug.Log(obj.name);
+            if (obj.name == objectName)
+            {
+                prefabObject = obj;
+                Debug.Log("object found");
+
+                break;
+            }
+            
+
+        }
+
+        instObj = Instantiate(prefabObject);
+        Debug.Log(instObj != null);
+        //i have to set the name to be the same or it cant be found in Destory Function
+        instObj.name = prefabObject.name;
+        objects.Add(instObj);
+
+    }
+    public void DeleteObject(string actorName, string objectName)
+    {
+
+        
+        foreach (GameObject obj in objects)
+        {
+  
+
+            if (obj.name == objectName)
+            {
+                instObj = obj;
+                objects.Remove(instObj);
+                break;
+            }
+            else
+            {
+                return;
+            }
+
+        }
+        Destroy(instObj);
+       
+        
+
     }
 
     /// <summary>
@@ -703,6 +765,7 @@ public class VNManager : DialogueViewBase
                 }
             }
         }
+
         else if (typeof(T) == typeof(AudioClip))
         {
             foreach (var ac in loadAudio)
@@ -713,6 +776,17 @@ public class VNManager : DialogueViewBase
                 }
             }
         }
+        else if (typeof(T) == typeof(GameObject))
+        {
+            foreach (var obj in loadObjects)
+            {
+                if (obj.name == assetName)
+                {
+                    return obj as T;
+                }
+            }
+        }
+        
 
         // by default, we load all Resources assets into the asset
         // arrays already, but if you don't want that, then uncomment
