@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GHEvtSystem;
-using Unity.VisualScripting;
 
 public class ClickedItem : Interactable
 {
@@ -25,6 +24,11 @@ public class ClickedItem : Interactable
    
     public override void OnInteract()
     {
+        if (ModeManager.Instance.GetCurrentMode() != Mode.Game)
+        {
+            Debug.Log("mode is not set to game, clickable item will not trigger");
+            return;
+        }
         //bool addedItem = Inventory.instance.AddItem(items);
         //bool addJournalClue = JournalManager.instance.AddItem(items);
         EventDispatcher.Instance.RaiseEvent<FoundClue>(new FoundClue

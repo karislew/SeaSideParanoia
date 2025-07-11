@@ -28,4 +28,10 @@ namespace GHEvtSystem
     public class TurnPage : Event {
         public bool left;
     }
+
+    /*** Mode Manager Signals ***/
+    public class ChangeMode : Event
+    {
+        public Mode newMode;
+    }
 }

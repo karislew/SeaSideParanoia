@@ -16,8 +16,16 @@ public class PlayerInputSystem : MonoBehaviour
         if (context.performed) {
             EventDispatcher.Instance.RaiseEvent<ToggleJournal>(new ToggleJournal { });
             if (playerInput.currentActionMap.name.Equals("Game")) {
+                EventDispatcher.Instance.RaiseEvent<ChangeMode>(new ChangeMode
+                {
+                    newMode = Mode.Journal
+                });
                 playerInput.SwitchCurrentActionMap("Journal");
             } else if (playerInput.currentActionMap.name.Equals("Journal")) {
+                EventDispatcher.Instance.RaiseEvent<ChangeMode>(new ChangeMode
+                {
+                    newMode = Mode.Game
+                });
                 playerInput.SwitchCurrentActionMap("Game");
             }
         }
