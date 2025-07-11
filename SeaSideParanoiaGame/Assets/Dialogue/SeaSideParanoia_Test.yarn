@@ -13,7 +13,11 @@ position: 13,-12
 Prologue
 // adds actor named "Eve" using sprite "cool-girl", placed in left-half + center of screen, with green text label
 <<Act Marco Marco_Neutral left center green>>
-Marco: I think this should be good.
+Marco: Which should I sketch? 
+Marco: Maybe... 
+
+//This is where the Point and Click for the Mushroom and Flower would go
+
 <<Scene SSP_background_forest_01>>
 Marco: I should probably head ba-
 <<Hide Marco>>
@@ -74,8 +78,11 @@ Raul:...
 <<Scene SSP_background_forest_05>>
 
 Marco: See it's right there! 
-Raul: Marco.. there's nothing there.. 
 <<Hide Marco>>
+<<Hide Raul>>
+<<wait  3>>
+<<Act Raul Raul_Concerned right center blue>>
+Raul: Marco.. there's nothing there.. 
 <<Act Marco Marco_Shocked left center green>> 
 Marco: What? 
 Marco: It's.... It's right there I can see it 
