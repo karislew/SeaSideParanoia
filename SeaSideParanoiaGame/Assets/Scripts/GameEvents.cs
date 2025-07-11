@@ -22,4 +22,16 @@ namespace GHEvtSystem
     {
         public string clueName;
     }
+
+    /*** Player Input Signals ***/
+    public class ToggleJournal : Event {}
+    public class TurnPage : Event {
+        public bool left;
+    }
+
+    /*** Mode Manager Signals ***/
+    public class ChangeMode : Event
+    {
+        public Mode newMode;
+    }
 }

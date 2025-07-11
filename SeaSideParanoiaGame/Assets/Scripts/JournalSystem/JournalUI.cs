@@ -20,28 +20,25 @@ public class JournalUI : MonoBehaviour
 
         itemSlots = GetComponentsInChildren<JournalPage>(true);
         clueSlots = GetComponentsInChildren<CluePage>(true);
-     
+
+        EventDispatcher.Instance.AddListener<ToggleJournal>(HandleToggleJournal);
     }
-    void Update()
+
+    void HandleToggleJournal(ToggleJournal evt)
     {
-        
-        if (Input.GetKeyDown(KeyCode.E))
+        if (journalUI.activeSelf == true)
         {
-            if (journalUI.activeSelf == true)
+            // to deselect all board slots
+            EventDispatcher.Instance.RaiseEvent<StateChangeResponse>(new StateChangeResponse
             {
-                
-                EventDispatcher.Instance.RaiseEvent<StateChangeResponse>(new StateChangeResponse
-                {
-                    callerName = "all",
-                    newState = ButtonState.NORMAL
-                });
-            }
-           
-            journalUI.SetActive(!journalUI.activeSelf);
+                callerName = "all",
+                newState = ButtonState.NORMAL
+            });
         }
-
-
+        
+        journalUI.SetActive(!journalUI.activeSelf);
     }
+
     void UpdateUI()
     {
         Debug.Log("getig slots");
@@ -71,5 +68,10 @@ public class JournalUI : MonoBehaviour
         }
 
         Debug.Log("Update that UI");
+    }
+
+    void OnDestroy() {
+
+        EventDispatcher.Instance.RemoveListener<ToggleJournal>(HandleToggleJournal);
     }
 }

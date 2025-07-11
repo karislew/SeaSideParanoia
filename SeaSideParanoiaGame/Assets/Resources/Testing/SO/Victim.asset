@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a9872d94a892432bc664583ab550d6, type: 3}
   m_Name: Victim
   m_EditorClassIdentifier: 
-  name: Sims 4
-  itemDescription: 
-  worldSprite: {fileID: 21300000, guid: 208ed543e700542889e65b59bcb234da, type: 3}
-  journalPage: {fileID: 21300000, guid: 208ed543e700542889e65b59bcb234da, type: 3}
+  name: Victim
+  itemDescription: a dead body...
+  worldSprite: {fileID: 21300000, guid: 3e53a1c604bb84dfebcdd7695f342372, type: 3}
+  journalPage: {fileID: 21300000, guid: 3e53a1c604bb84dfebcdd7695f342372, type: 3}
   connections:
   - {fileID: 11400000, guid: e60bcfe1c29b119ec9c3180a408e1567, type: 2}

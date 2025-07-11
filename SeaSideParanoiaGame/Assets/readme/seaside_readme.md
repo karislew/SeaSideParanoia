@@ -7,13 +7,13 @@ This readme is for my teammates (the artists and designers mainly) to understand
 
 ### Sprites
 
-The sprites in the sample were 600 x 1200 pixels. For ours to show up clearly they'll need to be a similar size.
+The sample sprites and my test sprites used a width of 600 pixels with pixel per unity of 115.
 
-From what I've tested with resizing my tiny pixel art is that it just needs to be close to a width of 600px to show up clearly. The pixel art I used for testing was 576px x 576px and it looked fine.
+*BUT*, Syrus has done some testing and **1000 x 1200** pixels is a nicer canvas to draw on.
 
 Some settings on the sprite should be:
 - Texture Type: Sprite (2D and UI)
-- Pixels Per Unit: 100 (this is the Unity default and we're just gonna work with it)
+- Pixels Per Unit: 115 (this is the Unity default and we're just gonna work with it)
 - Pivot: Bottom
 
 ### Audio
