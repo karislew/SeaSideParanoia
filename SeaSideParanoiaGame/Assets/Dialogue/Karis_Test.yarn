@@ -12,16 +12,31 @@ position: 0,0
 
 Marco: I love walking in the woods
 Marco: Look theres a mushroom
-Marco: let me write that down
-
+Marco: I should add that to my journal
 ===
 title: Daisy
 tags:
 colorID: 0
 position: 0,0 
 ---
+<<Destory Mushroom SSP_asset_mushroom>>
+<<Destory Flower SSP_asset_daisy>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: Daisy's are Raul's favorite flower
+Marco: I think this should be good.
+<<Scene SSP_background_forest_01>>
+Marco: I should probably head ba-
+<<Act Marco Marco_Shocked left center green>>
+
+???: AHHHHHHHH!
+<<Shake Marco>>
+Marco: What was that?! 
+Marco: Maybe I should go check it out... 
+//<<Fade black 0.0 1.0 2.0>>
+<<Scene SSP_background_forest_04>>
+<<Clickable Victim Victim >>
+Marco: What is this...
+Marco: This... This can't be real 
+<<EndDialogue>>
 ===
 title: Mushroom
 tags: 
@@ -29,6 +44,7 @@ colorID: 0
 position: 0,0 
 ---
 <<Act Marco Marco_Neutral left center green>>
+//<<if visited("Mushroom") == true>>
 Marco: Mushrooms are cool 
 ===
 
@@ -37,9 +53,15 @@ tags:
 colorID: 0
 position: 0,0
 ---
+<<Scene SSP_background_forest_04>>
 <<Act Marco Marco_Shocked left center green>>
+Marco: Who would do this!
+Marco: I should write this down in my journal
 
-Marco: This cant be real 
-Marco: Who did this!!
-
+<<Act Marco Marco_Sick left center green>>
+Marco: I feel sick..
+<<Shake Marco>> 
+Marco: I need to go... 
+<<wait 0.1>>
+<<Destory Victim Victim>>
 ===

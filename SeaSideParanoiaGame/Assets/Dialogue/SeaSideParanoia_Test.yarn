@@ -16,7 +16,8 @@ Prologue
 Marco: I think this should be good.
 <<Scene SSP_background_forest_01>>
 Marco: I should probably head ba-
-<<Hide Marco>>
+//<<Hide Marco>>
+<<Hide Marco_Neutral>>
 <<Act Marco Marco_Shocked left center green>>
 
 ???: AHHHHHHHH!
