@@ -34,4 +34,8 @@ namespace GHEvtSystem
     {
         public Mode newMode;
     }
+    public class RevertMode : Event
+    {
+        public Mode modeToRevert;
+    }
 }
