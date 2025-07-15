@@ -23,7 +23,7 @@ public class YarnInteractable : MonoBehaviour
         dialogueRunner.onDialogueComplete.AddListener(EndConversation);
 
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
+        if (spriteRenderer == null)
         {
             spriteRenderer.sprite = clue.worldSprite;
         }
@@ -39,8 +39,14 @@ public class YarnInteractable : MonoBehaviour
     {
         if (isCurrentCoversation)
         {
+            EventDispatcher.Instance.RaiseEvent<ChangeMode>(new ChangeMode
+            {
+                newMode = Mode.Game
+            });
             isCurrentCoversation = false;
+
         }
+        
     }
 
 

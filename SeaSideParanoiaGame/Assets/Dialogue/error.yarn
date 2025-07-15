@@ -1,0 +1,21 @@
+﻿title: error
+tags:
+colorID: 0
+position: -40,-55
+---
+
+<<Scene SSP_background_forest_zoomin>>
+// start playing audioclip "ambient_birds" at 50% volume, loop forever
+//<<PlayAudio PlaceHolder 0.5 loop>>
+// Can Change volume by 0.5=50 0.20% and to loop just put loop at end 
+
+Prologue
+// adds actor named "Eve" using sprite "cool-girl", placed in left-half + center of screen, with green text label
+<<Act Marco Marco_Neutral left center green>>
+Marco: I think this should be good.
+<<Scene SSP_background_forest_01>>
+Marco: I should probably head ba-
+<<Move Marco -1.25 center 1.0>>
+<<Clickable Victim Victim>>
+The End
+===

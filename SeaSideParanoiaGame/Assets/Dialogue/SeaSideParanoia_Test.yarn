@@ -5,7 +5,7 @@ position: 13,-12
 ---
 
 // sets background image to sprite called "bg_office"
-//<<Scene Placholder>>
+<<Scene SSP_background_forest_zoomin>>
 // start playing audioclip "ambient_birds" at 50% volume, loop forever
 //<<PlayAudio PlaceHolder 0.5 loop>>
 // Can Change volume by 0.5=50 0.20% and to loop just put loop at end 
@@ -14,8 +14,10 @@ Prologue
 // adds actor named "Eve" using sprite "cool-girl", placed in left-half + center of screen, with green text label
 <<Act Marco Marco_Neutral left center green>>
 Marco: I think this should be good.
+<<Scene SSP_background_forest_01>>
 Marco: I should probably head ba-
-<<Hide Marco>>
+//<<Hide Marco>>
+<<Hide Marco_Neutral>>
 <<Act Marco Marco_Shocked left center green>>
 
 ???: AHHHHHHHH!
@@ -23,9 +25,8 @@ Marco: I should probably head ba-
 Marco: What was that?! 
 Marco: Maybe I should go check it out... 
 //<<Fade black 0.0 1.0 2.0>>
+<<Scene SSP_background_forest_04>>
 Marco: What is this...
-<<Act Victim Victim Center>>
-
 Marco: This... This can't be real 
 <<Hide Marco>>
 <<Act Marco Marco_Sick left center green>>
@@ -34,9 +35,10 @@ Marco: I feel sick..
 Marco: I need to go... 
 //<<StopAudioAll>>
 //Maybe StopAudio will specifcally stop a certain audio? Test Later
-//<<Scene Placeholder>> 
+<<Scene SSP_background_forest_02>>
 //<<PlayAudio Placeholder>>
 <<Hide Marco>>
+<<Scene Hallway>>
 <<Act Marco Marco_Shocked left center green>>
 Marco: Raul! 
 <<Act Raul Raul_Static right center blue>>
@@ -62,15 +64,15 @@ Raul: Marco maybe you saw some things?
     Marco: Thank you... 
 
 //Could start adding If stuff here but we'll talk later 
-//<<Scene Placeholder>>
-//<<PlayAudio Placeholder>>
 
+//<<PlayAudio Placeholder>>
+<<Scene SSP_background_forest_03>>
 Marco: Cmon It's just up ahead 
 Raul: Marco the snow is starting to pick up 
 Marco: Cmon! It's not far.. 
 Raul:... 
 
-//<<Scene Placeholder>>
+<<Scene SSP_background_forest_05>>
 
 Marco: See it's right there! 
 Raul: Marco.. there's nothing there.. 
@@ -107,7 +109,7 @@ Marco: I feel sick..
 Raul: We should go
 
 //<<StopAudioAll>>
-//<<Scene Placeholder>>
+<<Scene Hallway>>
 //<<PlayAudio Placeholder>>
 
 <<Hide Marco>>
@@ -116,14 +118,17 @@ Raul: Back home...
 Raul: Shit what do we do..
 Marco: Maybe we investigate more? 
 Raul: Or we can leave.. first thing in the morning...
+Marco: What do you mean? 
+Raul: We can pack our bags and leave town!
 Marco:... 
 
--> We'll go 
+-> We'll go (Leave Town)
     Marco: We'll go.. 
     Raul: Alright.. we should pack our bags
-    <<jump Deserter>>
-    
--> We can't
+    Marco: ... 
+    Raul: are you sure? 
+    <<jump YourChoice>>
+-> We can't (Stay in Town)
     Marco: We can't what about everyone in town... 
     Raul: Ok 
     <<jump beginning>>
@@ -169,7 +174,16 @@ The End for now...
 <<Fade black 0.0 1.0 2.0>>
 ===
 
-
+title: YourChoice
+--- 
+-> Go 
+        Marco: I'm sure 
+        Raul: Ok 
+        <<jump Deserter>>
+ -> Stay 
+        Marco: I think we should stay it's just everyone in town... 
+        <<jump beginning>>
+===
 // horizontally flips Marco actor to face Adam
 //<<Flip Marco>>
 // Yarn shortcut choices, an easy way to make branching options
