@@ -1,11 +1,11 @@
 title: Start
 tags: 
 colorID: 0
-position: 13,-12
+position: 299,-554
 ---
 
 // sets background image to sprite called "bg_office"
-<<Scene SSP_background_forest_zoomin>>
+<<Scene Forest_BW>>
 // start playing audioclip "ambient_birds" at 50% volume, loop forever
 //<<PlayAudio PlaceHolder 0.5 loop>>
 // Can Change volume by 0.5=50 0.20% and to loop just put loop at end 
@@ -15,15 +15,46 @@ Prologue
 <<Act Marco Marco_Neutral left center green>>
 Marco: Which should I sketch? 
 Marco: Maybe... 
+<<Hide Marco>>
+<<Clickable Mushroom SSP_asset_mushroom_1>>
+<<Clickable Flower SSP_asset_daisy_1>>
 
-//This is where the Point and Click for the Mushroom and Flower would go
+===
 
+title: Daisy_1
+position: -111,-388
+---
+<<Destory Mushroom SSP_asset_mushroom_1>>
+<<Destory Flower SSP_asset_daisy_1>>
+<<Act Marco Marco_Neutral left center green>>
+Marco: I remember givinmg Raul a daisy on our first date... I wonder if he has it still? 
+
+<<Hide Marco>>
+<<jump Panic>>
+===
+
+title: Mushroom_1
+position: 387,-384
+--- 
+<<Destory Mushroom SSP_asset_mushroom_1>>
+<<Destory Flower SSP_asset_daisy_1>>
+<<Act Marco Marco_Neutral left center green>>
+Marco: Was this the posinous one... or was that another one...
+<<Hide Marco>>
+<<jump Panic>>
+=== 
+
+title: Panic
+position: 140,-177
+---
 <<Scene SSP_background_forest_01>>
-Marco: I should probably head ba-
+<<Act Marco Marco_Neutral left center green>>
+Marco: Alright this seems like a good spot to stop writing things 
+Marco: It's getting late... 
+Marco: I should probably head back-
 //<<Hide Marco>>
-<<Hide Marco_Neutral>>
+<<Hide Marco>>
 <<Act Marco Marco_Shocked left center green>>
-
 ???: AHHHHHHHH!
 <<Shake Marco>>
 Marco: What was that?! 
@@ -100,11 +131,23 @@ Raul:...
     Raul: Describe the body
 //<<PlayAudio Placeholder>>
 //This is where the point and click distortion and body scene starts 
-
+Marco: Ok...
+<<Clickable Victim Victim_1>>
+<<EndDialogue>>
+===
+title: Distort
+position: 361,-179
+---
 Marco: There's a scar on the body... and I found some glasses 
 Raul: Holy shit...
 Raul: Can you make out the face?
 Marco:... I can't 
+<<Destroy Victim Victim_1>>
+<<jump Calm>>
+===
+
+title: Calm
+---
 <<Hide Marco>>
 <<Act Marco Marco_Dereal left center green>>
 Marco: Why.. Why can't I make out his face!
@@ -143,7 +186,7 @@ Marco:...
 
 title: Deserter
 color: red
-position: -134,253
+position: 233,334
 ---
 //<<StopAudioAll>>
 //<<PlayAudio Placeholder>>
@@ -159,7 +202,7 @@ The End
 ===
 
 title: beginning
-position: 147,226
+position: 477,321
 ---
 Marco: Maybe if we look at the clues 
 Raul: You said a cross right... maybe the Church 
@@ -182,6 +225,7 @@ The End for now...
 ===
 
 title: YourChoice
+position: 414,28
 --- 
 -> Go 
         Marco: I'm sure 
