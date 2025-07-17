@@ -22,9 +22,9 @@ public class PlayerInputSystem : MonoBehaviour
                 });
                 playerInput.SwitchCurrentActionMap("Journal");
             } else if (playerInput.currentActionMap.name.Equals("Journal")) {
-                EventDispatcher.Instance.RaiseEvent<ChangeMode>(new ChangeMode
+                EventDispatcher.Instance.RaiseEvent<RevertMode>(new RevertMode
                 {
-                    newMode = Mode.Game
+                    modeToRevert = Mode.Journal
                 });
                 playerInput.SwitchCurrentActionMap("Game");
             }

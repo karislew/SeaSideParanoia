@@ -12,6 +12,11 @@ public class InvestigationSystem : MonoBehaviour
     public string second;
     public List<BoardSlot> slots = new List<BoardSlot>();
 
+    public GameObject boardParent;
+    public Image lineImage;
+    private RectTransform firstPosition = null;
+    private RectTransform secondPosition = null;
+
     void Start()
     {
         EventDispatcher.Instance.AddListener<FoundClue>(ShowClue);
@@ -36,6 +41,13 @@ public class InvestigationSystem : MonoBehaviour
                         callerName = evt.callerName,
                         newState = ButtonState.SELECTED
                     });
+                    firstPosition = FindSlotByName(evt.callerName);
+                    if (firstPosition != null)
+                    {
+                        Debug.Log(first + " is at position: " + firstPosition.anchoredPosition);
+                    }else{
+                        Debug.Log("rect transform is null");
+                    }
                 }
                 else if (string.IsNullOrEmpty(second))
                 {
@@ -46,6 +58,13 @@ public class InvestigationSystem : MonoBehaviour
                         callerName = evt.callerName,
                         newState = ButtonState.SELECTED
                     });
+                    secondPosition = FindSlotByName(evt.callerName);
+                    if (secondPosition != null)
+                    {
+                        Debug.Log(second + " is at position: " + secondPosition.anchoredPosition);
+                    }else{
+                        Debug.Log("rect transform is null");
+                    }
                 }
                 else
                 {
@@ -86,6 +105,27 @@ public class InvestigationSystem : MonoBehaviour
         {
             Debug.Log(first + " connects with " + second);
             // TODO: do confirmation
+            if (lineImage == null)
+            {
+                return;
+            }
+            // do distance calculation
+            float xOffset = Mathf.Min(Mathf.Abs(firstPosition.anchoredPosition.x), Mathf.Abs(secondPosition.anchoredPosition.x));
+            float yOffset = Mathf.Min(Mathf.Abs(firstPosition.anchoredPosition.y), Mathf.Abs(secondPosition.anchoredPosition.y));
+            float dist = Mathf.Sqrt(Mathf.Pow((firstPosition.anchoredPosition.x - secondPosition.anchoredPosition.x), 2)
+            + Mathf.Pow((firstPosition.anchoredPosition.y - secondPosition.anchoredPosition.y), 2));
+            float distX = Mathf.Abs(firstPosition.anchoredPosition.x - secondPosition.anchoredPosition.x);
+            float distY = Mathf.Abs(firstPosition.anchoredPosition.y - secondPosition.anchoredPosition.y);
+            // duplicate line image
+            Image newLine = Instantiate(lineImage);
+            newLine.gameObject.transform.SetParent(boardParent.transform);
+            // set new line image position to 1/2 distance
+            newLine.rectTransform.localScale = new Vector3(1f, 1f, 1f);
+            newLine.rectTransform.anchoredPosition3D = new Vector3((xOffset + distX/2f), (yOffset + distY/2f), 22f);
+            // set new line image height to distance
+            newLine.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, dist);
+            // set rotatation to arcsin(dx/d)
+            newLine.rectTransform.Rotate(new Vector3(0f, 0f, (Mathf.Asin(distX / dist))*(180/Mathf.PI)));
         }
     }
 
@@ -147,6 +187,18 @@ public class InvestigationSystem : MonoBehaviour
         }
 
         Debug.Log("no more empty slots.");
+    }
+
+    RectTransform FindSlotByName(string target)
+    {
+        foreach(BoardSlot slot in slots)
+        {
+            if (slot.gameObject.name.Equals(target))
+            {
+                return slot.gameObject.GetComponent<RectTransform>();
+            }
+        }
+        return null;
     }
 
     void OnDestroy()
