@@ -17,6 +17,7 @@ public class VNManager : DialogueViewBase
     List<Sprite> loadSprites = new List<Sprite>();
     List<GameObject> loadObjects = new List<GameObject>();
     List<AudioClip> loadAudio = new List<AudioClip>();
+    List<Clue> loadClue = new List<Clue>();
 
     [Tooltip("if enabled: will automatically load all Sprites and AudioClips in any /Resources/ folder including any subfolders")]
     public bool useResourcesFolders = false;
@@ -39,6 +40,8 @@ public class VNManager : DialogueViewBase
     public List<Image> sprites = new List<Image>(); // big list of all instantianted sprites
     List<GameObject> objects = new List<GameObject>();
 
+    
+
     // store sprite references for "actors" (characters, etc.)
     [HideInInspector] public Dictionary<string, VNActor> actors = new Dictionary<string, VNActor>(); // tracks names to sprites
 
@@ -60,7 +63,9 @@ public class VNManager : DialogueViewBase
         runner.AddCommandHandler<string>("Scene", DoSceneChange);
         runner.AddCommandHandler<string, string, string, string, string>("Act", SetActor);
         runner.AddCommandHandler<string, string>("Clickable", SetObject);
+        runner.AddCommandHandler<string>("AddPage", AddPage);
         runner.AddCommandHandler<string, string>("Destory", DeleteObject);
+
         runner.AddCommandHandler<string, string, string>("Draw", SetSpriteYarn);
         runner.AddCommandHandler("EndDialogue", ChangeState);
         runner.AddCommandHandler<string>("Hide", HideSprite);
@@ -138,6 +143,17 @@ public class VNManager : DialogueViewBase
         objects.Add(instObj);
 
     }
+    public void AddPage(string clueName)
+    {
+
+
+        EventDispatcher.Instance.RaiseEvent<FoundClue>(new FoundClue
+        {
+            clueName = clueName
+        });
+        Debug.Log("it be working yo");
+    
+    }
     public void DeleteObject(string actorName, string objectName)
     {
         //maybe add list 
@@ -151,8 +167,8 @@ public class VNManager : DialogueViewBase
                 instObj = obj;
                 objects.Remove(instObj);
                 break;
-         
-         
+
+
             }
 
         }
