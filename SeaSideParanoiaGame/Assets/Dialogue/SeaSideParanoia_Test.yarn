@@ -1,9 +1,13 @@
 title: Start
 tags: 
 colorID: 0
-position: 299,-554
+position: 137,-554
 ---
-
+// How to Add Future Clickable Objects Bc Syrus Forgets- First create a SeaSideParanoia(Clue) in Unity
+// 2nd assign a name for example the name is what's being called <<AddPage Missing_Person>>
+// 3rd If making clickable make a new Object can make a prefab variant and such of the Victim in Scene 
+// 4th Assign it the Clue and a branch to where it goes 
+// That's how you make it 
 // sets background image to sprite called "bg_office"
 <<Scene Forest_BW>>
 // start playing audioclip "ambient_birds" at 50% volume, loop forever
@@ -14,6 +18,8 @@ Prologue
 // adds actor named "Eve" using sprite "cool-girl", placed in left-half + center of screen, with green text label
 <<Act Marco Marco_Neutral left center green>>
 Marco: Which should I sketch? 
+//<<AddPage Missing_Person>>
+//<<AddPage Victim>>
 Marco: Maybe... 
 <<Hide Marco>>
 <<Clickable Mushroom SSP_asset_mushroom_1>>
@@ -22,7 +28,7 @@ Marco: Maybe...
 ===
 
 title: Daisy_1
-position: -111,-388
+position: -88,-458
 ---
 <<Destory Mushroom SSP_asset_mushroom_1>>
 <<Destory Flower SSP_asset_daisy_1>>
@@ -34,7 +40,7 @@ Marco: I remember givinmg Raul a daisy on our first date... I wonder if he has i
 ===
 
 title: Mushroom_1
-position: 387,-384
+position: 375,-488
 --- 
 <<Destory Mushroom SSP_asset_mushroom_1>>
 <<Destory Flower SSP_asset_daisy_1>>
@@ -45,7 +51,7 @@ Marco: Was this the posinous one... or was that another one...
 === 
 
 title: Panic
-position: 140,-177
+position: 140,-313
 ---
 <<Scene SSP_background_forest_01>>
 <<Act Marco Marco_Neutral left center green>>
@@ -59,6 +65,38 @@ Marco: I should probably head back-
 <<Shake Marco>>
 Marco: What was that?! 
 Marco: Maybe I should go check it out... 
+<<jump Forest_Maze>>
+===
+
+title: Forest_Maze
+position: 420,-248
+---
+Marco: It's probably nothing...
+Marco: Right..
+Marco: Which way should I go...
+//For now to simulate pressing the options
+->Left 
+    Marco: Is that... blood?
+    Marco: No it can't be right maybe just smashed berries
+    Marco: I should keep going.. 
+    ->Go Further
+        //Fade 
+        Marco: The screaming stopped
+        Marco: ... 
+        <<jump The_body>>
+->Right
+    Marco: These cuts in the wood..
+    Marco: Did someone cut them.. maybe the rancher? 
+    Marco: It could be him screaming? 
+    -> Go Further 
+        Marco: Seems it was only that spot 
+        Marco: The screaming stopped 
+        <<jump The_body>>
+===
+
+title: The_body
+position: -186,-186
+---
 //<<Fade black 0.0 1.0 2.0>>
 <<Scene SSP_background_forest_04>>
 Marco: What is this...
@@ -90,12 +128,13 @@ Marco: I'm telling you there was a body Raul!
 <<Act Raul Raul_Concerned right center blue>>
 Raul: Marco maybe you saw some things? 
 
-->Im Telling you I didn't!
+->I'm telling you I didn't!
     Marco: I'm telling you I didn't!
-    Raul: Ok.. Show me
-->Please Believe me! 
-    Marco: Please Believe me! 
-    Raul: Ok I.. Show me where 
+    Raul: Ok.. 
+    Raul: Show me..
+->Please believe me! 
+    Marco: Please believe me! 
+    Raul: Ok I.. show me where.. 
     Marco: Thank you... 
 
 //Could start adding If stuff here but we'll talk later 
@@ -136,20 +175,22 @@ Marco: Ok...
 <<EndDialogue>>
 ===
 title: Distort
-position: 361,-179
+position: -266,3
 ---
 Marco: There's a scar on the body... and I found some glasses 
 Raul: Holy shit...
 Raul: Can you make out the face?
 Marco:... I can't 
-<<Destroy Victim Victim_1>>
+<<Destory Victim Victim_1>>
 <<jump Calm>>
 ===
 
 title: Calm
+position: 3,0
 ---
 <<Hide Marco>>
 <<Act Marco Marco_Dereal left center green>>
+<<Act Raul Raul_Concerned right center blue>>
 Marco: Why.. Why can't I make out his face!
 Raul: Marco breathe... 
 Marco:... 
@@ -166,8 +207,133 @@ Raul: We should go
 <<Act Marco Marco_Neutral left center green>>
 Raul: Back home... 
 Raul: Shit what do we do..
+<<jump Hallway_Hearsay>>
+=== 
+title: Hallway_Hearsay
+position: -221,489
+---
+Knock Knock Knock 
+???: Marco, Raul?
+Marco: Hey... Blank //I'll figure out a name later  
+???: Are you boys alright? 
+Marco: ...Um 
+Raul: Yeah we're ok 
+<<wait  1>>
+Marco: Have you heard of anyone going missing lately
+???: Missing people... 
+???: I haven't heard of anyone missing latley 
+???: but I think you can go to the Libarary and check out old news..
+<<AddPage Missing_Person>>
+Raul: Alright thank you 
+Marco: Thank you...
+<<jump Leading_Clues>>
+===
+
+
+
+title: Leading_Clues
+position: 88,364
+---
 Marco: Maybe we investigate more? 
-Raul: Or we can leave.. first thing in the morning...
+Raul: Well we can look at our current clues 
+Marco: So far we have the Missing Persons Report from Blank 
+Raul: Right.. 
+Marco: That weird cross branding.. 
+Raul: Mhmmm 
+Marco: That's it.. 
+Raul: Maybe there's a third option? 
+<<jump Debrief>>
+===
+title: Debrief
+position: 406,434
+---
+Marco: Right so
+->Library 
+    Marco: So the library should have old news 
+    Raul: Right... I think we can try talking to ??? //Add Clue here 
+    Marco: Right 
+    -> Branding 
+        Marco: The branding looked like a cross 
+        Raul: So the church //add Clue
+        Marco: Right
+        -> Third Option
+            Marco: What's the third option  
+            Raul: We can check around the forest maybe the Busstop 
+            Marco: The Bustop?
+            Raul: Maybe they were hoping on a Busstop
+            Raul: And the stop's pretty close to the Forest.. maybe there's clues?
+            Marco: Ok 
+    -> Third Option
+        Marco: What's the third option  
+        Raul: We can check around the forest maybe the Busstop 
+        Marco: The Bustop?
+        Raul: Maybe they were hoping on a Busstop
+        Raul: And the stop's pretty close to the Forest.. maybe there's clues?
+        Marco: Ok
+        -> Branding 
+            Marco: The branding looked like a cross 
+            Raul: So the church //add Clue
+            Marco: Right
+->Branding 
+    Marco: The branding looked like a cross 
+    Raul: So the church //add Clue
+    Marco: Right
+    ->Library 
+        Marco: So the library should have old news 
+        Raul: Right... I think we can try talking to ??? //Add Clue here 
+        Marco: Right 
+        -> Third Option
+            Marco: What's the third option  
+            Raul: We can check around the forest maybe the Busstop 
+            Marco: The Bustop?
+            Raul: Maybe they were hoping on a Busstop
+            Raul: And the stop's pretty close to the Forest.. maybe there's clues?
+            Marco: Ok
+    ->Third Option
+        Marco: What's the third option  
+        Raul: We can check around the forest maybe the Busstop 
+        Marco: The Bustop?
+        Raul: Maybe they were hoping on a Busstop
+        Raul: And the stop's pretty close to the Forest.. maybe there's clues?
+        Marco: Ok
+        ->Library 
+            Marco: So the library should have old news 
+            Raul: Right... I think we can try talking to ??? //Add Clue here 
+            Marco: Right
+->Third Option? 
+    Marco: What's the third option  
+    Raul: We can check around the forest maybe the Busstop 
+    Marco: The Bustop?
+    Raul: Maybe they were hoping on a Busstop
+    Raul: And the stop's pretty close to the Forest.. maybe there's clues?
+    Marco: Ok
+    -> Library 
+        Marco: So the library should have old news 
+        Raul: Right... I think we can try talking to ??? //Add Clue here 
+        Marco: Right
+            -> Branding 
+            Marco: The branding looked like a cross 
+            Raul: So the church //add Clue
+            Marco: Right
+    -> Branding 
+        Marco: The branding looked like a cross 
+        Raul: So the church //add Clue
+        Marco: Right
+            -> Library 
+            Marco: So the library should have old news 
+            Raul: Right... I think we can try talking to ??? //Add Clue here 
+            Marco: Right
+Raul: So those are all our options huh
+Marco: Yeah... 
+<<jump Ending_Choices>>
+===
+
+title: Ending_Choices
+position: 656,412
+---
+Raul: Or maybe... 
+<<wait  1>>
+Raul: we can leave.. first thing in the morning...
 Marco: What do you mean? 
 Raul: We can pack our bags and leave town!
 Marco:... 
@@ -185,8 +351,8 @@ Marco:...
 ===
 
 title: Deserter
-color: red
-position: 233,334
+color: blue
+position: 1004,-13
 ---
 //<<StopAudioAll>>
 //<<PlayAudio Placeholder>>
@@ -202,7 +368,7 @@ The End
 ===
 
 title: beginning
-position: 477,321
+position: 1018,235
 ---
 Marco: Maybe if we look at the clues 
 Raul: You said a cross right... maybe the Church 
@@ -225,7 +391,7 @@ The End for now...
 ===
 
 title: YourChoice
-position: 414,28
+position: 644,143
 --- 
 -> Go 
         Marco: I'm sure 

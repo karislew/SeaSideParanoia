@@ -120,4 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationStartNode: Mushroom
-  clue: {fileID: 11400000, guid: 71e89cf9597644acf8498ceb40000276, type: 2}
+  clue: {fileID: 11400000, guid: f15e64f3b3ed9459d90165d5f43179e2, type: 2}

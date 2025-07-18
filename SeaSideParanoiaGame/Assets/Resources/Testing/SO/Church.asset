@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36a9872d94a892432bc664583ab550d6, type: 3}
-  m_Name: Mushroom
+  m_Name: Church
   m_EditorClassIdentifier: 
-  name: Mushroom
-  itemDescription: mushroom fr
-  worldSprite: {fileID: 21300000, guid: 5a60f47b534644e6d9c52821986396e7, type: 3}
-  journalPage: {fileID: 21300000, guid: 6b7cfc0498b4e4cf5805950a9897f0c3, type: 3}
-  connections:
-  - {fileID: 11400000, guid: 09cfb124ce91deaf89ed9ad4bbb1dac2, type: 2}
+  name: Church
+  itemDescription: 
+  worldSprite: {fileID: 0}
+  journalPage: {fileID: 0}
+  connections: []
