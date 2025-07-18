@@ -23,7 +23,7 @@ public class YarnInteractable : MonoBehaviour
         dialogueRunner.onDialogueComplete.AddListener(EndConversation);
 
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer == null)
+        if (spriteRenderer != null)
         {
             spriteRenderer.sprite = clue.worldSprite;
         }
