@@ -1531,8 +1531,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.03
-  m_fontSizeBase: 44.03
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4230,7 +4230,7 @@ MonoBehaviour:
   - {fileID: 1583361285}
   - {fileID: 872198871}
   - {fileID: 1085952264}
-  startNode: Debrief
+  startNode: Start
   startAutomatically: 1
   runSelectedOptionAsLine: 0
   lineProvider: {fileID: 0}
