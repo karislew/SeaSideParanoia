@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartScene.unity
     guid: fb5242fb29bc14db7afdd79b339d675c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/New_Game.unity
     guid: fcefe8a82dc8944618c26a95396a68a9
+  - enabled: 1
+    path: Assets/Scenes/Syrus_Working.unity
+    guid: a1f4a3f82a0214552b3992f6c335a434
   m_configObjects: {}
