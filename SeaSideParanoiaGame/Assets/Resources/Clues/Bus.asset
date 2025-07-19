@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a9872d94a892432bc664583ab550d6, type: 3}
   m_Name: Bus
   m_EditorClassIdentifier: 
-  name: 
+  name: Bus
   itemDescription: 
-  worldSprite: {fileID: 0}
-  journalPage: {fileID: 0}
-  connections: []
+  worldSprite: {fileID: 21300000, guid: ea2dcb09ac5c4452c818ce6ee5fc6155, type: 3}
+  journalPage: {fileID: 21300000, guid: ef992f5be6be74d07b293f9b685701f7, type: 3}
+  connections:
+  - {fileID: 11400000, guid: 09cfb124ce91deaf89ed9ad4bbb1dac2, type: 2}

@@ -173,14 +173,13 @@ Raul:...
 //<<PlayAudio Placeholder>>
 //This is where the point and click distortion and body scene starts 
 Marco: Ok...
-<<Clickable Victim Victim_1>>
+<<Clickable Branding Victim_1>>
 <<EndDialogue>>
 ===
 title: Distort
 position: -266,3
 ---
 Marco: There's a scar on the body... and I found some glasses 
-<<AddPage Branding>>
 Raul: Holy shit...
 Raul: Can you make out the face?
 Marco:... I can't 
@@ -326,12 +325,12 @@ Marco: Right so
             -> Branding 
             Marco: The branding looked like a cross 
             Raul: So the church 
-            <<AddPage Bus>>
+            <<AddPage Church>>
             Marco: Right
     -> Branding 
         Marco: The branding looked like a cross 
         Raul: So the church 
-        <<AddPage Bus>>
+        <<AddPage Church>>
         Marco: Right
             -> Library 
             Marco: So the library should have old news 

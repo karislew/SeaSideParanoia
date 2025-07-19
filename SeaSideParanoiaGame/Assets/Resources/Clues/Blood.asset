@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a9872d94a892432bc664583ab550d6, type: 3}
   m_Name: Blood
   m_EditorClassIdentifier: 
-  name: 
+  name: Blood
   itemDescription: 
-  worldSprite: {fileID: 0}
-  journalPage: {fileID: 0}
-  connections: []
+  worldSprite: {fileID: 21300000, guid: d5b3ffbb270894ab89d9b88bbc788523, type: 3}
+  journalPage: {fileID: 21300000, guid: 2484d9ad03d954a86991bc9bd35eec96, type: 3}
+  connections:
+  - {fileID: 11400000, guid: 1d73d6e9d15714a29aee4d62b452d717, type: 2}

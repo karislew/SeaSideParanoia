@@ -15,6 +15,6 @@ MonoBehaviour:
   name: Missing_Person
   itemDescription: 
   worldSprite: {fileID: 21300000, guid: 7b190863c4a9745b2a638af2934741c0, type: 3}
-  journalPage: {fileID: 21300000, guid: fbe7a9df8720e409facb9172359a02ec, type: 3}
+  journalPage: {fileID: 21300000, guid: 7a723cf95fa5b4c90a41ad58cb0ec950, type: 3}
   connections:
   - {fileID: 11400000, guid: 09cfb124ce91deaf89ed9ad4bbb1dac2, type: 2}
