@@ -77,6 +77,7 @@ Marco: Which way should I go...
 //For now to simulate pressing the options
 ->Left 
     Marco: Is that... blood?
+    <<AddPage Blood>>
     Marco: No it can't be right maybe just smashed berries
     Marco: I should keep going.. 
     ->Go Further
@@ -86,6 +87,7 @@ Marco: Which way should I go...
         <<jump The_body>>
 ->Right
     Marco: These cuts in the wood..
+    <<AddPage Wood>>
     Marco: Did someone cut them.. maybe the rancher? 
     Marco: It could be him screaming? 
     -> Go Further 
@@ -178,6 +180,7 @@ title: Distort
 position: -266,3
 ---
 Marco: There's a scar on the body... and I found some glasses 
+<<AddPage Branding>>
 Raul: Holy shit...
 Raul: Can you make out the face?
 Marco:... I can't 
@@ -206,6 +209,7 @@ Raul: We should go
 <<Hide Marco>>
 <<Act Marco Marco_Neutral left center green>>
 Raul: Back home... 
+<<AddPage Who>>
 Raul: Shit what do we do..
 <<jump Hallway_Hearsay>>
 === 
@@ -250,16 +254,18 @@ position: 406,434
 Marco: Right so
 ->Library 
     Marco: So the library should have old news 
-    Raul: Right... I think we can try talking to ??? //Add Clue here 
+    Raul: Right... I think we can try talking to ??? 
     Marco: Right 
     -> Branding 
         Marco: The branding looked like a cross 
-        Raul: So the church //add Clue
+        Raul: So the church 
+        <<AddPage Church>>
         Marco: Right
         -> Third Option
             Marco: What's the third option  
             Raul: We can check around the forest maybe the Busstop 
             Marco: The Bustop?
+            <<AddPage Bus>>
             Raul: Maybe they were hoping on a Busstop
             Raul: And the stop's pretty close to the Forest.. maybe there's clues?
             Marco: Ok 
@@ -267,25 +273,29 @@ Marco: Right so
         Marco: What's the third option  
         Raul: We can check around the forest maybe the Busstop 
         Marco: The Bustop?
+        <<AddPage Bus>>
         Raul: Maybe they were hoping on a Busstop
         Raul: And the stop's pretty close to the Forest.. maybe there's clues?
         Marco: Ok
         -> Branding 
             Marco: The branding looked like a cross 
-            Raul: So the church //add Clue
+            Raul: So the church 
+            <<AddPage Church>>
             Marco: Right
 ->Branding 
     Marco: The branding looked like a cross 
-    Raul: So the church //add Clue
+    Raul: So the church 
+    <<AddPage Church>>
     Marco: Right
     ->Library 
         Marco: So the library should have old news 
-        Raul: Right... I think we can try talking to ??? //Add Clue here 
+        Raul: Right... I think we can try talking to ??? for the records
         Marco: Right 
         -> Third Option
             Marco: What's the third option  
             Raul: We can check around the forest maybe the Busstop 
             Marco: The Bustop?
+            <<AddPage Bus>>
             Raul: Maybe they were hoping on a Busstop
             Raul: And the stop's pretty close to the Forest.. maybe there's clues?
             Marco: Ok
@@ -293,35 +303,39 @@ Marco: Right so
         Marco: What's the third option  
         Raul: We can check around the forest maybe the Busstop 
         Marco: The Bustop?
+        <<AddPage Bus>>
         Raul: Maybe they were hoping on a Busstop
         Raul: And the stop's pretty close to the Forest.. maybe there's clues?
         Marco: Ok
         ->Library 
             Marco: So the library should have old news 
-            Raul: Right... I think we can try talking to ??? //Add Clue here 
+            Raul: Right... I think we can try talking to ??? 
             Marco: Right
 ->Third Option? 
     Marco: What's the third option  
     Raul: We can check around the forest maybe the Busstop 
     Marco: The Bustop?
+    <<AddPage Bus>>
     Raul: Maybe they were hoping on a Busstop
     Raul: And the stop's pretty close to the Forest.. maybe there's clues?
     Marco: Ok
     -> Library 
         Marco: So the library should have old news 
-        Raul: Right... I think we can try talking to ??? //Add Clue here 
+        Raul: Right... I think we can try talking to ??? 
         Marco: Right
             -> Branding 
             Marco: The branding looked like a cross 
-            Raul: So the church //add Clue
+            Raul: So the church 
+            <<AddPage Bus>>
             Marco: Right
     -> Branding 
         Marco: The branding looked like a cross 
-        Raul: So the church //add Clue
+        Raul: So the church 
+        <<AddPage Bus>>
         Marco: Right
             -> Library 
             Marco: So the library should have old news 
-            Raul: Right... I think we can try talking to ??? //Add Clue here 
+            Raul: Right... I think we can try talking to ??? 
             Marco: Right
 Raul: So those are all our options huh
 Marco: Yeah... 

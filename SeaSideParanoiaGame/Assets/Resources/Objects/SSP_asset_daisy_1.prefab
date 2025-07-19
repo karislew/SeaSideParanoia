@@ -120,4 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationStartNode: Daisy_1
-  clue: {fileID: 0}
+  clue: {fileID: 11400000, guid: 88c54bfeaeb0c44ed8b0fd460ca901ea, type: 2}
