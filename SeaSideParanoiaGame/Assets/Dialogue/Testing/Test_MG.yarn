@@ -100,4 +100,37 @@ Sim: Well, forget you too!
 <<Move Sim right topedge 1>>
 <<wait 1>>
 
+
+===
+title: Scene_05
+tags:
+colorID: 0
+position: 0,0
+---
+
+<<Act Marco Marco_Neutral left center green>>
+
+Marco: I am.
+
+//<<Hide Marco>>
+
+//<<Act Marco Marco_Sick left center green>>
+<<Act Marco Marco_Sick>>
+
+Marco: sick...
+
+
+===
+title: Scene_06
+---
+
+<<Act Marco Marco_Neutral left center green>>
+
+Marco: Would you like to go to Scene 05 or Scene 03?
+-> Scene 03
+    <<jump Scene_03>>
+-> Scene 05
+    <<jump Scene_05>>
+
+
 ===

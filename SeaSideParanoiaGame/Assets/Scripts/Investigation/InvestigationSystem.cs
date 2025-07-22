@@ -5,17 +5,55 @@ using UnityEngine.UI;
 using GHEvtSystem;
 
 
+public class ConnectedSlots
+{
+    string clueA;
+    string clueB;
+    public Image line;
+    bool isNull;
+
+    public ConnectedSlots(string a, string b, Image l)
+    {
+        clueA = a;
+        clueB = b;
+        line = l;
+        isNull = false;
+    }
+
+    public bool Equals(string a, string b)
+    {
+        if ((clueA.Equals(a) && clueB.Equals(b)) ||
+        (clueA.Equals(b) && clueB.Equals(a)))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
+    public void Print()
+    {
+        Debug.Log(clueA + ", " + clueB + ", " + line.name);
+    }
+}
+
+
 public class InvestigationSystem : MonoBehaviour
 {
     public Image confirmation;
-    public string first;
-    public string second;
     public List<BoardSlot> slots = new List<BoardSlot>();
-
     public GameObject boardParent;
     public Image lineImage;
+    public List<ConnectedSlots> currentlyConnected = new List<ConnectedSlots>();
+
+    private string first;
     private RectTransform firstPosition = null;
+    private BoardSlot firstSlot = null;
+    private string second;
     private RectTransform secondPosition = null;
+    private BoardSlot secondSlot = null;
+
+    public List<BoardSlot[]> connectedSlots = new List<BoardSlot[]>();
 
     void Start()
     {
@@ -41,7 +79,8 @@ public class InvestigationSystem : MonoBehaviour
                         callerName = evt.callerName,
                         newState = ButtonState.SELECTED
                     });
-                    firstPosition = FindSlotByName(evt.callerName);
+                    firstSlot = FindSlotByName(evt.callerName);
+                    firstPosition = firstSlot.gameObject.GetComponent<RectTransform>();
                     if (firstPosition != null)
                     {
                         Debug.Log(first + " is at position: " + firstPosition.anchoredPosition);
@@ -58,7 +97,8 @@ public class InvestigationSystem : MonoBehaviour
                         callerName = evt.callerName,
                         newState = ButtonState.SELECTED
                     });
-                    secondPosition = FindSlotByName(evt.callerName);
+                    secondSlot = FindSlotByName(evt.callerName);
+                    secondPosition = secondSlot.gameObject.GetComponent<RectTransform>();
                     if (secondPosition != null)
                     {
                         Debug.Log(second + " is at position: " + secondPosition.anchoredPosition);
@@ -75,6 +115,8 @@ public class InvestigationSystem : MonoBehaviour
                 if (first.Equals(evt.clueName))
                 {
                     first = "";
+                    firstPosition = null;
+                    firstSlot = null;
                     Debug.Log("deselected " + evt.clueName);
                     EventDispatcher.Instance.RaiseEvent<StateChangeResponse>(new StateChangeResponse
                     {
@@ -85,6 +127,8 @@ public class InvestigationSystem : MonoBehaviour
                 else if (second.Equals(evt.clueName))
                 {
                     second = "";
+                    secondPosition = null;
+                    secondSlot = null;
                     Debug.Log("deselected " + evt.clueName);
                     EventDispatcher.Instance.RaiseEvent<StateChangeResponse>(new StateChangeResponse
                     {
@@ -98,10 +142,52 @@ public class InvestigationSystem : MonoBehaviour
                 }
                 break;
         }
+
+        if (!string.IsNullOrEmpty(first) &&
+        !string.IsNullOrEmpty(second))
+        {
+            ConnectedSlots conn = AlreadyConnected();
+
+            if (conn != null)
+            {
+                // TODO: destroy line and remove from list
+                Destroy(conn.line);
+                currentlyConnected.Remove(conn);
+            } else {
+                Debug.Log(first + " and " + second + " connect!");
+                BoardSlot[] pair = {firstSlot, secondSlot};
+                connectedSlots.Add(pair);
+
+                // TODO: do confirmation
+                if (lineImage == null)
+                {
+                    return;
+                }
+                // do distance calculation
+                float xOffset = Mathf.Min(Mathf.Abs(firstPosition.anchoredPosition.x), Mathf.Abs(secondPosition.anchoredPosition.x));
+                float yOffset = Mathf.Min(Mathf.Abs(firstPosition.anchoredPosition.y), Mathf.Abs(secondPosition.anchoredPosition.y));
+                float dist = Mathf.Sqrt(Mathf.Pow((firstPosition.anchoredPosition.x - secondPosition.anchoredPosition.x), 2)
+                + Mathf.Pow((firstPosition.anchoredPosition.y - secondPosition.anchoredPosition.y), 2));
+                float distX = Mathf.Abs(firstPosition.anchoredPosition.x - secondPosition.anchoredPosition.x);
+                float distY = Mathf.Abs(firstPosition.anchoredPosition.y - secondPosition.anchoredPosition.y);
+                // duplicate line image
+                Image newLine = Instantiate(lineImage);
+                newLine.gameObject.transform.SetParent(boardParent.transform);
+                // set new line image position to 1/2 distance
+                newLine.rectTransform.localScale = new Vector3(1f, 1f, 1f);
+                newLine.rectTransform.anchoredPosition3D = new Vector3((xOffset + distX/2f), (yOffset + distY/2f), 22f);
+                // set new line image height to distance
+                newLine.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, dist);
+                // set rotatation to arcsin(dx/d)
+                newLine.rectTransform.Rotate(new Vector3(0f, 0f, (Mathf.Asin(distX / dist))*(180/Mathf.PI)));
+            }
+        }
         
+        /*
         if (!string.IsNullOrEmpty(first) &&
         !string.IsNullOrEmpty(second) &&
-        Connects())
+        !ClueManager.Instance.GetConnectionStatus(first, second) &&
+        ClueManager.Instance.Connects(first, second))
         {
             Debug.Log(first + " connects with " + second);
             // TODO: do confirmation
@@ -127,6 +213,7 @@ public class InvestigationSystem : MonoBehaviour
             // set rotatation to arcsin(dx/d)
             newLine.rectTransform.Rotate(new Vector3(0f, 0f, (Mathf.Asin(distX / dist))*(180/Mathf.PI)));
         }
+        */
     }
 
     void HandleStateChangeResponse(StateChangeResponse evt)
@@ -138,28 +225,10 @@ public class InvestigationSystem : MonoBehaviour
 
         first = "";
         second = "";
-    }
-
-    bool Connects()
-    {
-        Clue firstClue = ClueManager.Instance.GetClue(first);
-        Clue secondClue = ClueManager.Instance.GetClue(second);
-        if ((firstClue == null) || (secondClue == null))
-        {
-            return false;
-        }
-        List<Clue> firstConnections = ClueManager.Instance.GetConnections(first);
-        List<Clue> secondConnections = ClueManager.Instance.GetConnections(second);
-        if ((firstConnections.Count == 0) || (secondConnections.Count == 0)) {
-            return false;
-        }
-
-        if (firstConnections.Contains(secondClue) ||
-        secondConnections.Contains(firstClue))
-        {
-            return true;
-        }
-        return false;
+        firstPosition = null;
+        secondPosition = null;
+        firstSlot = null;
+        secondSlot = null;
     }
 
     void ShowClue(FoundClue evt)
@@ -189,15 +258,28 @@ public class InvestigationSystem : MonoBehaviour
         Debug.Log("no more empty slots.");
     }
 
-    RectTransform FindSlotByName(string target)
+    BoardSlot FindSlotByName(string target)
     {
         foreach(BoardSlot slot in slots)
         {
             if (slot.gameObject.name.Equals(target))
             {
-                return slot.gameObject.GetComponent<RectTransform>();
+                return slot;
             }
         }
+        return null;
+    }
+
+    ConnectedSlots AlreadyConnected()
+    {
+        foreach (ConnectedSlots conn in currentlyConnected)
+        {
+            if (conn.Equals(first, second))
+            {
+                return conn;
+            }
+        }
+
         return null;
     }
 
