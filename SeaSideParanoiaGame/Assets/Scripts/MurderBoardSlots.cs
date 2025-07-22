@@ -9,6 +9,7 @@ public class MurderBoardSlots : MonoBehaviour
     public GameObject slotPrefab;
     public GameObject slotParent;
 
+
     void Awake()
     {
         if (instance != null)
@@ -24,6 +25,9 @@ public class MurderBoardSlots : MonoBehaviour
     {
         GameObject newSlot = Instantiate(slotPrefab, slotParent.transform);
         newSlot.GetComponent<Image>().sprite = newClue.worldSprite;
+        newSlot.GetComponent<DragItem>().clue = newClue;
+        newSlot.name  = newClue.name;
+       
         
     }
 }

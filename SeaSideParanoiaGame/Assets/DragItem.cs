@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class DragItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     public Transform parentAfterDrag;
+    public Clue clue;
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("begin drag");
