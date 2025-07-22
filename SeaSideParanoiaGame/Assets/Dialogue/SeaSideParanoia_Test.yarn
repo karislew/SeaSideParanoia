@@ -22,8 +22,8 @@ Marco: Which should I sketch?
 //<<AddPage Victim>>
 Marco: Maybe... 
 <<Hide Marco>>
-<<Clickable Mushroom SSP_asset_mushroom_1>>
-<<Clickable Flower SSP_asset_daisy_1>>
+<<Clickable Mushroom SSP_asset_mushroom_1>> 
+<<Clickable Daisy SSP_asset_daisy_1>>
 
 ===
 
@@ -33,7 +33,7 @@ position: -88,-458
 <<Destory Mushroom SSP_asset_mushroom_1>>
 <<Destory Flower SSP_asset_daisy_1>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: I remember givinmg Raul a daisy on our first date... I wonder if he still has it? 
+Marco: I remember giving Raul a daisy on our first date... I wonder if he still has it? 
 
 <<Hide Marco>>
 <<jump Panic>>
@@ -152,12 +152,10 @@ Raul: Marco maybe you saw some things?
 
 ->I'm telling you I didn't!
     Marco: I'm telling you I didn't!
-    Raul: Ok.. 
     Raul: Show me..
 ->Please believe me! 
     Marco: Please believe me! 
-    Raul: Ok I.. show me where.. 
-    Marco: Thank you... 
+    Raul: Show me where.. 
 
 //Could start adding If stuff here but we'll talk later 
 
@@ -336,10 +334,10 @@ Marco: Right so
             Marco: Right
 ->Third Option? 
     Marco: What's the third option  
-    Raul: We can check around the forest maybe the Busstop 
+    Raul: We can check around the forest maybe the bus stop 
     Marco: The Bustop?
     <<AddPage Bus>>
-    Raul: Maybe they were hoping on a Busstop
+    Raul: Maybe they were hoping on a bus stop
     Raul: And the stop's pretty close to the Forest.. maybe there's clues?
     Marco: Ok
     -> Library 
@@ -407,12 +405,8 @@ The End
 title: beginning
 position: 1018,235
 ---
-Marco: Maybe if we look at the clues 
-Raul: You said a cross right... maybe the Church 
-Marco: Alright 
 
 // This is where the Board goes 
-
 Marco: Alright so the church is our lead... 
 Raul: We'll go first thing in the morning 
 Marco: Alright 
