@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Branding
   m_EditorClassIdentifier: 
   name: Branding
+  question: 1
   itemDescription: 
   worldSprite: {fileID: 21300000, guid: 3e53a1c604bb84dfebcdd7695f342372, type: 3}
   journalPage: {fileID: 21300000, guid: 329bff4bb313e4e43b00400ddcbc058a, type: 3}

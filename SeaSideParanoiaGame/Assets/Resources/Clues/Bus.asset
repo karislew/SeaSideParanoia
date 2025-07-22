@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Bus
   m_EditorClassIdentifier: 
   name: Bus
+  question: 1
   itemDescription: 
   worldSprite: {fileID: 21300000, guid: ea2dcb09ac5c4452c818ce6ee5fc6155, type: 3}
   journalPage: {fileID: 21300000, guid: ef992f5be6be74d07b293f9b685701f7, type: 3}
