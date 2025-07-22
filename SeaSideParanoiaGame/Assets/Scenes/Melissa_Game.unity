@@ -154,10 +154,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 340482980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960, y: -540}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &59672677
 MonoBehaviour:
@@ -326,7 +326,6 @@ GameObject:
   - component: {fileID: 167370475}
   - component: {fileID: 167370477}
   - component: {fileID: 167370476}
-  - component: {fileID: 167370478}
   m_Layer: 0
   m_Name: Conitnue
   m_TagString: Untagged
@@ -391,35 +390,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167370474}
   m_CullTransparentMesh: 1
---- !u!114 &167370478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 167370474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 872198871}
-          m_TargetAssemblyTypeName: Yarn.Unity.LineView, YarnSpinner.Unity
-          m_MethodName: OnContinueClicked
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &215804021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,6 +1442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb848e3ebc35d628da4ffddc1a729f00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialMode: 0
 --- !u!4 &490772110
 Transform:
   m_ObjectHideFlags: 0
@@ -2306,8 +2277,9 @@ GameObject:
   - component: {fileID: 872198875}
   - component: {fileID: 872198874}
   - component: {fileID: 872198873}
-  - component: {fileID: 872198871}
+  - component: {fileID: 872198876}
   - component: {fileID: 872198870}
+  - component: {fileID: 872198877}
   m_Layer: 0
   m_Name: Dialogue
   m_TagString: Untagged
@@ -2349,46 +2321,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5284c4e35b1f14f4f87f6e4a9088f477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueView: {fileID: 0}
+  dialogueView: {fileID: 872198876}
   continueActionType: 1
   continueActionKeyCode: 32
   continueActionButtonName: Jump
   continueActionOnButtonRelease: 0
---- !u!114 &872198871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 872198868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ddcdd604a328c4ab296f048eb7b3a925, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvasGroup: {fileID: 872198873}
-  useFadeEffect: 1
-  fadeInTime: 0.25
-  fadeOutTime: 0.05
-  lineText: {fileID: 458857652}
-  showCharacterNameInLineView: 1
-  characterNameText: {fileID: 1246513199}
-  characterNameContainer: {fileID: 76848287}
-  useTypewriterEffect: 1
-  onCharacterTyped:
-    m_PersistentCalls:
-      m_Calls: []
-  onPauseStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  onPauseEnded:
-    m_PersistentCalls:
-      m_Calls: []
-  typewriterEffectSpeed: 80
-  continueButton: {fileID: 167370474}
-  holdTime: 1
-  autoAdvance: 0
-  palette: {fileID: 0}
 --- !u!225 &872198873
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2439,6 +2376,70 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872198868}
   m_CullTransparentMesh: 1
+--- !u!114 &872198876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872198868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a1956a0ce4c4ecca8e3267719a64e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 872198873}
+  useFadeEffect: 1
+  fadeInTime: 0.25
+  fadeOutTime: 0.05
+  lineText: {fileID: 458857652}
+  showCharacterNameInLineView: 1
+  characterNameText: {fileID: 1246513199}
+  characterNameContainer: {fileID: 76848287}
+  useTypewriterEffect: 1
+  onCharacterTyped:
+    m_PersistentCalls:
+      m_Calls: []
+  onPauseStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  onPauseEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  typewriterEffectSpeed: 80
+  continueButton: {fileID: 167370474}
+  holdTime: 1
+  autoAdvance: 0
+  palette: {fileID: 0}
+--- !u!114 &872198877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872198868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 872198876}
+          m_TargetAssemblyTypeName: PsycheLineView, Assembly-CSharp
+          m_MethodName: UserRequestedViewAdvancement
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &914543345
 GameObject:
   m_ObjectHideFlags: 0
@@ -3447,10 +3448,10 @@ MonoBehaviour:
   _variableStorage: {fileID: 1437790422}
   dialogueViews:
   - {fileID: 1583361285}
-  - {fileID: 872198871}
+  - {fileID: 872198876}
   - {fileID: 1085952264}
-  startNode: Scene_05
-  startAutomatically: 1
+  startNode: Start
+  startAutomatically: 0
   runSelectedOptionAsLine: 0
   lineProvider: {fileID: 0}
   verboseLogging: 1
@@ -3458,24 +3459,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onNodeComplete:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1437790420}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onDialogueStart:
-    m_PersistentCalls:
-      m_Calls: []
-  onDialogueComplete:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1583361285}
@@ -3499,7 +3482,25 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: YAY
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDialogueStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onDialogueComplete:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1583361285}
+        m_TargetAssemblyTypeName: VNManager, Assembly-CSharp
+        m_MethodName: PrintSomething
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
   onCommand:
@@ -3692,8 +3693,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runner: {fileID: 1437790423}
-  loadSprites: []
-  loadAudio: []
   useResourcesFolders: 1
   defaultTint: {r: 0.384857, g: 0.4835629, b: 0.6126398, a: 1}
   highlightTint: {r: 1, g: 1, b: 1, a: 1}
@@ -3703,6 +3702,7 @@ MonoBehaviour:
   nameplateBG: {fileID: 76848291}
   genericSprite: {fileID: 330084434}
   genericAudioSource: {fileID: 594207747}
+  sprites: []
   canvasDims: {fileID: 340482980}
   screenSize: {x: 1280, y: 720}
   activeSpeaker: 

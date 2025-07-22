@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Clue : ScriptableObject
 {
     public new string name;
+    public int question = 0;
     public string itemDescription;
     public Sprite worldSprite;
     public Sprite journalPage;

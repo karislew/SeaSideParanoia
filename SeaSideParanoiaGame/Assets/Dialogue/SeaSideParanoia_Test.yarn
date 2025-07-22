@@ -33,7 +33,7 @@ position: -88,-458
 <<Destory Mushroom SSP_asset_mushroom_1>>
 <<Destory Flower SSP_asset_daisy_1>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: I remember givinmg Raul a daisy on our first date... I wonder if he has it still? 
+Marco: I remember givinmg Raul a daisy on our first date... I wonder if he still has it? 
 
 <<Hide Marco>>
 <<jump Panic>>
@@ -45,7 +45,7 @@ position: 375,-488
 <<Destory Mushroom SSP_asset_mushroom_1>>
 <<Destory Flower SSP_asset_daisy_1>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: Was this the posinous one... or was that another one...
+Marco: Was this the posinous one... or was that the other one...
 <<Hide Marco>>
 <<jump Panic>>
 === 
@@ -55,15 +55,16 @@ position: 140,-313
 ---
 <<Scene SSP_background_forest_01>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: Alright this seems like a good spot to stop writing things 
+Marco: Alright this seems like a good spot to stop writing things.
 Marco: It's getting late... 
-Marco: I should probably head back-
+Marco: I should probably head back hom-
 //<<Hide Marco>>
 <<Hide Marco>>
 <<Act Marco Marco_Shocked left center green>>
 ???: AHHHHHHHH!
 <<Shake Marco>>
-Marco: What was that?! 
+Marco: What was that?!
+Marco: Was that a scream?!
 Marco: Maybe I should go check it out... 
 <<jump Forest_Maze>>
 ===
@@ -72,27 +73,33 @@ title: Forest_Maze
 position: 420,-248
 ---
 Marco: It's probably nothing...
-Marco: Right..
+Marco: Right..? 
+Marco: Who would be letting out a blood curdling stream in the forest...
+Marco: Two paths from here...
 Marco: Which way should I go...
 //For now to simulate pressing the options
 ->Left 
     Marco: Is that... blood?
     <<AddPage Blood>>
-    Marco: No it can't be right maybe just smashed berries
+    Marco: No it can't be right maybe just smashed berries..
+    Marco: or maybe game from a hunt?
+    Marco: Nevermind..
     Marco: I should keep going.. 
     ->Go Further
         //Fade 
         Marco: The screaming stopped
+        Marco: maybe their fine now..
         Marco: ... 
         <<jump The_body>>
 ->Right
     Marco: These cuts in the wood..
     <<AddPage Wood>>
     Marco: Did someone cut them.. maybe the rancher? 
-    Marco: It could be him screaming? 
+    Marco: It could be him screaming?
     -> Go Further 
-        Marco: Seems it was only that spot 
-        Marco: The screaming stopped 
+        Marco: Seems it was only that spot the wood was cut...
+        Marco: The screaming stopped... 
+        Marco: I see something up ahead..
         <<jump The_body>>
 ===
 
@@ -101,23 +108,36 @@ position: -186,-186
 ---
 //<<Fade black 0.0 1.0 2.0>>
 <<Scene SSP_background_forest_04>>
-Marco: What is this...
+Crack
+Marco: Is that... 
+Marco: a body!
+Marco: This can't be real... 
 Marco: This... This can't be real 
 <<Hide Marco>>
 <<Act Marco Marco_Sick left center green>>
 Marco: I feel sick..
+Marco: Who would do this... 
+Marco: Why Why.. 
+Crack 
+Marco: What was that? 
 <<Shake Marco>> 
 Marco: I need to go... 
 //<<StopAudioAll>>
 //Maybe StopAudio will specifcally stop a certain audio? Test Later
-<<Scene SSP_background_forest_02>>
+<<Scene SSP_background_forest_02>> 
+Marco: What's happening... 
+<<wait  1>>
+Marco: Who was that.. 
+<<wait 1>>
+Marco: Why am I running, my legs are moving on their own.
+<<Fade black 0.0 1.0 2.0>>
 //<<PlayAudio Placeholder>>
 <<Hide Marco>>
 <<Scene Hallway>>
 <<Act Marco Marco_Shocked left center green>>
-Marco: Raul! 
+Marco: Raul! Raul Wake up
 <<Act Raul Raul_Static right center blue>>
-Raul: What Happened? 
+Raul: What! What! What Happened? 
 <<Shake Marco>> 
 Marco: There was... 
 <<Hide Raul>>
@@ -216,18 +236,22 @@ title: Hallway_Hearsay
 position: -221,489
 ---
 Knock Knock Knock 
-???: Marco, Raul?
+???: Marco, Raul? 
 Marco: Hey... Blank //I'll figure out a name later  
 ???: Are you boys alright? 
 Marco: ...Um 
-Raul: Yeah we're ok 
+Raul: Yeah we're ok.. 
 <<wait  1>>
 Marco: Have you heard of anyone going missing lately
-???: Missing people... 
-???: I haven't heard of anyone missing latley 
-???: but I think you can go to the Libarary and check out old news..
+???: Missing people...? 
+???: Now why would you go asking about that? 
+???: You sure nothin happened?? 
+Marco: Oh Um! 
+Raul: Yeah we're just wondering
+???: I haven't heard of anyone goin missing latley 
+???: but I think you can go to the Library and check out old news articles..
 <<AddPage Missing_Person>>
-Raul: Alright thank you 
+Raul: Alright thank you Blank
 Marco: Thank you...
 <<jump Leading_Clues>>
 ===
