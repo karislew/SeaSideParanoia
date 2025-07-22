@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5366798340057371156
+--- !u!1 &7119466585935965514
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6358947896798438419}
-  - component: {fileID: 6490559534343513830}
-  - component: {fileID: 3071787627401970729}
-  - component: {fileID: 4113020785861141319}
-  - component: {fileID: 4863479800362587962}
+  - component: {fileID: 3874692578112471250}
+  - component: {fileID: 7318714447476915782}
+  - component: {fileID: 2224379679847787665}
+  - component: {fileID: 8751086830665652541}
+  - component: {fileID: 2194503085623074710}
+  - component: {fileID: 345840316910874490}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: MurderSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6358947896798438419
+--- !u!224 &3874692578112471250
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5366798340057371156}
+  m_GameObject: {fileID: 7119466585935965514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -36,24 +37,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00030517578, y: 0}
-  m_SizeDelta: {x: -0.00048828, y: 0}
+  m_AnchoredPosition: {x: -303.292, y: 359.68225}
+  m_SizeDelta: {x: -921.9411, y: -878.0388}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6490559534343513830
+--- !u!222 &7318714447476915782
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5366798340057371156}
+  m_GameObject: {fileID: 7119466585935965514}
   m_CullTransparentMesh: 1
---- !u!114 &3071787627401970729
+--- !u!114 &2224379679847787665
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5366798340057371156}
+  m_GameObject: {fileID: 7119466585935965514}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -77,28 +78,13 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4113020785861141319
+--- !u!114 &8751086830665652541
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5366798340057371156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52b48dd3d6a464bb7acc952a9356c1ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 3071787627401970729}
-  parentAfterDrag: {fileID: 0}
-  clue: {fileID: 0}
---- !u!114 &4863479800362587962
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5366798340057371156}
+  m_GameObject: {fileID: 7119466585935965514}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
@@ -116,3 +102,30 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &2194503085623074710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7119466585935965514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a579b1014e3e48938363df3c7d1cd1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &345840316910874490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7119466585935965514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52b48dd3d6a464bb7acc952a9356c1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 2224379679847787665}
+  parentAfterDrag: {fileID: 0}
+  clue: {fileID: 0}

@@ -9,9 +9,12 @@ public class ClueBoardSlot : MonoBehaviour, IDropHandler
     // Start is called before the first frame update
     public void OnDrop(PointerEventData eventData)
     {
-        GameObject dropped = eventData.pointerDrag;
-        DragItem draggedItem = dropped.GetComponent<DragItem>();
-        draggedItem.parentAfterDrag = transform;
+        if (transform.childCount == 0)
+        {
+            GameObject dropped = eventData.pointerDrag;
+            DragItem draggedItem = dropped.GetComponent<DragItem>();
+            draggedItem.parentAfterDrag = transform;
+        }
         
     }
 }
