@@ -174,6 +174,7 @@ public class VNManager : DialogueViewBase
         }
 
         Destroy(instObj);
+        HintManager.instance.HideHint(); 
 
 
     }
