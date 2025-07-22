@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4493821626642756219}
   - component: {fileID: 6605764803750300850}
   - component: {fileID: 5381849453480681974}
+  - component: {fileID: 4133990364451011310}
   m_Layer: 0
   m_Name: SSP_asset_mushroom
   m_TagString: Untagged
@@ -121,3 +122,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationStartNode: Mushroom
   clue: {fileID: 11400000, guid: f15e64f3b3ed9459d90165d5f43179e2, type: 2}
+--- !u!114 &4133990364451011310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8318444201087824463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad2fe018c6eb4fe7949dd1dc9eadcb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -23,7 +23,7 @@ public class YarnInteractable : MonoBehaviour
         dialogueRunner.onDialogueComplete.AddListener(EndConversation);
 
         spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
+        if (spriteRenderer != null && clue != null)
         {
             spriteRenderer.sprite = clue.worldSprite;
         }
@@ -58,6 +58,7 @@ public class YarnInteractable : MonoBehaviour
 
     public void OnMouseDown()
     {
+        
         if (ModeManager.Instance.GetCurrentMode() != Mode.Game)
         {
             Debug.Log("mode is not Game, FoundClue and StartConversation will not be triggered");
@@ -73,6 +74,7 @@ public class YarnInteractable : MonoBehaviour
             {
                 clueName = clue.name
             });
+            
         }
 
         if (interactable && !dialogueRunner.IsDialogueRunning)
