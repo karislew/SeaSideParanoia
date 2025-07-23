@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1116853236170747005}
   - component: {fileID: 3110324892952002984}
   - component: {fileID: 5880030326933339422}
+  - component: {fileID: 3280301868869290457}
   m_Layer: 0
   m_Name: SSP_asset_daisy_1
   m_TagString: Untagged
@@ -121,3 +122,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationStartNode: Daisy_1
   clue: {fileID: 11400000, guid: 88c54bfeaeb0c44ed8b0fd460ca901ea, type: 2}
+--- !u!114 &3280301868869290457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9061408305306317489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad2fe018c6eb4fe7949dd1dc9eadcb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

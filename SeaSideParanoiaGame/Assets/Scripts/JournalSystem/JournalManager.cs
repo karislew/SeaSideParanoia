@@ -44,6 +44,7 @@ public class JournalManager : MonoBehaviour
         }
 
         items.Add(clue);
+        MurderBoardSlots.instance.CreateSlot(clue);
         Debug.Log("Found \"" + evt.clueName + "\".");
 
         if (onJournalChangedCallback != null)
