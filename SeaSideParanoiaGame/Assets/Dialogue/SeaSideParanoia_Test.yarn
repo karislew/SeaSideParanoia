@@ -11,7 +11,7 @@ position: 137,-554
 // sets background image to sprite called "bg_office"
 <<Scene Forest_BW>>
 // start playing audioclip "ambient_birds" at 50% volume, loop forever
-//<<PlayAudio PlaceHolder 0.5 loop>>
+<<PlayAudio First_Scene_Ambience 1.0 loop>>
 // Can Change volume by 0.5=50 0.20% and to loop just put loop at end 
 
 Prologue
@@ -58,6 +58,7 @@ position: 140,-313
 Marco: Alright this seems like a good spot to stop writing things.
 Marco: It's getting late... 
 Marco: I should probably head back hom-
+<<StopAudioAll>>
 //<<Hide Marco>>
 <<Hide Marco>>
 <<Act Marco Marco_Shocked left center green>>
@@ -447,4 +448,3 @@ position: 644,143
 //<<wait 1.5>>
 //<<Flip Marco>>
 //<<Move Marco 1.25 center 1.0>>
-// fade to black, from 0% opacity to 100% opacity, in 2.0 seconds
