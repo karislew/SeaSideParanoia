@@ -11,7 +11,7 @@ position: 137,-554
 // sets background image to sprite called "bg_office"
 <<Scene Forest_BW>>
 // start playing audioclip "ambient_birds" at 50% volume, loop forever
-<<PlayAudio First_Scene_Ambience 1.0 loop>>
+//<<PlayAudio PlaceHolder 0.5 loop>>
 // Can Change volume by 0.5=50 0.20% and to loop just put loop at end 
 
 Prologue
@@ -22,8 +22,8 @@ Marco: Which should I sketch?
 //<<AddPage Victim>>
 Marco: Maybe... 
 <<Hide Marco>>
-<<Clickable Mushroom SSP_asset_mushroom_1>> 
-<<Clickable Daisy SSP_asset_daisy_1>>
+<<Clickable Mushroom SSP_asset_mushroom_1>>
+<<Clickable Flower SSP_asset_daisy_1>>
 
 ===
 
@@ -33,7 +33,7 @@ position: -88,-458
 <<Destory Mushroom SSP_asset_mushroom_1>>
 <<Destory Flower SSP_asset_daisy_1>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: I remember giving Raul a daisy on our first date... I wonder if he still has it? 
+Marco: I remember givinmg Raul a daisy on our first date... I wonder if he still has it? 
 
 <<Hide Marco>>
 <<jump Panic>>
@@ -58,7 +58,6 @@ position: 140,-313
 Marco: Alright this seems like a good spot to stop writing things.
 Marco: It's getting late... 
 Marco: I should probably head back hom-
-<<StopAudioAll>>
 //<<Hide Marco>>
 <<Hide Marco>>
 <<Act Marco Marco_Shocked left center green>>
@@ -153,10 +152,12 @@ Raul: Marco maybe you saw some things?
 
 ->I'm telling you I didn't!
     Marco: I'm telling you I didn't!
+    Raul: Ok.. 
     Raul: Show me..
 ->Please believe me! 
     Marco: Please believe me! 
-    Raul: Show me where.. 
+    Raul: Ok I.. show me where.. 
+    Marco: Thank you... 
 
 //Could start adding If stuff here but we'll talk later 
 
@@ -335,10 +336,10 @@ Marco: Right so
             Marco: Right
 ->Third Option? 
     Marco: What's the third option  
-    Raul: We can check around the forest maybe the bus stop 
+    Raul: We can check around the forest maybe the Busstop 
     Marco: The Bustop?
     <<AddPage Bus>>
-    Raul: Maybe they were hoping on a bus stop
+    Raul: Maybe they were hoping on a Busstop
     Raul: And the stop's pretty close to the Forest.. maybe there's clues?
     Marco: Ok
     -> Library 
@@ -406,8 +407,12 @@ The End
 title: beginning
 position: 1018,235
 ---
+Marco: Maybe if we look at the clues 
+Raul: You said a cross right... maybe the Church 
+Marco: Alright 
 
 // This is where the Board goes 
+
 Marco: Alright so the church is our lead... 
 Raul: We'll go first thing in the morning 
 Marco: Alright 
@@ -448,3 +453,4 @@ position: 644,143
 //<<wait 1.5>>
 //<<Flip Marco>>
 //<<Move Marco 1.25 center 1.0>>
+// fade to black, from 0% opacity to 100% opacity, in 2.0 seconds

@@ -1,8 +1,7 @@
-{
+﻿{
   "projectFileVersion": 2,
   "sourceFiles": [
-    "**/*.yarn",
-    "SeaSideParanoia.yarn"
+    "**/*.yarn"
   ],
   "excludeFiles": [
     "**/*~/*"
