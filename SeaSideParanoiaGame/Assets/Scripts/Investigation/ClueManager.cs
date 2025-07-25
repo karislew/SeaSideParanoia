@@ -3,60 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using GHEvtSystem;
 
-public struct Connection
-{
-    string clueA;
-    string clueB;
-    bool isConnected;
-
-    public Connection(string a, string b, bool connected)
-    {
-        clueA = a;
-        clueB = b;
-        isConnected = connected;
-    }
-
-    public bool IsInHere(string clueName)
-    {
-        if (clueName.Equals(clueA) || clueName.Equals(clueB))
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    public bool IsConnected()
-    {
-        return isConnected;
-    }
-
-    public bool Equals(string a, string b)
-    {
-        if ((clueA.Equals(a) && clueB.Equals(b)) ||
-        (clueA.Equals(b) && clueB.Equals(a)))
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    public void Print()
-    {
-        Debug.Log(clueA + ", " + clueB + ", " + isConnected);
-    }
-}
 
 public class ClueManager : Singleton<ClueManager>
 {
     public string path = "Testing/SO";
     protected int count = 0;
-    protected Dictionary<string, Clue> clues = new Dictionary<string, Clue>();
-    protected Dictionary<string, bool> clueStatus = new Dictionary<string, bool>();
-    //protected Dictionary<string, List<Clue>> connectionData = new Dictionary<string, List<Clue>>();
-    protected List<Connection> connectionData = new List<Connection>();
+    protected Dictionary<int, Clue> clues = new Dictionary<int, Clue>();
+    protected Dictionary<int, bool> clueStatus = new Dictionary<int, bool>();
     protected Dictionary<Clue[], bool> connectionStatus = new Dictionary<Clue[], bool>();
+
+    protected List<int> question1 = new List<int>();
+    protected List<int> question2 = new List<int>();
 
     // Start is called before the first frame update
     void Start()
@@ -66,23 +23,30 @@ public class ClueManager : Singleton<ClueManager>
         foreach (Clue clue in clue_arr)
         {
             count += 1;
-            clues[clue.name] = clue;
-            clueStatus[clue.name] = false;
-            //connectionData[clue.name] = clue.connections;
-            foreach (Clue connectedClue in clue.connections)
+            clues[clue.id] = clue;
+            clueStatus[clue.id] = false;
+            switch (clue.question)
             {
-                if (!Connects(clue.name, connectedClue.name))
-                {
-                    connectionData.Add(
-                        new Connection(clue.name, connectedClue.name, false)
-                    );
-                }
+                case 1:
+                    question1.Add(clue.id);
+                    break;
+                case 2:
+                    question2.Add(clue.id);
+                    break;
+                default:
+                    break;
             }
         }
 
-        foreach (Connection conn in connectionData)
+        Debug.Log("--- Question One Asnwers ---");
+        foreach (int ans in question1)
         {
-            conn.Print();
+            Debug.Log(ans);
+        }
+        Debug.Log("--- Question Two Asnwers ---");
+        foreach (int ans in question2)
+        {
+            Debug.Log(ans);
         }
 
         EventDispatcher.Instance.AddListener<FoundClue>(UpdateStatus);
@@ -93,10 +57,10 @@ public class ClueManager : Singleton<ClueManager>
         return count;
     }
 
-    public Clue GetClue(string clueName)
+    public Clue GetClue(int id)
     {
         Clue target = null;
-        bool ret = clues.TryGetValue(clueName, out target);
+        bool ret = clues.TryGetValue(id, out target);
         if (ret == false)
         {
             return null;
@@ -104,9 +68,32 @@ public class ClueManager : Singleton<ClueManager>
         return target;
     }
 
-    public string GetDesciption(string clueName)
+    public int GetID(string clueName)
     {
-        Clue target = GetClue(clueName);
+        foreach (KeyValuePair<int, Clue> entry in clues)
+        {
+            if (entry.Value.name.Equals(clueName))
+            {
+                return entry.Key;
+            }
+        }
+
+        return 0;
+    }
+
+    public int GetQuestion(int id)
+    {
+        Clue target = GetClue(id);
+        if (target == null)
+        {
+            return -1;
+        }
+        return target.question;
+    }
+
+    public string GetDesciption(int id)
+    {
+        Clue target = GetClue(id);
         if (target == null)
         {
             return "";
@@ -114,9 +101,9 @@ public class ClueManager : Singleton<ClueManager>
         return target.itemDescription;
     }
 
-    public Sprite GetWorldSprite(string clueName)
+    public Sprite GetWorldSprite(int id)
     {
-        Clue target = GetClue(clueName);
+        Clue target = GetClue(id);
         if (target == null)
         {
             return null;
@@ -124,9 +111,9 @@ public class ClueManager : Singleton<ClueManager>
         return target.worldSprite;
     }
 
-    public Sprite GetJournalPage(string clueName)
+    public Sprite GetJournalPage(int id)
     {
-        Clue target = GetClue(clueName);
+        Clue target = GetClue(id);
         if (target == null)
         {
             return null;
@@ -134,10 +121,10 @@ public class ClueManager : Singleton<ClueManager>
         return target.journalPage;
     }
 
-    public bool GetStatus(string clueName)
+    public bool GetStatus(int id)
     {
         bool status = true;
-        bool ret = clueStatus.TryGetValue(clueName, out status);
+        bool ret = clueStatus.TryGetValue(id, out status);
         if (ret == false)
         {
             // Tells game to *not* try to add clue to inventory
@@ -146,42 +133,23 @@ public class ClueManager : Singleton<ClueManager>
         return status;
     }
 
-    public bool GetConnectionStatus(string clueName1, string clueName2)
+    public List<int> GetTrueAnswer(int question)
     {
-        foreach (Connection conn in connectionData)
+        switch (question)
         {
-            if (conn.Equals(clueName1, clueName2))
-            {
-                return conn.IsConnected();
-            }
+            case 1:
+                return question1;
+            case 2:
+                return question2;
         }
 
-        return false;
-    }
-
-    // Checks if the pair of clues are connected
-    public bool Connects(string clueA, string clueB)
-    {
-        if (!clues.ContainsKey(clueA) || !clues.ContainsKey(clueB))
-        {
-            Debug.Log("Either " + clueA + " or " + clueB + " is not a clue. Maybe the names are misspelled?");
-            return false;
-        }
-
-        foreach (Connection con in connectionData)
-        {
-            if (con.Equals(clueA, clueB))
-            {
-                return true;
-            }
-        }
-        return false;
+        return new List<int>();
     }
 
     void UpdateStatus(FoundClue evt)
     {
         bool status;
-        bool ret = clueStatus.TryGetValue(evt.clueName, out status);
+        bool ret = clueStatus.TryGetValue(evt.clueID, out status);
         if (ret == false)
         {
             return;
@@ -190,7 +158,7 @@ public class ClueManager : Singleton<ClueManager>
         {
             return;
         }
-        clueStatus[evt.clueName] = true;
+        clueStatus[evt.clueID] = true;
     }
 
     void OnDestroy()

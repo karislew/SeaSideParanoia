@@ -15,7 +15,7 @@ public class LoadSO : MonoBehaviour
 
         foreach (Clue clue in clues)
         {
-            connection_data[clue] = clue.connections;
+            //connection_data[clue] = clue.connections;
         }
     }
 

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Who
   m_EditorClassIdentifier: 
   name: Who
+  id: 9
+  question: 0
   itemDescription: 
   worldSprite: {fileID: 21300000, guid: 8a51c36db24da40e9b18185e0d331253, type: 3}
   journalPage: {fileID: 21300000, guid: d55c2f86919bf45ee832de920836ac9d, type: 3}
-  connections:
-  - {fileID: 11400000, guid: 09cfb124ce91deaf89ed9ad4bbb1dac2, type: 2}
