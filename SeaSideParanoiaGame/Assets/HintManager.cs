@@ -30,12 +30,12 @@ public class HintManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("moving");
+     
         transform.position = Input.mousePosition;
         //transform.position = cam.ScreenToWorldPoint(Input.mousePosition);
         //Debug.Log(transform.position);
 
-        Debug.Log("hint is showing ?" + hintShowing);
+       
 
    }
 
@@ -45,7 +45,7 @@ public class HintManager : MonoBehaviour
         //transform.position = UIposition.position;
         gameObject.SetActive(true);
         Cursor.visible = false;
-        Debug.Log("Entering");
+      
         hintShowing = true;
     }
     public void HideHint()

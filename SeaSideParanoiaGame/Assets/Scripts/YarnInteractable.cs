@@ -70,6 +70,7 @@ public class YarnInteractable : MonoBehaviour
         // if this object also has an associated clue, add to journal
         if (clue != null)
         {
+            MurderBoardSlots.instance.CreateSlot(clue);
             EventDispatcher.Instance.RaiseEvent<FoundClue>(new FoundClue
             {
                 clueName = clue.name
@@ -77,13 +78,6 @@ public class YarnInteractable : MonoBehaviour
             
         }
 
-        if (interactable && !dialogueRunner.IsDialogueRunning)
-        {
-            EventDispatcher.Instance.RaiseEvent<ChangeMode>(new ChangeMode
-            {
-                newMode = Mode.Dialogue
-            });
-            StartConversation();
-        }
+        
     }
 }
