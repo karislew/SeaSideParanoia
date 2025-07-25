@@ -33,7 +33,7 @@ public class ClickedItem : Interactable
         //bool addJournalClue = JournalManager.instance.AddItem(items);
         EventDispatcher.Instance.RaiseEvent<FoundClue>(new FoundClue
         {
-            clueName = items.name
+            clueID = items.id
         });
         /*
         if (addJournalClue)

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2224379679847787665}
   - component: {fileID: 8751086830665652541}
   - component: {fileID: 2194503085623074710}
-  - component: {fileID: 345840316910874490}
   m_Layer: 5
   m_Name: MurderSlot
   m_TagString: Untagged
@@ -114,18 +113,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a579b1014e3e48938363df3c7d1cd1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &345840316910874490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7119466585935965514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52b48dd3d6a464bb7acc952a9356c1ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 2224379679847787665}
-  parentAfterDrag: {fileID: 0}
-  clue: {fileID: 0}
+  correctClue: {fileID: 0}
