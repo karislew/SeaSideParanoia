@@ -72,7 +72,7 @@ public class YarnInteractable : MonoBehaviour
         {
             EventDispatcher.Instance.RaiseEvent<FoundClue>(new FoundClue
             {
-                clueName = clue.name
+                clueID = clue.id
             });
             
         }

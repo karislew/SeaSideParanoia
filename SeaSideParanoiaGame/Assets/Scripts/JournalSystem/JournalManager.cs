@@ -30,22 +30,22 @@ public class JournalManager : MonoBehaviour
 
     public void AddClue(FoundClue evt)
     {
-        Clue clue = ClueManager.Instance.GetClue(evt.clueName);
+        Clue clue = ClueManager.Instance.GetClue(evt.clueID);
         if (clue == null)
         {
-            Debug.Log("\"" + evt.clueName + "\" does not exit.");
+            Debug.Log("\"" + evt.clueID + "\" does not exit.");
             return;
         }
         
         if (items.Contains(clue))
         {
-            Debug.Log("\"" + evt.clueName + "\" has already been found.");
+            Debug.Log("\"" + evt.clueID + "\" has already been found.");
             return;
         }
 
         items.Add(clue);
         MurderBoardSlots.instance.CreateSlot(clue);
-        Debug.Log("Found \"" + evt.clueName + "\".");
+        Debug.Log("Found \"" + evt.clueID + "\".");
 
         if (onJournalChangedCallback != null)
         {

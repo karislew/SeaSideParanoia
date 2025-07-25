@@ -8,12 +8,13 @@ public enum Mode {
     Journal,
     Pause,
     Dialogue,
+    MurderBoard
 }
 
 public class ModeManager : Singleton<ModeManager>
 {
     public Mode initialMode = Mode.Game;
-    private Stack modeHistory = new Stack(4);
+    private Stack modeHistory = new Stack(5);
 
 
     // Start is called before the first frame update

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Church
   m_EditorClassIdentifier: 
   name: Church
+  id: 4
+  question: 0
   itemDescription: 
   worldSprite: {fileID: 21300000, guid: 22a9704f80c0c4c098e1529e35febe0c, type: 3}
   journalPage: {fileID: 21300000, guid: 978cde8c189e445a4983c54ad3bdb3da, type: 3}
-  connections:
-  - {fileID: 11400000, guid: 1d73d6e9d15714a29aee4d62b452d717, type: 2}

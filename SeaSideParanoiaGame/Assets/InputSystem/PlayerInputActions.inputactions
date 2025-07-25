@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "OpenMurderBoard",
+                    "type": "Button",
+                    "id": "50cce385-c5b0-4ef8-b66e-cca5ed70b6d2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -44,6 +53,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "OpenPause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ebca4e98-5840-4f0b-a2fc-97b1cd530eb6",
+                    "path": "<Keyboard>/q",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenMurderBoard",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -140,6 +160,54 @@
                     "processors": "",
                     "groups": "",
                     "action": "ClosePause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Murder Board",
+            "id": "58b6d4da-1d87-4bd1-8e43-5e22feb24c28",
+            "actions": [
+                {
+                    "name": "CloseMurderBoard",
+                    "type": "Button",
+                    "id": "0d47ba12-606c-4349-bfce-e8be3a7eac02",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchQuestion",
+                    "type": "Button",
+                    "id": "44055678-bd2d-4e10-ab9f-39677072429d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "428ed382-32df-4cbe-ac55-dbc8e9f440f0",
+                    "path": "<Keyboard>/q",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseMurderBoard",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ea3f72ef-d146-4f9d-9549-0494478f28d7",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchQuestion",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -149,7 +149,7 @@ public class VNManager : DialogueViewBase
 
         EventDispatcher.Instance.RaiseEvent<FoundClue>(new FoundClue
         {
-            clueName = clueName
+            clueID = ClueManager.Instance.GetID(clueName)
         });
         Debug.Log("it be working yo");
     

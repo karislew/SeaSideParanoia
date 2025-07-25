@@ -50,4 +50,29 @@ public class PlayerInputSystem : MonoBehaviour
     public void TogglePause() {
         //
     }
+
+    public void OpenMurderBoard(InputAction.CallbackContext context) {
+        if (context.performed) {
+            EventDispatcher.Instance.RaiseEvent<ToggleMurderBoard>(new ToggleMurderBoard { });
+            if (playerInput.currentActionMap.name.Equals("Game")) {
+                EventDispatcher.Instance.RaiseEvent<ChangeMode>(new ChangeMode
+                {
+                    newMode = Mode.MurderBoard
+                });
+                playerInput.SwitchCurrentActionMap("Murder Board");
+            } else if (playerInput.currentActionMap.name.Equals("Murder Board")) {
+                EventDispatcher.Instance.RaiseEvent<RevertMode>(new RevertMode
+                {
+                    modeToRevert = Mode.MurderBoard
+                });
+                playerInput.SwitchCurrentActionMap("Game");
+            }
+        }
+    }
+
+    public void SwitchQuestion(InputAction.CallbackContext context) {
+        if (context.performed) {
+            EventDispatcher.Instance.RaiseEvent<NextQuestion>(new NextQuestion { });
+        }
+    }
 }
