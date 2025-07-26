@@ -72,13 +72,15 @@ Marco: Maybe I should go check it out...
 title: Forest_Maze
 position: 420,-248
 ---
+<<Scene SSP_BranchingPath_01>>
 Marco: It's probably nothing...
 Marco: Right..? 
-Marco: Who would be letting out a blood curdling stream in the forest...
+Marco: Who would be letting out a blood curdling scream in the forest...
 Marco: Two paths from here...
 Marco: Which way should I go...
 //For now to simulate pressing the options
 ->Left 
+    <<Scene SSP_BranchingPath_02>>
     Marco: Is that... blood?
     <<AddPage Blood>>
     Marco: No it can't be right maybe just smashed berries..
@@ -86,17 +88,20 @@ Marco: Which way should I go...
     Marco: Nevermind..
     Marco: I should keep going.. 
     ->Go Further
+        <<Scene SSP_BranchingPath_04>>
         //Fade 
         Marco: The screaming stopped
         Marco: maybe their fine now..
         Marco: ... 
         <<jump The_body>>
 ->Right
+     <<Scene SSP_BranchingPath_01>>
     Marco: These cuts in the wood..
     <<AddPage Wood>>
     Marco: Did someone cut them.. maybe the rancher? 
     Marco: It could be him screaming?
     -> Go Further 
+        <<Scene SSP_BranchingPath_04>>
         Marco: Seems it was only that spot the wood was cut...
         Marco: The screaming stopped... 
         Marco: I see something up ahead..
