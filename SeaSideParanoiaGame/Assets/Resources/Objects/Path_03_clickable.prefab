@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2949571978330425439}
   - component: {fileID: 6201343603631952332}
   m_Layer: 6
-  m_Name: WoodChips
+  m_Name: Path_03_clickable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3e53a1c604bb84dfebcdd7695f342372, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3be5685b3184f47b191f790ca23dc448, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 8.695652, y: 10.434783}
+  m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
