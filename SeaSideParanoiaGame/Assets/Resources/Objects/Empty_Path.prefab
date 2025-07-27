@@ -13,9 +13,8 @@ GameObject:
   - component: {fileID: 7289225054051863206}
   - component: {fileID: 1736088871865681032}
   - component: {fileID: 2949571978330425439}
-  - component: {fileID: 6201343603631952332}
   m_Layer: 6
-  m_Name: Path_04_clickable
+  m_Name: Empty_Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 77332f480a9cd42cfb59fb138e815914, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9d9e99f1893ea44f2a3fabdb1503d4f8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 19.2, y: 10.8}
+  m_Size: {x: 8.695652, y: 10.434783}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -107,8 +106,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.25, y: 7.5, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 4.484293, y: 4.078944, z: 0.2}
+  m_Center: {x: 5.076406, y: 0.2023204, z: 0}
 --- !u!114 &1736088871865681032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,21 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992082e6ab1204503a0c951771b45b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conversationStartNode: Found_Body
+  conversationStartNode: Back
   clue: {fileID: 0}
 --- !u!114 &2949571978330425439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3839704429732150603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ad2fe018c6eb4fe7949dd1dc9eadcb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6201343603631952332
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

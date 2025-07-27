@@ -121,8 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992082e6ab1204503a0c951771b45b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conversationStartNode: Distort
-  clue: {fileID: 11400000, guid: 1d73d6e9d15714a29aee4d62b452d717, type: 2}
+  conversationStartNode: The_body
+  clue: {fileID: 0}
 --- !u!114 &2949571978330425439
 MonoBehaviour:
   m_ObjectHideFlags: 0

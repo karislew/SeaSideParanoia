@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7289225054051863206}
   - component: {fileID: 1736088871865681032}
   - component: {fileID: 2949571978330425439}
-  - component: {fileID: 6201343603631952332}
   m_Layer: 6
   m_Name: Path_01_clickable
   m_TagString: Untagged
@@ -107,8 +106,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.25, y: 7.5, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5.293576, y: 5.550366, z: 0.2}
+  m_Center: {x: -4.671765, y: -0.2758918, z: 0}
 --- !u!114 &1736088871865681032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,21 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992082e6ab1204503a0c951771b45b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conversationStartNode: Distort
-  clue: {fileID: 11400000, guid: 1d73d6e9d15714a29aee4d62b452d717, type: 2}
+  conversationStartNode: Path_2
+  clue: {fileID: 0}
 --- !u!114 &2949571978330425439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3839704429732150603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ad2fe018c6eb4fe7949dd1dc9eadcb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6201343603631952332
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
