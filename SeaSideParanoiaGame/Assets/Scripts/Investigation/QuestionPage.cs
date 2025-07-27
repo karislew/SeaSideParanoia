@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GHEvtSystem;
+using UnityEngine.UI;
 
 public class QuestionPage : MonoBehaviour
 {
     public int question = 0;
     public bool isSolved = false;
     public List<int> playerAttempt = new List<int>();
+    
     //public List<Transform> slots = new List<Transform>();
 
     // Start is called before the first frame update
@@ -57,7 +59,9 @@ public class QuestionPage : MonoBehaviour
         // TODO: make MurderBoard handle showing visual confirmation
         // TODO: send signal to investigation system that this question is solved
         Debug.Log("Question " + question + " has been solved!");
-        
+        Image thisImage = GetComponent<Image>();
+        thisImage.enabled = true;
+        thisImage.color = Color.green;
     }
 
     void OnDestroy()

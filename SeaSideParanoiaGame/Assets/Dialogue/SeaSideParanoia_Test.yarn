@@ -173,7 +173,9 @@ Raul: Marco the snow is starting to pick up
 Marco: Cmon! It's not far.. 
 Raul:... 
 
-<<Scene SSP_background_forest_05>>
+//<<Scene SSP_background_forest_05>>
+<<Scene AlteredState_BG_SSP_nobody>>
+<<Clickable Branding Dead>>
 
 Marco: See it's right there! 
 <<Hide Marco>>
@@ -198,7 +200,7 @@ Raul:...
 //<<PlayAudio Placeholder>>
 //This is where the point and click distortion and body scene starts 
 Marco: Ok...
-<<Clickable Branding Victim_1>>
+//<<Clickable Branding Victim_1>>
 <<EndDialogue>>
 ===
 title: Distort
@@ -208,7 +210,8 @@ Marco: There's a scar on the body... and I found some glasses
 Raul: Holy shit...
 Raul: Can you make out the face?
 Marco:... I can't 
-<<Destory Victim Victim_1>>
+//<<Destory Victim Victim_1>>
+<<Destory Branding Dead>>
 <<jump Calm>>
 ===
 
