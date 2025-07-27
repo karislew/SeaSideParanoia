@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: John Stewart
   id: -1
-  question: 1
+  question: 0
   itemDescription: 
   worldSprite: {fileID: 21300000, guid: 2cb01c01a57ba031abea201ef6df8243, type: 3}
   journalPage: {fileID: 21300000, guid: 2cb01c01a57ba031abea201ef6df8243, type: 3}
