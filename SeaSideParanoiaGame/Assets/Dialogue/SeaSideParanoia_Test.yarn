@@ -59,7 +59,7 @@ Marco: Was this the poisonous one... or was that the other one...
 title: Panic
 position: 140,-313
 ---
-<<Scene SSP_background_forest_01>>
+<<Scene SSP_background_forest_02>>
 <<Act Marco Marco_Neutral left center green>>
 Marco: Alright this seems like a good spot to stop writing things.
 Marco: It's getting late...
@@ -109,6 +109,7 @@ title: Path_2
 ---
 //<<Destory Go_Back Empty_Path>>
 //<<Destory Path_1 Path_01_clickable>>
+<<Scene SSP_BranchingPath_02>>
 Marco: There's blood and cuts in the wood here...
 <<AddPage Blood>>
 <<AddPage Wood>>
@@ -120,6 +121,7 @@ Marco: I should keep going..
 ===
 title: Path_3
 ---
+<<Scene SSP_BranchingPath_03>>
 Marco: It's getting darker..
 <<wait 0.5>>
 Marco: the screaming stopped
@@ -133,7 +135,7 @@ title: The_body
 position: -186,-186
 ---
 <<wait 1>>
-<<Scene SSP_background_forest_04>>
+<<Scene SSP_BranchingPath_04>>
 Crack
 Marco: Is that...
 -> Go deeper
@@ -142,6 +144,7 @@ Marco: Is that...
 ===
 title: Found_Body
 ---
+<<Scene SSP_background_forest_04>>
 Marco: a body!
 Marco: This can't be real...
 Marco: This... This can't be real
@@ -156,11 +159,10 @@ Marco: What was that?
 Marco: I need to go...
 //<<StopAudioAll>>
 //Maybe StopAudio will specifically stop a certain audio? Test Later
-<<Scene SSP_background_forest_02>>
+<<Scene SSP_background_forest_03>>
 Marco: What's happening...
 <<wait  1>>
 Marco: Who was that..
-<<wait 1>>
 //<<PlayAudio Placeholder>>
 <<Hide Marco>>
 <<Scene Hallway>>
@@ -171,10 +173,12 @@ Raul: What! What! What Happened?
 <<Shake Marco>>
 Marco: There was...
 <<Hide Raul>>
-<<Act Raul Raul_Skeptic right center blue>>
+<<Act Raul Raul_Question right center blue>>
 Raul: Marco?
 Marco: There was a body!!
-Raul: What??
+Raul: What?
+<<Hide Raul>>
+<<Act Raul Raul_Skeptic right center blue>>
 Marco: I'm telling you there was a body Raul!
 
 <<Hide Raul>>
@@ -187,20 +191,23 @@ Raul: Marco, maybe you saw some things?
     <<Act Marco Marco_Mad left center green>>
     Marco: I'm telling you I didn't!
     Raul: Ok..
+    <<Hide Raul>>
+    <<Act Raul Raul_Skeptic right center blue>>
     Raul: Show me..
     <<Hide Marco>>
 ->Please believe me!
     <<Hide Marco>>
     <<Act Marco Marco_Mad left center green>>
     Marco: Please believe me!
-    Raul: Ok I.. show me where..
+    Raul: Listen it sounds crazy but I wanna believe you so..
+    Raul: Show me where..
     Marco: Thank you...
-    <<Hide Marco>>
 
 
 //Could start adding If stuff here but we'll talk later
 //<<PlayAudio Placeholder>>
 <<Scene SSP_background_forest_04>>
+<<Hide Marco>>
 <<Act Marco Marco_Relieved left center green>>
 Marco: Cmon It's just up ahead
 Raul: Marco the snow is starting to pick up
@@ -209,16 +216,18 @@ Raul:...
 
 
 //<<Scene SSP_background_forest_05>>
-<<Scene AlteredState_BG_SSP_nobody>>
+<<Scene SSP_background_forest_05>>
 Marco: See it's right there!
+<<Scene BG_nobody>>
 <<Hide Marco>>
 <<Hide Raul>>
 <<wait  3>>
-<<Act Raul Raul_Con right center blue>>
+<<Act Raul Raul_Question right center blue>>
 Raul: Marco.. there's nothing there..
-<<Act Marco Marco_Shocked left center green>>
+<<Act Marco Marco_Panic left center green>>
 Marco: What?
 Marco: It's.... It's right there I can see it
+<<Scene SSP_background_forest_05>>
 Raul:...
 
 
@@ -228,9 +237,14 @@ Raul:...
    Marco: ...
 ->Why can't you just...
    Marco: Why can't you just..
+    <<Hide Marco>>
+    <<Act Marco Marco_Mad left center green>>
    Marco: Believe me...
+    <<Hide Marco>>
+    <<Act Marco Marco_Relieved left center green>>
    Raul: Marco.. I can't see anything
-   Raul: Describe the body
+   Raul: Can you... describe the body
+
 //<<PlayAudio Placeholder>>
 //This is where the point and click distortion and body scene starts
 <<Clickable Branding Dead>>
@@ -239,12 +253,17 @@ Raul:...
 title: Distort
 position: -266,3
 ---
-Marco: There's a scar on the body... and I found some glasses
+<<Destory Branding Dead>>
+<<Scene BG_nobody>>
+<<Act Marco Marco_Dereal left center green>>
+<<Act Raul Raul_Skeptic right center blue>>
+Marco: There's... 
+Marco: There was a scar on the body... and I found some glasses
+<<Hide Raul>>
+<<Act Raul Raul_Con right center blue>>
 Raul: Holy shit...
 Raul: Can you make out the face?
-Marco:... I can't
-//<<Destory Victim Victim_1>>
-<<Destory Branding Dead>>
+Marco:... I can't...
 <<jump Calm>>
 ===
 
@@ -254,8 +273,9 @@ position: 3,0
 ---
 <<Hide Marco>>
 <<Act Marco Marco_Dereal left center green>>
+<<Hide Raul>>
 <<Act Raul Raul_Con right center blue>>
-Marco: Why.. Why can't I make out his face!
+Marco: Why.. Why can't I make out their face!
 Raul: Marco breathe...
 Marco:...
 <<Hide Marco>>
@@ -266,7 +286,7 @@ Raul: We should go
 <<Scene Hallway>>
 //<<PlayAudio Placeholder>>
 <<Hide Marco>>
-<<Act Marco Marco_Neutral left center green>>
+<<Act Marco Marco_Nervous left center green>>
 Raul: Back home...
 <<AddPage Who>>
 Raul: Shit what do we do..
@@ -280,8 +300,6 @@ Knock Knock Knock
 Marco: Hey... Ms. Rose 
 <<Act Rose Rose_Neut center center pink>>
 Rose: Are you boys alright? I heard some hurried footsteps in the hall
-<<Hide Marco>>
-<<Act Marco Marco_Nervous left center green>>
 Marco: ...Um
 Raul: Yeah we're ok..
 <<Hide Raul>>
@@ -290,9 +308,13 @@ Raul: Yeah we're ok..
 Marco: Have you heard of anyone going missing lately
 Rose: Missing people...?
 Rose: Now why would you go asking about that?
+<<Hide Rose>>
+<<Act Rose Rose_Con center center pink>>
 Rose: You sure nothin happened??
 Marco: Oh Um!
 Raul: Yeah we're just wondering
+<<Hide Rose>>
+<<Act Rose Rose_Neut center center pink>>
 Rose: I haven't heard of anyone going missing lately
 Rose: But I think you can go to the Library and check out old news articles.. 
 Rose: Come by sometime and I can show you
@@ -317,12 +339,16 @@ position: 88,364
 Marco: Maybe we should investigate more?
 Raul: Why? 
 Marco: Well shouldn't we try and see what happened, who did it? 
+<<Hide Raul>>
+<<Act Raul Raul_Question right center blue>>
 Raul: but there's too many questions Marco!
 Raul: Think about it, We don't know who died, Who killed them or If it was even real.. 
 <<Hide Marco>>
 <<Act Marco Marco_Mad left center green>>
 Marco: But the glasses! 
 Raul: Marco that's not enough proof maybe if there was more but.. 
+<<Hide Raul>>
+<<Act Raul Raul_Con right center blue>>
 Marco: Please can't we just see where it goes.. 
 <<Hide Marco>>
 <<Act Marco Marco_Relieved left center green>>
@@ -337,6 +363,10 @@ Raul: Maybe there's a third option?
 title: Debrief
 position: 406,434
 ---
+<<Hide Marco>>
+<<Act Marco Marco_Think left center green>>
+<<Hide Raul>>
+<<Act Raul Raul_Question right center blue>>
 Marco: Right so
 ->Library
    Marco: So the library should have old news
@@ -375,7 +405,7 @@ Marco: Right so
            Raul: We can check around the forest maybe the Bus Stop
            Marco: The Bus Stop?
            <<AddPage Bus>>
-           Raul: Maybe they were hoping on a Bus Stop
+           Raul: Maybe they were hoping on a Bus out of here? 
            Raul: And the stop's pretty close to the Forest.. maybe there's clues?
    ->Third Option
        Marco: What's the third option 
@@ -421,14 +451,20 @@ Marco: Yeah...
 title: Ending_Choices
 position: 656,412
 ---
+<<Hide Raul>>
+<<Act Raul Raul_Con right center blue>>
 Raul: Or maybe... listen
-<<wait  1>> 
+<<wait  1>>
+Raul: sigh...
 Raul: We can leave.. first thing in the morning...
+<<Hide Marco>>
+<<Act Marco Marco_Mad left center green>>
 Marco: But you just said we'll keep looking... 
-Raul: I don't wnat you getting hurt 
+Raul: I don't want you getting hurt 
 Raul: We can pack our bags and leave town!
+<<Hide Marco>>
+<<Act Marco Marco_Relieved left center green>>
 Marco:...
-
 
 -> We'll go (Leave Town)
    Marco: We'll go..
