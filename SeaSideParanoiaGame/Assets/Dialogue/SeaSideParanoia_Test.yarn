@@ -294,7 +294,8 @@ Rose: You sure nothin happened??
 Marco: Oh Um!
 Raul: Yeah we're just wondering
 Rose: I haven't heard of anyone going missing lately
-Eddie: But I think you can go to the Library and check out old news articles..
+Rose: But I think you can go to the Library and check out old news articles.. 
+Rose: Come by sometime and I can show you
 <<AddPage Missing_Person>>
 Raul: Alright thank you Rose Goodnight
 Marco: Thank you... Goodnight Ms. Rose
@@ -312,91 +313,91 @@ title: Leading_Clues
 position: 88,364
 ---
 <<Hide Marco>>
-<<Act Marco Marco_Think left center green>>
-Marco: Maybe we investigate more?
-Raul: Well we can look at our current clues
+<<Act Marco Marco_Relieved left center green>>
+Marco: Maybe we should investigate more?
+Raul: Why? 
+Marco: Well shouldn't we try and see what happened, who did it? 
+Raul: but there's too many questions Marco!
+Raul: Think about it, We don't know who died, Who killed them or If it was even real.. 
+<<Hide Marco>>
+<<Act Marco Marco_Mad left center green>>
+Marco: But the glasses! 
+Raul: Marco that's not enough proof maybe if there was more but.. 
+Marco: Please can't we just see where it goes.. 
+<<Hide Marco>>
+<<Act Marco Marco_Relieved left center green>>
+Raul: Alright, What do we have so far 
 Marco: So far we have the Missing Persons Report from Blank
-Raul: Right..
 Marco: That weird cross branding..
-Raul: Mhmmm
 Marco: That's it..
 Raul: Maybe there's a third option?
 <<jump Debrief>>
 ===
+
 title: Debrief
 position: 406,434
 ---
 Marco: Right so
 ->Library
    Marco: So the library should have old news
-   Raul: Right... I think we can try talking to ???
-   Marco: Right
+   Raul: Right... I think we can try talking to Rose 
    -> Branding
        Marco: The branding looked like a cross
        Raul: So the church
        <<AddPage Church>>
-       Marco: Right
        -> Third Option
-           Marco: What's the third option 
-           Raul: We can check around the forest maybe the Busstop
+           Marco: What's the third option? 
+           Raul: We can check around the forest maybe the Bus Stop
            Marco: The Bus Stop?
            <<AddPage Bus>>
-           Raul: Maybe they were hoping on a Busstop
+           Raul: Maybe they were hoping on a Bus out of here?
            Raul: And the stop's pretty close to the Forest.. maybe there's clues?
-           Marco: Ok
    -> Third Option
        Marco: What's the third option 
-       Raul: We can check around the forest maybe the Busstop
+       Raul: We can check around the forest maybe the Bus Stop
        Marco: The Bus Stop?
        <<AddPage Bus>>
-       Raul: Maybe they were hoping on a Busstop
+       Raul: Maybe they were hoping on a Bus out of here?
        Raul: And the stop's pretty close to the Forest.. maybe there's clues?
-       Marco: Ok
        -> Branding
            Marco: The branding looked like a cross
            Raul: So the church
            <<AddPage Church>>
-           Marco: Right
 ->Branding
    Marco: The branding looked like a cross
    Raul: So the church
    <<AddPage Church>>
-   Marco: Right
    ->Library
        Marco: So the library should have old news
-       Raul: Right... I think we can try talking to ??? for the records
-       Marco: Right
+       Raul: Right... I think we can try talking to Rose for the records
        -> Third Option
            Marco: What's the third option 
-           Raul: We can check around the forest maybe the Busstop
+           Raul: We can check around the forest maybe the Bus Stop
            Marco: The Bus Stop?
            <<AddPage Bus>>
-           Raul: Maybe they were hoping on a Busstop
+           Raul: Maybe they were hoping on a Bus Stop
            Raul: And the stop's pretty close to the Forest.. maybe there's clues?
-           Marco: Ok
    ->Third Option
        Marco: What's the third option 
-       Raul: We can check around the forest maybe the Busstop
+       Raul: We can check around the forest maybe the Bus Stop
        Marco: The Bus Stop?
        <<AddPage Bus>>
-       Raul: Maybe they were hoping on a Busstop
+       Raul: Maybe they were hoping on a Bus Stop
        Raul: And the stop's pretty close to the Forest.. maybe there's clues?
-       Marco: Ok
        ->Library
            Marco: So the library should have old news
-           Raul: Right... I think we can try talking to ???
-           Marco: Right
+           Raul: Right... I think we can try talking to Rose
 ->Third Option?
    Marco: What's the third option 
-   Raul: We can check around the forest maybe the Busstop
+   Raul: We can check around the forest maybe the Bus Stop
    Marco: The Bus Stop?
    <<AddPage Bus>>
-   Raul: Maybe they were hoping on a Busstop
+   Raul: Maybe they were hoping on a Bus Stop
    Raul: And the stop's pretty close to the Forest.. maybe there's clues?
    Marco: Ok
    -> Library
        Marco: So the library should have old news
-       Raul: Right... I think we can try talking to ???
+       Raul: Right... I think we can try talking to Rose
        Marco: Right
            -> Branding
            Marco: The branding looked like a cross
@@ -410,9 +411,8 @@ Marco: Right so
        Marco: Right
            -> Library
            Marco: So the library should have old news
-           Raul: Right... I think we can try talking to ???
-           Marco: Right
-Raul: So those are all our options huh
+           Raul: Right... I think we can try talking to Rose
+Raul: So those are all our options.. 
 Marco: Yeah...
 <<jump Ending_Choices>>
 ===
@@ -421,10 +421,11 @@ Marco: Yeah...
 title: Ending_Choices
 position: 656,412
 ---
-Raul: Or maybe...
-<<wait  1>>
+Raul: Or maybe... listen
+<<wait  1>> 
 Raul: We can leave.. first thing in the morning...
-Marco: What do you mean?
+Marco: But you just said we'll keep looking... 
+Raul: I don't wnat you getting hurt 
 Raul: We can pack our bags and leave town!
 Marco:...
 
@@ -437,7 +438,7 @@ Marco:...
    <<jump YourChoice>>
 -> We can't (Stay in Town)
    Marco: We can't what about everyone in town...
-   Raul: Ok
+   Raul: ...
    <<jump beginning>>
 ===
 
@@ -481,6 +482,7 @@ Raul: Alright
 <<wait  3>>
 Marco: I can't believe what I saw...
 Marco: Will others...
+Marco: I swear I'll figure out what happened..
 //<<StopAudioAll>>
 The End for now...
 <<Fade Black 0.0 1.0 2.0>>
@@ -496,6 +498,7 @@ position: 644,143
        <<jump Deserter>>
 -> Stay
        Marco: I think we should stay, it's just everyone in town...
+       Raul: I'm not fully convinced but I don't want you getting hurt..
        <<jump beginning>>
 ===
 // horizontally flips Marco actor to face Adam
