@@ -516,6 +516,7 @@ Raul: Alright
 <<Hide Raul>>
 <<Scene Marco_Bathroom_Scene>>
 <<wait  3>>
+<<Act Marco narrator_sprite offleft center green>>
 Marco: I can't believe what I saw...
 Marco: Will others...
 Marco: I swear I'll figure out what happened..

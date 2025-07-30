@@ -281,8 +281,10 @@ public class VNManager : DialogueViewBase
         {
             if (wildcard.IsMatch(actor.Key) || wildcard.IsMatch(actor.Value.actorImage.name))
             {
-               
-
+                if (activeSpeaker.Equals(actor.Key))
+                {
+                    activeSpeaker = "";
+                }
                 actorKeysToRemove.Add(actor.Key);
                 imagesToDestroy.Add(actor.Value.actorImage);
             }

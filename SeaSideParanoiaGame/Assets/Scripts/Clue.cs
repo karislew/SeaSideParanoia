@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "Clue", menuName = "Seaside Paranoia", order = 0)]
+[CreateAssetMenu(fileName = "Clue", menuName = "Seaside Paranoia/Clue", order = 0)]
+[System.Serializable]
 public class Clue : ScriptableObject
 {
     public new string name;
