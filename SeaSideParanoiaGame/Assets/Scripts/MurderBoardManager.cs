@@ -24,6 +24,9 @@ public class MurderBoardManager : MonoBehaviour
             // already off, so turn on
             murderBoard.SetActive(true);
         }
+        
+        // TODO: remove, was only for testing :)
+        AudioManager.Instance.Play("Sound01");
     }
 
     void OnDestroy()
