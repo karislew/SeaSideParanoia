@@ -34,6 +34,7 @@ namespace GHEvtSystem
     /*** Question Page Signals ***/
     public class SlotUpdate : Event
     {
+        public int question;
         public int clueID;
         public bool unGuessing;
     }
