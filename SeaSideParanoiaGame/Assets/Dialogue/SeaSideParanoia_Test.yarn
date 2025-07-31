@@ -9,7 +9,7 @@ position: 137,-554
 // 4th Assign it the Clue and a branch to where it goes
 // That's how you make it
 // sets background image to sprite called "bg_office"
-<<Scene Forest_BW>>
+<<Scene ForestScene_01>>
 // start playing audioclip "ambient_birds" at 50% volume, loop forever
 //<<PlayAudio PlaceHolder 0.5 loop>>
 // Can Change volume by 0.5=50 0.20% and to loop just put loop at end
