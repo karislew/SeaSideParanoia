@@ -50,7 +50,7 @@ position: 375,-488
 <<Destory Mushroom SSP_asset_mushroom_1>>
 <<Destory Flower SSP_asset_daisy_1>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: Was this the poisonous one... or was that the other one...
+Marco: I remember learning about these before I came back to town 
 <<Hide Marco>>
 <<jump Panic>>
 ===
@@ -62,6 +62,7 @@ position: 140,-313
 <<Scene SSP_background_forest_02>>
 <<Act Marco Marco_Neutral left center green>>
 Marco: Alright this seems like a good spot to stop writing things.
+Marco: Let me check my Journal (Press E) 
 Marco: It's getting late...
 Marco: I should probably head back hom-
 //<<Hide Marco>>
@@ -342,6 +343,9 @@ Marco: Well shouldn't we try and see what happened, who did it?
 <<Hide Raul>>
 <<Act Raul Raul_Question right center blue>>
 Raul: but there's too many questions Marco!
+Marco: But isn't it weird how something this big went unnoticed? 
+Marco: What if it happens again?
+Raul: ... Listen 
 Raul: Think about it, We don't know who died, Who killed them or If it was even real.. 
 <<Hide Marco>>
 <<Act Marco Marco_Mad left center green>>
@@ -453,7 +457,7 @@ position: 656,412
 ---
 <<Hide Raul>>
 <<Act Raul Raul_Con right center blue>>
-Raul: Or maybe... listen
+Raul: Or maybe... listeng
 <<wait  1>>
 Raul: sigh...
 Raul: We can leave.. first thing in the morning...
@@ -502,8 +506,8 @@ title: beginning
 position: 1018,235
 ---
 // This is where the Board goes
-
-
+Raul: if were gonna do this lets use this old scrap 
+Marco: We have our clues so maybe (Press Q to Open the Board and Q to close it)
 Marco: We have a few places we can follow up on..
 Raul: We can decide where to go in the morning
 Marco: Alright
