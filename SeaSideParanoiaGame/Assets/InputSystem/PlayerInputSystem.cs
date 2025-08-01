@@ -75,4 +75,23 @@ public class PlayerInputSystem : MonoBehaviour
             EventDispatcher.Instance.RaiseEvent<NextQuestion>(new NextQuestion { });
         }
     }
+
+    public void ToggleSettings(InputAction.CallbackContext context) {
+        if (context.performed) {
+            EventDispatcher.Instance.RaiseEvent<ToggleSettings>(new ToggleSettings { });
+            if (playerInput.currentActionMap.name.Equals("Game")) {
+                EventDispatcher.Instance.RaiseEvent<ChangeMode>(new ChangeMode
+                {
+                    newMode = Mode.Pause
+                });
+                playerInput.SwitchCurrentActionMap("Pause");
+            } else if (playerInput.currentActionMap.name.Equals("Pause")) {
+                EventDispatcher.Instance.RaiseEvent<RevertMode>(new RevertMode
+                {
+                    modeToRevert = Mode.Pause
+                });
+                playerInput.SwitchCurrentActionMap("Game");
+            }
+        }
+    }
 }
