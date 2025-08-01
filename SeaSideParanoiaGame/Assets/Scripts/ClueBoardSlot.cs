@@ -7,6 +7,7 @@ using GHEvtSystem;
 
 public class ClueBoardSlot : MonoBehaviour, IDropHandler
 {
+    public int question;
     public Clue correctClue;
 
     // Start is called before the first frame update
@@ -20,12 +21,14 @@ public class ClueBoardSlot : MonoBehaviour, IDropHandler
             if (correctClue == draggedItem.clue){
                 GHEvtSystem.EventDispatcher.Instance.RaiseEvent<SlotUpdate>(new SlotUpdate
                 {
+                    question = question,
                     clueID = draggedItem.clue.id,
                     unGuessing = false
                 });
             } else {
                 GHEvtSystem.EventDispatcher.Instance.RaiseEvent<SlotUpdate>(new SlotUpdate
                 {
+                    question = question,
                     clueID = draggedItem.clue.id,
                     unGuessing = true
                 });

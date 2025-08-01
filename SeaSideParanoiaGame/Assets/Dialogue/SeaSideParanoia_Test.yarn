@@ -1,31 +1,34 @@
 title: Start
-tags: 
+tags:
 colorID: 0
 position: 137,-554
 ---
 // How to Add Future Clickable Objects Bc Syrus Forgets- First create a SeaSideParanoia(Clue) in Unity
 // 2nd assign a name for example the name is what's being called <<AddPage Missing_Person>>
-// 3rd If making clickable make a new Object can make a prefab variant and such of the Victim in Scene 
-// 4th Assign it the Clue and a branch to where it goes 
-// That's how you make it 
+// 3rd If making clickable make a new Object can make a prefab variant and such of the Victim in Scene
+// 4th Assign it the Clue and a branch to where it goes
+// That's how you make it
 // sets background image to sprite called "bg_office"
-<<Scene Forest_BW>>
+<<Scene ForestScene_01>>
 // start playing audioclip "ambient_birds" at 50% volume, loop forever
 //<<PlayAudio PlaceHolder 0.5 loop>>
-// Can Change volume by 0.5=50 0.20% and to loop just put loop at end 
+// Can Change volume by 0.5=50 0.20% and to loop just put loop at end
+
 
 Prologue
 // adds actor named "Eve" using sprite "cool-girl", placed in left-half + center of screen, with green text label
-<<Act Marco Marco_Neutral left center green>>
-Marco: Which should I sketch? 
+<<Act Marco Marco_Think left center green>>
+Marco: Which should I sketch?
 //<<AddPage Missing_Person>>
 //<<AddPage Victim>>
-Marco: Maybe... 
+Marco: Maybe...
 <<Hide Marco>>
 <<Clickable Mushroom SSP_asset_mushroom_1>>
 <<Clickable Flower SSP_asset_daisy_1>>
 
+
 ===
+
 
 title: Daisy_1
 position: -88,-458
@@ -33,30 +36,34 @@ position: -88,-458
 <<Destory Mushroom SSP_asset_mushroom_1>>
 <<Destory Flower SSP_asset_daisy_1>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: I remember givinmg Raul a daisy on our first date... I wonder if he still has it? 
+Marco: I remember giving Raul a daisy on our first date... I wonder if he still has it?
+
 
 <<Hide Marco>>
 <<jump Panic>>
 ===
 
+
 title: Mushroom_1
 position: 375,-488
---- 
+---
 <<Destory Mushroom SSP_asset_mushroom_1>>
 <<Destory Flower SSP_asset_daisy_1>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: Was this the posinous one... or was that the other one...
+Marco: I remember learning about these before I came back to town 
 <<Hide Marco>>
 <<jump Panic>>
-=== 
+===
+
 
 title: Panic
 position: 140,-313
 ---
-<<Scene SSP_background_forest_01>>
+<<Scene SSP_background_forest_02>>
 <<Act Marco Marco_Neutral left center green>>
 Marco: Alright this seems like a good spot to stop writing things.
-Marco: It's getting late... 
+Marco: Let me check my Journal (Press E) 
+Marco: It's getting late...
 Marco: I should probably head back hom-
 //<<Hide Marco>>
 <<Hide Marco>>
@@ -65,330 +72,421 @@ Marco: I should probably head back hom-
 <<Shake Marco>>
 Marco: What was that?!
 Marco: Was that a scream?!
-Marco: Maybe I should go check it out... 
+Marco: Maybe I should go check it out...
 <<jump Forest_Maze>>
 ===
+
 
 title: Forest_Maze
 position: 420,-248
 ---
+<<Scene SSP_BranchingPath_01>>
 Marco: It's probably nothing...
-Marco: Right..? 
-Marco: Who would be letting out a blood curdling stream in the forest...
+Marco: Right..?
+Marco: Who would be letting out a blood curdling scream in the forest...
 Marco: Two paths from here...
 Marco: Which way should I go...
+//-> Go left
+   //<<jump Path_2>>
+//-> Go right
+   //<<jump Back>>
 //For now to simulate pressing the options
-->Left 
-    Marco: Is that... blood?
-    <<AddPage Blood>>
-    Marco: No it can't be right maybe just smashed berries..
-    Marco: or maybe game from a hunt?
-    Marco: Nevermind..
-    Marco: I should keep going.. 
-    ->Go Further
-        //Fade 
-        Marco: The screaming stopped
-        Marco: maybe their fine now..
-        Marco: ... 
-        <<jump The_body>>
-->Right
-    Marco: These cuts in the wood..
-    <<AddPage Wood>>
-    Marco: Did someone cut them.. maybe the rancher? 
-    Marco: It could be him screaming?
-    -> Go Further 
-        Marco: Seems it was only that spot the wood was cut...
-        Marco: The screaming stopped... 
-        Marco: I see something up ahead..
-        <<jump The_body>>
+<<Clickable Path_1 Path_01_clickable>>
+<<Clickable Go_Back Empty_Path>>
+<<EndDialogue>>
 ===
+
+
+title: Back
+---
+Marco: ...That doesn't seem to be the right way
+-> Go back
+   <<jump Path_2>>
+//<<Destory Go_Back Empty_Path>>
+//<<Clickable Path_1 Path_01_clickable>>
+===
+
+
+title: Path_2
+---
+<<Destory Go_Back Empty_Path>>
+<<Destory Path_1 Path_01_clickable>>
+<<Scene SSP_BranchingPath_02>>
+Marco: There's blood and cuts in the wood here...
+<<AddPage Blood>>
+<<AddPage Wood>>
+Marco: ...the footprints aren't animal tracks
+Marco: I should keep going..
+//-> go..
+   //<<jump Path_3>>
+<<Clickable Path_2 Path_02_clickable>>
+<<EndDialogue>>
+===
+title: Path_3
+---
+<<Destory Path_2 Path_02_clickable>>
+<<Scene SSP_BranchingPath_03>>
+Marco: It's getting darker..
+<<wait 0.5>>
+Marco: the screaming stopped
+//-> Keep going..
+   //<<jump The_body>>
+<<Clickable Path_3 Path_03_clickable>>
+<<EndDialogue>>
+===
+
 
 title: The_body
 position: -186,-186
 ---
-//<<Fade black 0.0 1.0 2.0>>
-<<Scene SSP_background_forest_04>>
+<<Destory Path_3 Path_03_clickable>>
+<<wait 1>>
+<<Scene SSP_BranchingPath_04>>
 Crack
-Marco: Is that... 
+Marco: Is that...
+-> Go deeper
+   <<jump Found_Body>>
+//<<Clickable Path_4 Path_04_clickable>>
+===
+title: Found_Body
+---
+<<Scene SSP_background_forest_04>>
 Marco: a body!
-Marco: This can't be real... 
-Marco: This... This can't be real 
+Marco: This can't be real...
+Marco: This... This can't be real
 <<Hide Marco>>
 <<Act Marco Marco_Sick left center green>>
 Marco: I feel sick..
-Marco: Who would do this... 
-Marco: Why Why.. 
-Crack 
-Marco: What was that? 
-<<Shake Marco>> 
-Marco: I need to go... 
+Marco: Who would do this...
+Marco: Why Why..
+Crack
+Marco: What was that?
+<<Shake Marco>>
+Marco: I need to go...
 //<<StopAudioAll>>
-//Maybe StopAudio will specifcally stop a certain audio? Test Later
-<<Scene SSP_background_forest_02>> 
-Marco: What's happening... 
+//Maybe StopAudio will specifically stop a certain audio? Test Later
+<<Scene SSP_background_forest_03>>
+Marco: What's happening...
 <<wait  1>>
-Marco: Who was that.. 
-<<wait 1>>
-Marco: Why am I running, my legs are moving on their own.
-<<Fade black 0.0 1.0 2.0>>
+Marco: Who was that..
 //<<PlayAudio Placeholder>>
 <<Hide Marco>>
 <<Scene Hallway>>
-<<Act Marco Marco_Shocked left center green>>
+<<Act Marco Marco_Panic left center green>>
 Marco: Raul! Raul Wake up
 <<Act Raul Raul_Static right center blue>>
-Raul: What! What! What Happened? 
-<<Shake Marco>> 
-Marco: There was... 
+Raul: What! What! What Happened?
+<<Shake Marco>>
+Marco: There was...
 <<Hide Raul>>
-<<Act Raul Raul_Skeptical right center blue>>
-Raul: Marco? 
+<<Act Raul Raul_Question right center blue>>
+Raul: Marco?
 Marco: There was a body!!
-Raul: What??
-Marco: I'm telling you there was a body Raul! 
+Raul: What?
 <<Hide Raul>>
-<<Act Raul Raul_Concerned right center blue>>
-Raul: Marco maybe you saw some things? 
+<<Act Raul Raul_Skeptic right center blue>>
+Marco: I'm telling you there was a body Raul!
+
+<<Hide Raul>>
+<<Act Raul Raul_Con right center blue>>
+Raul: Marco, maybe you saw some things?
+
 
 ->I'm telling you I didn't!
+    <<Hide Marco>>
+    <<Act Marco Marco_Mad left center green>>
     Marco: I'm telling you I didn't!
-    Raul: Ok.. 
+    Raul: Ok..
+    <<Hide Raul>>
+    <<Act Raul Raul_Skeptic right center blue>>
     Raul: Show me..
-->Please believe me! 
-    Marco: Please believe me! 
-    Raul: Ok I.. show me where.. 
-    Marco: Thank you... 
+    <<Hide Marco>>
+->Please believe me!
+    <<Hide Marco>>
+    <<Act Marco Marco_Mad left center green>>
+    Marco: Please believe me!
+    Raul: Listen it sounds crazy but I wanna believe you so..
+    Raul: Show me where..
+    Marco: Thank you...
 
-//Could start adding If stuff here but we'll talk later 
 
+//Could start adding If stuff here but we'll talk later
 //<<PlayAudio Placeholder>>
-<<Scene SSP_background_forest_03>>
-Marco: Cmon It's just up ahead 
-Raul: Marco the snow is starting to pick up 
-Marco: Cmon! It's not far.. 
-Raul:... 
+<<Scene SSP_background_forest_04>>
+<<Hide Marco>>
+<<Act Marco Marco_Relieved left center green>>
+Marco: Cmon It's just up ahead
+Raul: Marco the snow is starting to pick up
+Marco: Cmon! It's not far..
+Raul:...
+
 
 //<<Scene SSP_background_forest_05>>
-<<Scene AlteredState_BG_SSP_nobody>>
-<<Clickable Branding Dead>>
-
-Marco: See it's right there! 
+<<Scene SSP_background_forest_05>>
+Marco: See it's right there!
+<<Scene BG_nobody>>
 <<Hide Marco>>
 <<Hide Raul>>
 <<wait  3>>
-<<Act Raul Raul_Concerned right center blue>>
-Raul: Marco.. there's nothing there.. 
-<<Act Marco Marco_Shocked left center green>> 
-Marco: What? 
-Marco: It's.... It's right there I can see it 
-Raul:... 
+<<Act Raul Raul_Question right center blue>>
+Raul: Marco.. there's nothing there..
+<<Act Marco Marco_Panic left center green>>
+Marco: What?
+Marco: It's.... It's right there I can see it
+<<Scene SSP_background_forest_05>>
+Raul:...
 
-->Please I swear it was right here...
-    Marco: Please I swear it was right here.. 
-    Raul: Marco... Can you describe the body 
-    Marco:... Ok
+
+->Please, I swear it was right here...
+   Marco: Please I swear it was right here..
+   Raul: Marco... Can you describe the body
+   Marco: ...
 ->Why can't you just...
-    Marco: Why can't you just.. 
-    Marco: Believe me... 
-    Raul: Marco.. I can't see anything 
-    Raul: Describe the body
+   Marco: Why can't you just..
+    <<Hide Marco>>
+    <<Act Marco Marco_Mad left center green>>
+   Marco: Believe me...
+    <<Hide Marco>>
+    <<Act Marco Marco_Relieved left center green>>
+   Raul: Marco.. I can't see anything
+   Raul: Can you... describe the body
+
 //<<PlayAudio Placeholder>>
-//This is where the point and click distortion and body scene starts 
-Marco: Ok...
-//<<Clickable Branding Victim_1>>
+//This is where the point and click distortion and body scene starts
+<<Clickable Branding Dead>>
 <<EndDialogue>>
 ===
 title: Distort
 position: -266,3
 ---
-Marco: There's a scar on the body... and I found some glasses 
+<<Destory Branding Dead>>
+<<Scene BG_nobody>>
+<<Act Marco Marco_Dereal left center green>>
+<<Act Raul Raul_Skeptic right center blue>>
+Marco: There's... 
+Marco: There was a scar on the body... and I found some glasses
+<<Hide Raul>>
+<<Act Raul Raul_Con right center blue>>
 Raul: Holy shit...
 Raul: Can you make out the face?
-Marco:... I can't 
-//<<Destory Victim Victim_1>>
-<<Destory Branding Dead>>
+Marco:... I can't...
 <<jump Calm>>
 ===
+
 
 title: Calm
 position: 3,0
 ---
 <<Hide Marco>>
 <<Act Marco Marco_Dereal left center green>>
-<<Act Raul Raul_Concerned right center blue>>
-Marco: Why.. Why can't I make out his face!
-Raul: Marco breathe... 
-Marco:... 
+<<Hide Raul>>
+<<Act Raul Raul_Con right center blue>>
+Marco: Why.. Why can't I make out their face!
+Raul: Marco breathe...
+Marco:...
 <<Hide Marco>>
 <<Act Marco Marco_Sick left center green>>
 Marco: I feel sick..
 Raul: We should go
-
 //<<StopAudioAll>>
 <<Scene Hallway>>
 //<<PlayAudio Placeholder>>
-
 <<Hide Marco>>
-<<Act Marco Marco_Neutral left center green>>
-Raul: Back home... 
+<<Act Marco Marco_Nervous left center green>>
+Raul: Back home...
 <<AddPage Who>>
 Raul: Shit what do we do..
 <<jump Hallway_Hearsay>>
-=== 
+===
 title: Hallway_Hearsay
 position: -221,489
 ---
-Knock Knock Knock 
-???: Marco, Raul? 
-Marco: Hey... Blank //I'll figure out a name later  
-???: Are you boys alright? 
-Marco: ...Um 
-Raul: Yeah we're ok.. 
+Knock Knock Knock
+???: Marco, Raul?
+Marco: Hey... Ms. Rose 
+<<Act Rose Rose_Neut center center pink>>
+Rose: Are you boys alright? I heard some hurried footsteps in the hall
+Marco: ...Um
+Raul: Yeah we're ok..
+<<Hide Raul>>
+<<Act Raul Raul_Skeptic right center blue>>
 <<wait  1>>
 Marco: Have you heard of anyone going missing lately
-???: Missing people...? 
-???: Now why would you go asking about that? 
-???: You sure nothin happened?? 
-Marco: Oh Um! 
+Rose: Missing people...?
+Rose: Now why would you go asking about that?
+<<Hide Rose>>
+<<Act Rose Rose_Con center center pink>>
+Rose: You sure nothin happened??
+Marco: Oh Um!
 Raul: Yeah we're just wondering
-???: I haven't heard of anyone goin missing latley 
-???: but I think you can go to the Library and check out old news articles..
+<<Hide Rose>>
+<<Act Rose Rose_Neut center center pink>>
+Rose: I haven't heard of anyone going missing lately
+Rose: But I think you can go to the Library and check out old news articles.. 
+Rose: Come by sometime and I can show you
 <<AddPage Missing_Person>>
-Raul: Alright thank you Blank
-Marco: Thank you...
+Raul: Alright thank you Rose Goodnight
+Marco: Thank you... Goodnight Ms. Rose
+Rose: Goodnight you two 
+<<Hide Rose>>
 <<jump Leading_Clues>>
 ===
+
+
+
 
 
 
 title: Leading_Clues
 position: 88,364
 ---
-Marco: Maybe we investigate more? 
-Raul: Well we can look at our current clues 
-Marco: So far we have the Missing Persons Report from Blank 
-Raul: Right.. 
-Marco: That weird cross branding.. 
-Raul: Mhmmm 
-Marco: That's it.. 
-Raul: Maybe there's a third option? 
+<<Hide Marco>>
+<<Act Marco Marco_Relieved left center green>>
+Marco: Maybe we should investigate more?
+Raul: Why? 
+Marco: Well shouldn't we try and see what happened, who did it? 
+<<Hide Raul>>
+<<Act Raul Raul_Question right center blue>>
+Raul: but there's too many questions Marco!
+Marco: But isn't it weird how something this big went unnoticed? 
+Marco: What if it happens again?
+Raul: ... Listen 
+Raul: Think about it, We don't know who died, Who killed them or If it was even real.. 
+<<Hide Marco>>
+<<Act Marco Marco_Mad left center green>>
+Marco: But the glasses! 
+Raul: Marco that's not enough proof maybe if there was more but.. 
+<<Hide Raul>>
+<<Act Raul Raul_Con right center blue>>
+Marco: Please can't we just see where it goes.. 
+<<Hide Marco>>
+<<Act Marco Marco_Relieved left center green>>
+Raul: Alright, What do we have so far 
+Marco: So far we have the Missing Persons Report from Blank
+Marco: That weird cross branding..
+Marco: That's it..
+Raul: Maybe there's a third option?
 <<jump Debrief>>
 ===
+
 title: Debrief
 position: 406,434
 ---
+<<Hide Marco>>
+<<Act Marco Marco_Think left center green>>
+<<Hide Raul>>
+<<Act Raul Raul_Question right center blue>>
 Marco: Right so
-->Library 
-    Marco: So the library should have old news 
-    Raul: Right... I think we can try talking to ??? 
-    Marco: Right 
-    -> Branding 
-        Marco: The branding looked like a cross 
-        Raul: So the church 
-        <<AddPage Church>>
-        Marco: Right
-        -> Third Option
-            Marco: What's the third option  
-            Raul: We can check around the forest maybe the Busstop 
-            Marco: The Bustop?
-            <<AddPage Bus>>
-            Raul: Maybe they were hoping on a Busstop
-            Raul: And the stop's pretty close to the Forest.. maybe there's clues?
-            Marco: Ok 
-    -> Third Option
-        Marco: What's the third option  
-        Raul: We can check around the forest maybe the Busstop 
-        Marco: The Bustop?
-        <<AddPage Bus>>
-        Raul: Maybe they were hoping on a Busstop
-        Raul: And the stop's pretty close to the Forest.. maybe there's clues?
-        Marco: Ok
-        -> Branding 
-            Marco: The branding looked like a cross 
-            Raul: So the church 
-            <<AddPage Church>>
-            Marco: Right
-->Branding 
-    Marco: The branding looked like a cross 
-    Raul: So the church 
-    <<AddPage Church>>
-    Marco: Right
-    ->Library 
-        Marco: So the library should have old news 
-        Raul: Right... I think we can try talking to ??? for the records
-        Marco: Right 
-        -> Third Option
-            Marco: What's the third option  
-            Raul: We can check around the forest maybe the Busstop 
-            Marco: The Bustop?
-            <<AddPage Bus>>
-            Raul: Maybe they were hoping on a Busstop
-            Raul: And the stop's pretty close to the Forest.. maybe there's clues?
-            Marco: Ok
-    ->Third Option
-        Marco: What's the third option  
-        Raul: We can check around the forest maybe the Busstop 
-        Marco: The Bustop?
-        <<AddPage Bus>>
-        Raul: Maybe they were hoping on a Busstop
-        Raul: And the stop's pretty close to the Forest.. maybe there's clues?
-        Marco: Ok
-        ->Library 
-            Marco: So the library should have old news 
-            Raul: Right... I think we can try talking to ??? 
-            Marco: Right
-->Third Option? 
-    Marco: What's the third option  
-    Raul: We can check around the forest maybe the Busstop 
-    Marco: The Bustop?
-    <<AddPage Bus>>
-    Raul: Maybe they were hoping on a Busstop
-    Raul: And the stop's pretty close to the Forest.. maybe there's clues?
-    Marco: Ok
-    -> Library 
-        Marco: So the library should have old news 
-        Raul: Right... I think we can try talking to ??? 
-        Marco: Right
-            -> Branding 
-            Marco: The branding looked like a cross 
-            Raul: So the church 
-            <<AddPage Church>>
-            Marco: Right
-    -> Branding 
-        Marco: The branding looked like a cross 
-        Raul: So the church 
-        <<AddPage Church>>
-        Marco: Right
-            -> Library 
-            Marco: So the library should have old news 
-            Raul: Right... I think we can try talking to ??? 
-            Marco: Right
-Raul: So those are all our options huh
-Marco: Yeah... 
+->Library
+   Marco: So the library should have old news
+   Raul: Right... I think we can try talking to Rose 
+   -> Branding
+       Marco: The branding looked like a cross
+       Raul: So the church
+       <<AddPage Church>>
+       -> Third Option
+           Marco: What's the third option? 
+           Raul: We can check around the forest maybe the Bus Stop
+           Marco: The Bus Stop?
+           <<AddPage Bus>>
+           Raul: Maybe they were hoping on a Bus out of here?
+           Raul: And the stop's pretty close to the Forest.. maybe there's clues?
+   -> Third Option
+       Marco: What's the third option 
+       Raul: We can check around the forest maybe the Bus Stop
+       Marco: The Bus Stop?
+       <<AddPage Bus>>
+       Raul: Maybe they were hoping on a Bus out of here?
+       Raul: And the stop's pretty close to the Forest.. maybe there's clues?
+       -> Branding
+           Marco: The branding looked like a cross
+           Raul: So the church
+           <<AddPage Church>>
+->Branding
+   Marco: The branding looked like a cross
+   Raul: So the church
+   <<AddPage Church>>
+   ->Library
+       Marco: So the library should have old news
+       Raul: Right... I think we can try talking to Rose for the records
+       -> Third Option
+           Marco: What's the third option 
+           Raul: We can check around the forest maybe the Bus Stop
+           Marco: The Bus Stop?
+           <<AddPage Bus>>
+           Raul: Maybe they were hoping on a Bus out of here? 
+           Raul: And the stop's pretty close to the Forest.. maybe there's clues?
+   ->Third Option
+       Marco: What's the third option 
+       Raul: We can check around the forest maybe the Bus Stop
+       Marco: The Bus Stop?
+       <<AddPage Bus>>
+       Raul: Maybe they were hoping on a Bus Stop
+       Raul: And the stop's pretty close to the Forest.. maybe there's clues?
+       ->Library
+           Marco: So the library should have old news
+           Raul: Right... I think we can try talking to Rose
+->Third Option?
+   Marco: What's the third option 
+   Raul: We can check around the forest maybe the Bus Stop
+   Marco: The Bus Stop?
+   <<AddPage Bus>>
+   Raul: Maybe they were hoping on a Bus Stop
+   Raul: And the stop's pretty close to the Forest.. maybe there's clues?
+   Marco: Ok
+   -> Library
+       Marco: So the library should have old news
+       Raul: Right... I think we can try talking to Rose
+       Marco: Right
+           -> Branding
+           Marco: The branding looked like a cross
+           Raul: So the church
+           <<AddPage Church>>
+           Marco: Right
+   -> Branding
+       Marco: The branding looked like a cross
+       Raul: So the church
+       <<AddPage Church>>
+       Marco: Right
+           -> Library
+           Marco: So the library should have old news
+           Raul: Right... I think we can try talking to Rose
+Raul: So those are all our options.. 
+Marco: Yeah...
 <<jump Ending_Choices>>
 ===
+
 
 title: Ending_Choices
 position: 656,412
 ---
-Raul: Or maybe... 
+<<Hide Raul>>
+<<Act Raul Raul_Con right center blue>>
+Raul: Or maybe... listeng
 <<wait  1>>
-Raul: we can leave.. first thing in the morning...
-Marco: What do you mean? 
+Raul: sigh...
+Raul: We can leave.. first thing in the morning...
+<<Hide Marco>>
+<<Act Marco Marco_Mad left center green>>
+Marco: But you just said we'll keep looking... 
+Raul: I don't want you getting hurt 
 Raul: We can pack our bags and leave town!
-Marco:... 
+<<Hide Marco>>
+<<Act Marco Marco_Relieved left center green>>
+Marco:...
 
 -> We'll go (Leave Town)
-    Marco: We'll go.. 
-    Raul: Alright.. we should pack our bags
-    Marco: ... 
-    Raul: are you sure? 
-    <<jump YourChoice>>
+   Marco: We'll go..
+   Raul: Alright.. we should pack our bags
+   Marco: ...
+   Raul: Are you sure?
+   <<jump YourChoice>>
 -> We can't (Stay in Town)
-    Marco: We can't what about everyone in town... 
-    Raul: Ok 
-    <<jump beginning>>
+   Marco: We can't what about everyone in town...
+   Raul: ...
+   <<jump beginning>>
 ===
+
 
 title: Deserter
 color: blue
@@ -397,61 +495,69 @@ position: 1004,-13
 //<<StopAudioAll>>
 //<<PlayAudio Placeholder>>
 //<<Scene Placeholder>>
-Marco: Ok  
-Marco: Packed... 
-Raul: Same... 
-Marco: First thing? 
+Marco: Ok 
+Marco: Packed...
+Raul: Same...
+Marco: First thing?
 Raul: First thing.
 
+
 The End
-<<Fade black 0.0 1.0 2.0>>
+<<Fade Black 0.0 1.0 2.0>>
 ===
+
 
 title: beginning
 position: 1018,235
 ---
-Marco: Maybe if we look at the clues 
-Raul: You said a cross right... maybe the Church 
-Marco: Alright 
-
-// This is where the Board goes 
-
-Marco: Alright so the church is our lead... 
-Raul: We'll go first thing in the morning 
-Marco: Alright 
+// This is where the Board goes
+Raul: if were gonna do this lets use this old scrap 
+Marco: We have our clues so maybe (Press Q to Open the Board and Q to close it)
+Marco: We have a few places we can follow up on..
+Raul: We can decide where to go in the morning
+Marco: Alright
+Raul: Wanna spend the night?
+Marco: Yeah probably safer
 Raul: Coming to bed? 
-Marco: In a bit.. 
-Raul: Alright 
-//Scene Bathroom Mirror 
-Marco: I can't believe what I saw... 
-Marco: Will others... 
+Marco: In a bit..
+Raul: Alright
+<<Hide Marco>>
+<<Hide Raul>>
+<<Scene Marco_Bathroom_Scene>>
+<<wait  3>>
+<<Act Marco narrator_sprite offleft center green>>
+Marco: I can't believe what I saw...
+Marco: Will others...
+Marco: I swear I'll figure out what happened..
 //<<StopAudioAll>>
 The End for now...
-<<Fade black 0.0 1.0 2.0>>
+<<Fade Black 0.0 1.0 2.0>>
 ===
+
 
 title: YourChoice
 position: 644,143
---- 
--> Go 
-        Marco: I'm sure 
-        Raul: Ok 
-        <<jump Deserter>>
- -> Stay 
-        Marco: I think we should stay it's just everyone in town... 
-        <<jump beginning>>
+---
+-> Go
+       Marco: I'm sure
+       Raul: Ok
+       <<jump Deserter>>
+-> Stay
+       Marco: I think we should stay, it's just everyone in town...
+       Raul: I'm not fully convinced but I don't want you getting hurt..
+       <<jump beginning>>
 ===
 // horizontally flips Marco actor to face Adam
 //<<Flip Marco>>
 // Yarn shortcut choices, an easy way to make branching options
 //Code for me to remember later Tehe :) - Sy
-//-> This lets me make Branching Paths 
+//-> This lets me make Branching Paths
 // hide Adam actor and remove from the scene
-// Stop all sound playback- Stops the Audio 
+// Stop all sound playback- Stops the Audio
 //<<StopAudioAll>>
-//<<PlayAudio music_romantic>>- Way to Change the Audio 
+//<<PlayAudio music_romantic>>- Way to Change the Audio
 //<<StopAudioAll>>
-//Ok so this lets me Flip them and give delays- So wait equals delay time between actions 
+//Ok so this lets me Flip them and give delays- So wait equals delay time between actions
 //<<Flip Marco>>
 //<<wait 1.5>>
 //<<Flip Marco>>

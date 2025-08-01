@@ -34,6 +34,7 @@ namespace GHEvtSystem
     /*** Question Page Signals ***/
     public class SlotUpdate : Event
     {
+        public int question;
         public int clueID;
         public bool unGuessing;
     }
@@ -45,6 +46,7 @@ namespace GHEvtSystem
     }
     public class ToggleMurderBoard : Event {}
     public class NextQuestion : Event {}
+    public class ToggleSettings : Event {}
 
     /*** Mode Manager Signals ***/
     public class ChangeMode : Event
