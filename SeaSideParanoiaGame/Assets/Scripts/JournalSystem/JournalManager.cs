@@ -7,6 +7,7 @@ public class JournalManager : MonoBehaviour
 {
     public List<Clue> items = new List<Clue>();
     public static JournalManager instance;
+    public GameObject journalPopup;
     public delegate void onUpdateJournal();
 
     public int inventorySpace;
@@ -26,6 +27,7 @@ public class JournalManager : MonoBehaviour
     void Start()
     {
         EventDispatcher.Instance.AddListener<FoundClue>(AddClue);
+        journalPopup.SetActive(false);
     }
 
     public void AddClue(FoundClue evt)
@@ -36,7 +38,7 @@ public class JournalManager : MonoBehaviour
             Debug.Log("\"" + evt.clueID + "\" does not exit.");
             return;
         }
-        
+
         if (items.Contains(clue))
         {
             Debug.Log("\"" + evt.clueID + "\" has already been found.");
@@ -44,6 +46,8 @@ public class JournalManager : MonoBehaviour
         }
 
         items.Add(clue);
+        journalPopup.SetActive(true);
+        StartCoroutine(JournalPopupCount());
         MurderBoardSlots.instance.CreateSlot(clue);
         Debug.Log("Found \"" + evt.clueID + "\".");
 
@@ -94,9 +98,14 @@ public class JournalManager : MonoBehaviour
             Debug.Log("Item: " + i.name);
         }
     }
-    
+
     void OnDestroy()
     {
         EventDispatcher.Instance.RemoveListener<FoundClue>(AddClue);
+    }
+    IEnumerator JournalPopupCount()
+    {
+        yield return new WaitForSeconds(2);
+        journalPopup.SetActive(false);
     }
 }

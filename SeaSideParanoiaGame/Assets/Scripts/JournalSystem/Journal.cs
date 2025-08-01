@@ -55,7 +55,7 @@ public class Journal : MonoBehaviour
         }
        
 
-        Debug.Log("Index" + index + " Page Count " + pages.Count);
+       
 
         float angle = 180f;
         StartCoroutine(UpdatePage());
@@ -83,7 +83,7 @@ public class Journal : MonoBehaviour
             float angle1 = Quaternion.Angle(pages[index].rotation, targetRotation);
             if (index == pages.Count - 1)
             {
-                lastPage.SetActive(true);
+                //lastPage.SetActive(true);
             }
             if (index < pages.Count - 1)
             {

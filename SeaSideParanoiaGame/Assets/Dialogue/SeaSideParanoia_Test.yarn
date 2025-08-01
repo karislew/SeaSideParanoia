@@ -50,7 +50,7 @@ position: 375,-488
 <<Destory Mushroom SSP_asset_mushroom_1>>
 <<Destory Flower SSP_asset_daisy_1>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: Was this the poisonous one... or was that the other one...
+Marco: I remember learning about these before I came back to town 
 <<Hide Marco>>
 <<jump Panic>>
 ===
@@ -62,6 +62,7 @@ position: 140,-313
 <<Scene SSP_background_forest_02>>
 <<Act Marco Marco_Neutral left center green>>
 Marco: Alright this seems like a good spot to stop writing things.
+Marco: Let me check my Journal (Press E) 
 Marco: It's getting late...
 Marco: I should probably head back hom-
 //<<Hide Marco>>
@@ -85,13 +86,14 @@ Marco: Right..?
 Marco: Who would be letting out a blood curdling scream in the forest...
 Marco: Two paths from here...
 Marco: Which way should I go...
--> Go left
-   <<jump Path_2>>
--> Go right
-   <<jump Back>>
+//-> Go left
+   //<<jump Path_2>>
+//-> Go right
+   //<<jump Back>>
 //For now to simulate pressing the options
-//<<Clickable Path_1 Path_01_clickable>>
-//<<Clickable Go_Back Empty_Path>>
+<<Clickable Path_1 Path_01_clickable>>
+<<Clickable Go_Back Empty_Path>>
+<<EndDialogue>>
 ===
 
 
@@ -107,33 +109,37 @@ Marco: ...That doesn't seem to be the right way
 
 title: Path_2
 ---
-//<<Destory Go_Back Empty_Path>>
-//<<Destory Path_1 Path_01_clickable>>
+<<Destory Go_Back Empty_Path>>
+<<Destory Path_1 Path_01_clickable>>
 <<Scene SSP_BranchingPath_02>>
 Marco: There's blood and cuts in the wood here...
 <<AddPage Blood>>
 <<AddPage Wood>>
 Marco: ...the footprints aren't animal tracks
 Marco: I should keep going..
--> go..
-   <<jump Path_3>>
-//<<Clickable Path_2 Path_02_clickable>>
+//-> go..
+   //<<jump Path_3>>
+<<Clickable Path_2 Path_02_clickable>>
+<<EndDialogue>>
 ===
 title: Path_3
 ---
+<<Destory Path_2 Path_02_clickable>>
 <<Scene SSP_BranchingPath_03>>
 Marco: It's getting darker..
 <<wait 0.5>>
 Marco: the screaming stopped
--> Keep going..
-   <<jump The_body>>
-//<<Clickable Path_3 Path_03_clickable>>
+//-> Keep going..
+   //<<jump The_body>>
+<<Clickable Path_3 Path_03_clickable>>
+<<EndDialogue>>
 ===
 
 
 title: The_body
 position: -186,-186
 ---
+<<Destory Path_3 Path_03_clickable>>
 <<wait 1>>
 <<Scene SSP_BranchingPath_04>>
 Crack
@@ -342,6 +348,9 @@ Marco: Well shouldn't we try and see what happened, who did it?
 <<Hide Raul>>
 <<Act Raul Raul_Question right center blue>>
 Raul: but there's too many questions Marco!
+Marco: But isn't it weird how something this big went unnoticed? 
+Marco: What if it happens again?
+Raul: ... Listen 
 Raul: Think about it, We don't know who died, Who killed them or If it was even real.. 
 <<Hide Marco>>
 <<Act Marco Marco_Mad left center green>>
@@ -453,7 +462,7 @@ position: 656,412
 ---
 <<Hide Raul>>
 <<Act Raul Raul_Con right center blue>>
-Raul: Or maybe... listen
+Raul: Or maybe... listeng
 <<wait  1>>
 Raul: sigh...
 Raul: We can leave.. first thing in the morning...
@@ -502,8 +511,8 @@ title: beginning
 position: 1018,235
 ---
 // This is where the Board goes
-
-
+Raul: if were gonna do this lets use this old scrap 
+Marco: We have our clues so maybe (Press Q to Open the Board and Q to close it)
 Marco: We have a few places we can follow up on..
 Raul: We can decide where to go in the morning
 Marco: Alright
