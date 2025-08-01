@@ -14,6 +14,7 @@ public enum Mode {
 public class ModeManager : Singleton<ModeManager>
 {
     public Mode initialMode = Mode.Game;
+    [SerializeField] private Mode currentMode;
     private Stack modeHistory = new Stack(5);
 
 
@@ -27,6 +28,7 @@ public class ModeManager : Singleton<ModeManager>
     
     public Mode GetCurrentMode()
     {
+        currentMode = (Mode)modeHistory.Peek();
         return (Mode)modeHistory.Peek();
     }
 
@@ -34,6 +36,7 @@ public class ModeManager : Singleton<ModeManager>
     {
         modeHistory.Push(evt.newMode);
         Debug.Log("changed mode to " + evt.newMode);
+        GetCurrentMode();
     }
 
     void HandleRevertMode(RevertMode evt)
@@ -46,6 +49,7 @@ public class ModeManager : Singleton<ModeManager>
             return;
         }
         modeHistory.Pop();
+        GetCurrentMode();
         Debug.Log("reverted " + evt.modeToRevert + ", new current mode is " + modeHistory.Peek());
     }
 

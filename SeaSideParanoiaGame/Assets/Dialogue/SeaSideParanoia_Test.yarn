@@ -86,13 +86,14 @@ Marco: Right..?
 Marco: Who would be letting out a blood curdling scream in the forest...
 Marco: Two paths from here...
 Marco: Which way should I go...
--> Go left
-   <<jump Path_2>>
--> Go right
-   <<jump Back>>
+//-> Go left
+   //<<jump Path_2>>
+//-> Go right
+   //<<jump Back>>
 //For now to simulate pressing the options
-//<<Clickable Path_1 Path_01_clickable>>
-//<<Clickable Go_Back Empty_Path>>
+<<Clickable Path_1 Path_01_clickable>>
+<<Clickable Go_Back Empty_Path>>
+<<EndDialogue>>
 ===
 
 
@@ -108,33 +109,37 @@ Marco: ...That doesn't seem to be the right way
 
 title: Path_2
 ---
-//<<Destory Go_Back Empty_Path>>
-//<<Destory Path_1 Path_01_clickable>>
+<<Destory Go_Back Empty_Path>>
+<<Destory Path_1 Path_01_clickable>>
 <<Scene SSP_BranchingPath_02>>
 Marco: There's blood and cuts in the wood here...
 <<AddPage Blood>>
 <<AddPage Wood>>
 Marco: ...the footprints aren't animal tracks
 Marco: I should keep going..
--> go..
-   <<jump Path_3>>
-//<<Clickable Path_2 Path_02_clickable>>
+//-> go..
+   //<<jump Path_3>>
+<<Clickable Path_2 Path_02_clickable>>
+<<EndDialogue>>
 ===
 title: Path_3
 ---
+<<Destory Path_2 Path_02_clickable>>
 <<Scene SSP_BranchingPath_03>>
 Marco: It's getting darker..
 <<wait 0.5>>
 Marco: the screaming stopped
--> Keep going..
-   <<jump The_body>>
-//<<Clickable Path_3 Path_03_clickable>>
+//-> Keep going..
+   //<<jump The_body>>
+<<Clickable Path_3 Path_03_clickable>>
+<<EndDialogue>>
 ===
 
 
 title: The_body
 position: -186,-186
 ---
+<<Destory Path_3 Path_03_clickable>>
 <<wait 1>>
 <<Scene SSP_BranchingPath_04>>
 Crack
