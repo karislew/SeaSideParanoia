@@ -111,7 +111,7 @@ title: Path_2
 ---
 <<Destory Go_Back Empty_Path>>
 <<Destory Path_1 Path_01_clickable>>
-<<Scene SSP_BranchingPath_02>>
+<<Scene BranchingPath_02_SSP>>
 Marco: There's blood and cuts in the wood here...
 <<AddPage Blood>>
 <<AddPage Wood>>
