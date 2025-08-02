@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversationStartNode: Distort
-  clue: {fileID: 11400000, guid: 09cfb124ce91deaf89ed9ad4bbb1dac2, type: 2}
+  clue: {fileID: 11400000, guid: 1d73d6e9d15714a29aee4d62b452d717, type: 2}
 --- !u!114 &-5877214093517998874
 MonoBehaviour:
   m_ObjectHideFlags: 0

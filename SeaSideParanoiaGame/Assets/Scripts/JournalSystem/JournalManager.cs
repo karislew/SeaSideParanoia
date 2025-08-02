@@ -105,7 +105,7 @@ public class JournalManager : MonoBehaviour
     }
     IEnumerator JournalPopupCount()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         journalPopup.SetActive(false);
     }
 }

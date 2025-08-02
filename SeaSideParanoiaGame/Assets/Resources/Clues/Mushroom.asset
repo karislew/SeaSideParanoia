@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Mushroom
   id: 7
-  question: 1
+  question: 2
   itemDescription: mushroom fr
-  worldSprite: {fileID: 21300000, guid: 5a60f47b534644e6d9c52821986396e7, type: 3}
+  worldSprite: {fileID: 21300000, guid: 5574b62ec5351472a9e0c50deb192221, type: 3}
   journalPage: {fileID: 21300000, guid: 6b7cfc0498b4e4cf5805950a9897f0c3, type: 3}

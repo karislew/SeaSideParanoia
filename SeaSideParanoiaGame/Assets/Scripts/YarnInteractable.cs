@@ -25,7 +25,11 @@ public class YarnInteractable : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null && clue != null)
         {
-            spriteRenderer.sprite = clue.worldSprite;
+            if (spriteRenderer.sprite == null)
+            {
+                spriteRenderer.sprite = clue.worldSprite;
+            }
+            
         }
     }
     private void StartConversation()

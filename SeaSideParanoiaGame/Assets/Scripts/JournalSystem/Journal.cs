@@ -11,6 +11,7 @@ public class Journal : MonoBehaviour
     int index = -1;
     bool rotate = false;
     public GameObject lastPage;
+    
 
     void Start()
     {
@@ -58,7 +59,8 @@ public class Journal : MonoBehaviour
        
 
         float angle = 180f;
-        StartCoroutine(UpdatePage());
+     
+        StartCoroutine(UpdatePage(true));
         StartCoroutine(Rotate(angle, true));
     }
 
@@ -66,9 +68,11 @@ public class Journal : MonoBehaviour
     {
         if (rotate == true || index < 0) { return; }
         float angle = 0f;
-       
-        StartCoroutine(UpdatePage());
+
+        //pages[index-1].SetAsLastSibling();
+        StartCoroutine(UpdatePage(false));
         StartCoroutine(Rotate(angle, false));
+        
     }
 
     IEnumerator Rotate(float angle, bool forward)
@@ -99,12 +103,32 @@ public class Journal : MonoBehaviour
                 break;
             }
             yield return null;
+
+
         }
+        
+
     }
 
-    IEnumerator UpdatePage() {
+    IEnumerator UpdatePage(bool forward)
+    {
         yield return new WaitForEndOfFrame();
         pages[index].SetAsLastSibling();
+        if (forward)
+        {
+            if (index + 1 < pages.Count)
+            {
+                pages[index + 1].SetAsLastSibling();
+            }
+        }
+        if (!forward)
+        {
+            if (index - 1 >= 0)
+            {
+                pages[index-1].SetAsLastSibling();
+            }
+        }
+       
     }
 
     void OnDestroy() {

@@ -19,7 +19,7 @@ public class JournalUI : MonoBehaviour
         journalUI.SetActive(false);
 
         itemSlots = GetComponentsInChildren<JournalPage>(true);
-        clueSlots = GetComponentsInChildren<CluePage>(true);
+        //clueSlots = GetComponentsInChildren<CluePage>(true);
 
         EventDispatcher.Instance.AddListener<ToggleJournal>(HandleToggleJournal);
     }
@@ -41,8 +41,7 @@ public class JournalUI : MonoBehaviour
 
     void UpdateUI()
     {
-        Debug.Log("getig slots");
-        Debug.Log("itemslots count" +  itemSlots.Length);
+        Debug.Log("Starting to update UI");
         //going through the inventory slots and adding items from the list 
         for (int i = 0; i < itemSlots.Length; i++)
         {
@@ -55,7 +54,17 @@ public class JournalUI : MonoBehaviour
                 itemSlots[i].ClearSlot();
             }
         }
-        for (int i = 0; i < clueSlots.Length; i++)
+        
+
+        Debug.Log("Updated UI");
+    }
+
+    void OnDestroy() {
+
+        EventDispatcher.Instance.RemoveListener<ToggleJournal>(HandleToggleJournal);
+    }
+}
+/*for (int i = 0; i < clueSlots.Length; i++)
         {
             if (i < journal.items.Count)
             {
@@ -66,12 +75,4 @@ public class JournalUI : MonoBehaviour
                 clueSlots[i].ClearSlot();
             }
         }
-
-        Debug.Log("Update that UI");
-    }
-
-    void OnDestroy() {
-
-        EventDispatcher.Instance.RemoveListener<ToggleJournal>(HandleToggleJournal);
-    }
-}
+*/

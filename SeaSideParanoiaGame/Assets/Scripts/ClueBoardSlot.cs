@@ -17,6 +17,7 @@ public class ClueBoardSlot : MonoBehaviour, IDropHandler
         {
             GameObject dropped = eventData.pointerDrag;
             DragItem draggedItem = dropped.GetComponent<DragItem>();
+          
             draggedItem.parentAfterDrag = transform;
             if (correctClue == draggedItem.clue){
                 GHEvtSystem.EventDispatcher.Instance.RaiseEvent<SlotUpdate>(new SlotUpdate

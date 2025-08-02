@@ -529,9 +529,13 @@ Raul: Alright
 Marco: I can't believe what I saw...
 Marco: Will others...
 Marco: I swear I'll figure out what happened..
+Marco: Let me get my thoughts together
 //<<StopAudioAll>>
-The End for now...
+
+
 <<Fade Black 0.0 1.0 2.0>>
+<<MurderBoard>>
+<<EndDialogue>>
 ===
 
 
@@ -547,6 +551,15 @@ position: 644,143
        Raul: I'm not fully convinced but I don't want you getting hurt..
        <<jump beginning>>
 ===
+title: MurderBoard1End
+position: 644,143
+---
+Marco: That seems right
+Marco: I can look for more clues in the morning
+The End for now...
+<<EndDialogue>>
+===
+
 // horizontally flips Marco actor to face Adam
 //<<Flip Marco>>
 // Yarn shortcut choices, an easy way to make branching options

@@ -12,12 +12,14 @@ using GHEvtSystem;
 public class VNManager : DialogueViewBase
 {
     [SerializeField] DialogueRunner runner;
+    public GameObject murderBoard;
 
     [Header("Assets"), Tooltip("you can manually assign various assets here if you don't want to use /Resources/ folder")]
     List<Sprite> loadSprites = new List<Sprite>();
     List<GameObject> loadObjects = new List<GameObject>();
     List<AudioClip> loadAudio = new List<AudioClip>();
     List<Clue> loadClue = new List<Clue>();
+
 
     [Tooltip("if enabled: will automatically load all Sprites and AudioClips in any /Resources/ folder including any subfolders")]
     public bool useResourcesFolders = false;
@@ -72,6 +74,8 @@ public class VNManager : DialogueViewBase
         runner.AddCommandHandler("HideAll", HideAllSprites);
         runner.AddCommandHandler("Reset", ResetScene);
 
+        runner.AddCommandHandler("MurderBoard", MurderBoard);
+
         runner.AddCommandHandler<string, string, string, float>("Move", MoveSprite);
         runner.AddCommandHandler<string, string>("Flip", FlipSprite);
         runner.AddCommandHandler<string, float>("Shake", ShakeSprite);
@@ -116,8 +120,11 @@ public class VNManager : DialogueViewBase
         {
             newMode = Mode.Game
         });
-    } 
-
+    }
+    public void MurderBoard()
+    {
+        murderBoard.SetActive(true);
+    }
     public void SetObject(string actorName, string objectName)
     {
        
