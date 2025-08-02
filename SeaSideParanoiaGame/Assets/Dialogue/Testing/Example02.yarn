@@ -1,0 +1,31 @@
+﻿title: Example02
+tags:
+---
+
+Another example yarn script.
+
+<<Act Louis gl_js left center #ffff00ff>>
+
+Louis: Hello!
+
+Hello, what color is the sky?
+-> green
+    Eggs and Ham?
+    -> Eggs
+        Yum
+    -> Ham
+        Yummy
+-> red
+    Oh lord jesus, it's a fire!
+-> blue
+    yes.
+-> pink
+    sunset.
+-> orange
+    sunrise.
+
+Goodbye!
+
+Louis: see ya!
+
+===
