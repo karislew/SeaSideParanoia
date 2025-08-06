@@ -57,4 +57,11 @@ namespace GHEvtSystem
     {
         public Mode modeToRevert;
     }
+
+    /*** Cursor Controls  ***/
+    public class MoveCursor : Event
+    {
+        public Vector2 amount;
+    }
+    public class GPClick : Event {}
 }

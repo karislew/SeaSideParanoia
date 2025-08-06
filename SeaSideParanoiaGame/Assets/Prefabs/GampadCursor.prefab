@@ -1,0 +1,222 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3139178034957437429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2856269825694331279}
+  - component: {fileID: 6403265904135734758}
+  - component: {fileID: 5290463224697070062}
+  - component: {fileID: 7707511216809599632}
+  - component: {fileID: 88578812354734445}
+  - component: {fileID: 5233063246923761651}
+  m_Layer: 0
+  m_Name: GampadCursor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2856269825694331279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3139178034957437429}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6403265904135734758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3139178034957437429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dbebcbd866214707902704bc3cdcaed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1000
+  playerInput: {fileID: 5290463224697070062}
+  cursorTransform: {fileID: 0}
+  canvasTransform: {fileID: 0}
+  canvas: {fileID: 0}
+  padding: 35
+--- !u!114 &5290463224697070062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3139178034957437429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: c09ca8886c37d530cae59939f85d3856, type: 3}
+  m_NotificationBehavior: 3
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c2aaed49-7b80-4951-85a8-2a19c64934d0
+    m_ActionName: Game/OpenJournal[/Keyboard/e,/Gamepad/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: de18f2a9-1eb7-4a7e-ac4d-7297aaf35c4b
+    m_ActionName: Game/OpenPause[/Keyboard/escape,/Gamepad/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 54dd2941-e791-4a48-869e-ac0efe7df1e5
+    m_ActionName: Game/MoveCursor[/Gamepad/leftStick/up,/Gamepad/leftStick/down,/Gamepad/leftStick/left,/Gamepad/leftStick/right]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5233063246923761651}
+        m_TargetAssemblyTypeName: ControllerInputTest, Assembly-CSharp
+        m_MethodName: GP_SelectObject
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 108f520b-b689-4df3-bc82-35d367cd07ab
+    m_ActionName: Game/SelectObjects[/Gamepad/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7725ee18-5065-4508-ab10-b32b226ffc49
+    m_ActionName: Journal/CloseJournal[/Keyboard/e,/Gamepad/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 44545657-90d9-4062-9d56-fad8201aee06
+    m_ActionName: Journal/PageLeft[/Keyboard/a,/Gamepad/dpad/left]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 59aea0a4-64e5-48a4-9c29-f534d83342c5
+    m_ActionName: Journal/PageRight[/Keyboard/d,/Gamepad/dpad/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 50d1f7e2-57b6-4231-ae09-257fb54bcc57
+    m_ActionName: Pause/ClosePause[/Keyboard/escape,/Gamepad/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0d47ba12-606c-4349-bfce-e8be3a7eac02
+    m_ActionName: Murder Board/CloseMurderBoard[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 72d5e539-adba-419a-a44f-559a5e9d1241
+    m_ActionName: UI/Navigate[/Gamepad/leftStick/up,/Gamepad/rightStick/up,/Gamepad/leftStick/down,/Gamepad/rightStick/down,/Gamepad/leftStick/left,/Gamepad/rightStick/left,/Gamepad/leftStick/right,/Gamepad/rightStick/right,/Gamepad/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a881bcf6-788e-4fbd-b8a7-4725378f40c2
+    m_ActionName: UI/Submit[/Keyboard/enter,/Gamepad/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cbab075f-9f15-402f-b6c4-1e76eaa1cb5e
+    m_ActionName: UI/Cancel[/Keyboard/escape,/Gamepad/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f2ab76a6-9f47-4f1d-b711-18e4ac01a3ac
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0d83c823-e9ad-4bbf-8603-d5d6249760a2
+    m_ActionName: UI/Click[/Mouse/leftButton,/Gamepad/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9b95ca52-0979-4454-970d-044654c82244
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 19dc4745-48ab-44e5-9563-894ce34f2561
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5aac2af4-b6d2-47d3-95fb-1884a8b0d56c
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 723805cc-8992-4fc9-9779-a07976883ab8
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cfc2b4eb-be16-4415-964d-ee7bd3a27d01
+    m_ActionName: UI/TrackedDeviceOrientation
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Game
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &7707511216809599632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3139178034957437429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4b8d93f065d4c31189a68c27e3e5bbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorCaster: {fileID: 88578812354734445}
+--- !u!114 &88578812354734445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3139178034957437429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5126aa8a5b46447d59186700d8b0faba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerCursor: {fileID: 6403265904135734758}
+--- !u!114 &5233063246923761651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3139178034957437429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a60082eefa9106683b38ab1b793a8097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectObject:
+    m_Name: Select Object
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: f969d5b0-3ad7-42ab-bde6-32dda9a9dafd
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  controls: {fileID: 0}

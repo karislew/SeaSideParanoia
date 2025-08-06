@@ -6,7 +6,7 @@ using UnityEngine;
 using Yarn.Unity;
 using GHEvtSystem;
 
-public class YarnInteractable : MonoBehaviour
+public class YarnInteractable : MonoBehaviour, IClickable
 {
     private DialogueRunner dialogueRunner;
     public string conversationStartNode;
@@ -62,7 +62,16 @@ public class YarnInteractable : MonoBehaviour
 
     public void OnMouseDown()
     {
-        
+        OnInteration();
+    }
+
+    public void OnGPClick()
+    {
+        OnInteration();
+    }
+
+    void OnInteration()
+    {
         if (ModeManager.Instance.GetCurrentMode() != Mode.Game)
         {
             Debug.Log("mode is not Game, FoundClue and StartConversation will not be triggered");
