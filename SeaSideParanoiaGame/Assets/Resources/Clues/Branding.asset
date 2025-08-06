@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Branding
   id: 2
-  question: 0
+  question: 1
   itemDescription: 
-  worldSprite: {fileID: 21300000, guid: 3e53a1c604bb84dfebcdd7695f342372, type: 3}
+  worldSprite: {fileID: 21300000, guid: 6c7dffeb7cab143bb9db861e53e3379c, type: 3}
   journalPage: {fileID: 21300000, guid: 329bff4bb313e4e43b00400ddcbc058a, type: 3}

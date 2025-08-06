@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Bus
   id: 3
-  question: 0
+  question: 1
   itemDescription: 
   worldSprite: {fileID: 21300000, guid: 5a3ce8a160cc84d7493716e1d6ceeb5e, type: 3}
   journalPage: {fileID: 21300000, guid: ef992f5be6be74d07b293f9b685701f7, type: 3}

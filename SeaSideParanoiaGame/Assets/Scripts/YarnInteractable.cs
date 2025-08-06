@@ -81,8 +81,9 @@ public class YarnInteractable : MonoBehaviour
             
         }
 
-        if (interactable && !dialogueRunner.IsDialogueRunning)
+        if (interactable && !dialogueRunner.IsDialogueRunning && (!string.IsNullOrEmpty(conversationStartNode)))
         {
+            Debug.Log("Pleak");
             EventDispatcher.Instance.RaiseEvent<ChangeMode>(new ChangeMode
             {
                 newMode = Mode.Dialogue

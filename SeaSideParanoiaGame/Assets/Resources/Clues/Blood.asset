@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Blood
   id: 1
-  question: 0
+  question: 1
   itemDescription: 
   worldSprite: {fileID: 21300000, guid: 9e13c6d24317c41c68031d1c2e850473, type: 3}
   journalPage: {fileID: 21300000, guid: 2484d9ad03d954a86991bc9bd35eec96, type: 3}

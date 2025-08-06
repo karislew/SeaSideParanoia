@@ -50,7 +50,7 @@ position: 375,-488
 <<Destory Mushroom SSP_asset_mushroom_1>>
 <<Destory Flower SSP_asset_daisy_1>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: I remember learning about these before I came back to town 
+Marco: I remember learning about these before I came back to town..
 <<Hide Marco>>
 <<jump Panic>>
 ===
@@ -80,17 +80,12 @@ Marco: Maybe I should go check it out...
 title: Forest_Maze
 position: 420,-248
 ---
-<<Scene BranchingPath_SSP_01>>
+<<Scene SSP_BranchingPath_01>>
 Marco: It's probably nothing...
 Marco: Right..?
 Marco: Who would be letting out a blood curdling scream in the forest...
 Marco: Two paths from here...
 Marco: Which way should I go...
-//-> Go left
-   //<<jump Path_2>>
-//-> Go right
-   //<<jump Back>>
-//For now to simulate pressing the options
 <<Clickable Path_1 Path_01_clickable>>
 <<Clickable Go_Back Empty_Path>>
 <<EndDialogue>>
@@ -100,10 +95,9 @@ Marco: Which way should I go...
 title: Back
 ---
 Marco: ...That doesn't seem to be the right way
--> Go back
-   <<jump Path_2>>
-//<<Destory Go_Back Empty_Path>>
-//<<Clickable Path_1 Path_01_clickable>>
+<<Destory Go_Back Empty_Path>>
+<<Clickable Path_1 Path_01_clickable>>
+<<EndDialogue>>
 ===
 
 
@@ -111,14 +105,12 @@ title: Path_2
 ---
 <<Destory Go_Back Empty_Path>>
 <<Destory Path_1 Path_01_clickable>>
-<<Scene BranchingPath_02_SSP>>
+<<Scene SSP_BranchingPath_02>>
 Marco: There's blood and cuts in the wood here...
 <<AddPage Blood>>
 <<AddPage Wood>>
 Marco: ...the footprints aren't animal tracks
 Marco: I should keep going..
-//-> go..
-   //<<jump Path_3>>
 <<Clickable Path_2 Path_02_clickable>>
 <<EndDialogue>>
 ===
@@ -129,8 +121,6 @@ title: Path_3
 Marco: It's getting darker..
 <<wait 0.5>>
 Marco: the screaming stopped
-//-> Keep going..
-   //<<jump The_body>>
 <<Clickable Path_3 Path_03_clickable>>
 <<EndDialogue>>
 ===
@@ -144,12 +134,12 @@ position: -186,-186
 <<Scene SSP_BranchingPath_04>>
 Crack
 Marco: Is that...
--> Go deeper
-   <<jump Found_Body>>
-//<<Clickable Path_4 Path_04_clickable>>
+<<Clickable Path_4 Path_04_clickable>>
+<<EndDialogue>>
 ===
 title: Found_Body
 ---
+<<Destory Path_4 Path_04_clickable>>
 <<Scene SSP_background_forest_04>>
 Marco: a body!
 Marco: This can't be real...
@@ -201,10 +191,10 @@ Raul: Marco, maybe you saw some things?
     <<Act Raul Raul_Skeptic right center blue>>
     Raul: Show me..
     <<Hide Marco>>
-->Please believe me!
+->Why won't you believe me!
     <<Hide Marco>>
     <<Act Marco Marco_Mad left center green>>
-    Marco: Please believe me!
+    Marco: Why won't you believe me!
     Raul: Listen it sounds crazy but I wanna believe you so..
     Raul: Show me where..
     Marco: Thank you...
@@ -250,16 +240,22 @@ Raul:...
     <<Act Marco Marco_Relieved left center green>>
    Raul: Marco.. I can't see anything
    Raul: Can you... describe the body
-
+<<jump Dead>>
+===
 //<<PlayAudio Placeholder>>
 //This is where the point and click distortion and body scene starts
-<<Clickable Branding Dead>>
+title: Dead
+---
+<<Scene SSP_Deadbody_view>>
+<<Clickable Glassses Dead_Glasses_clickable>>
+<<Clickable Stab Dead_Stab_clickable>>
 <<EndDialogue>>
 ===
 title: Distort
 position: -266,3
 ---
-<<Destory Branding Dead>>
+<<Destory Glasses Dead_Glasses_clickable>>
+<<Destory Stab Dead_Stab_clickable>>
 <<Scene BG_nobody>>
 <<Act Marco Marco_Dereal left center green>>
 <<Act Raul Raul_Skeptic right center blue>>
@@ -370,89 +366,58 @@ Raul: Maybe there's a third option?
 ===
 
 title: Debrief
-position: 406,434
+position: 338,217
 ---
 <<Hide Marco>>
 <<Act Marco Marco_Think left center green>>
 <<Hide Raul>>
 <<Act Raul Raul_Question right center blue>>
-Marco: Right so
-->Library
-   Marco: So the library should have old news
-   Raul: Right... I think we can try talking to Rose 
-   -> Branding
-       Marco: The branding looked like a cross
-       Raul: So the church
-       <<AddPage Church>>
-       -> Third Option
-           Marco: What's the third option? 
-           Raul: We can check around the forest maybe the Bus Stop
-           Marco: The Bus Stop?
-           <<AddPage Bus>>
-           Raul: Maybe they were hoping on a Bus out of here?
-           Raul: And the stop's pretty close to the Forest.. maybe there's clues?
-   -> Third Option
-       Marco: What's the third option 
-       Raul: We can check around the forest maybe the Bus Stop
-       Marco: The Bus Stop?
-       <<AddPage Bus>>
-       Raul: Maybe they were hoping on a Bus out of here?
-       Raul: And the stop's pretty close to the Forest.. maybe there's clues?
-       -> Branding
-           Marco: The branding looked like a cross
-           Raul: So the church
-           <<AddPage Church>>
-->Branding
-   Marco: The branding looked like a cross
-   Raul: So the church
-   <<AddPage Church>>
-   ->Library
-       Marco: So the library should have old news
-       Raul: Right... I think we can try talking to Rose for the records
-       -> Third Option
-           Marco: What's the third option 
-           Raul: We can check around the forest maybe the Bus Stop
-           Marco: The Bus Stop?
-           <<AddPage Bus>>
-           Raul: Maybe they were hoping on a Bus out of here? 
-           Raul: And the stop's pretty close to the Forest.. maybe there's clues?
-   ->Third Option
-       Marco: What's the third option 
-       Raul: We can check around the forest maybe the Bus Stop
-       Marco: The Bus Stop?
-       <<AddPage Bus>>
-       Raul: Maybe they were hoping on a Bus Stop
-       Raul: And the stop's pretty close to the Forest.. maybe there's clues?
-       ->Library
-           Marco: So the library should have old news
-           Raul: Right... I think we can try talking to Rose
-->Third Option?
-   Marco: What's the third option 
-   Raul: We can check around the forest maybe the Bus Stop
-   Marco: The Bus Stop?
-   <<AddPage Bus>>
-   Raul: Maybe they were hoping on a Bus Stop
-   Raul: And the stop's pretty close to the Forest.. maybe there's clues?
-   Marco: Ok
-   -> Library
-       Marco: So the library should have old news
-       Raul: Right... I think we can try talking to Rose
-       Marco: Right
-           -> Branding
-           Marco: The branding looked like a cross
-           Raul: So the church
-           <<AddPage Church>>
-           Marco: Right
-   -> Branding
-       Marco: The branding looked like a cross
-       Raul: So the church
-       <<AddPage Church>>
-       Marco: Right
-           -> Library
-           Marco: So the library should have old news
-           Raul: Right... I think we can try talking to Rose
-Raul: So those are all our options.. 
-Marco: Yeah...
+<<Clickable Library Library_Button>>
+<<EndDialogue>>
+===
+
+title: Library
+position: 349,402
+---
+<<Destory Library Library_Button>>
+<<Hide Marco>>
+<<Act Marco Marco_Think left center green>>
+<<Hide Raul>>
+<<Act Raul Raul_Question right center blue>>
+Marco: So the library should have old news
+Raul: Right... I think we can try talking to Rose 
+Marco: Maybe we can find a common pattern on why whoever is doing this...
+<<Clickable Church Church_Button>>
+<<EndDialogue>>
+===
+title: Church
+position: 349,541
+---
+<<Destory Church Church_Button>>
+<<Hide Marco>>
+<<Act Marco Marco_Think left center green>>
+<<Hide Raul>>
+<<Act Raul Raul_Question right center blue>>
+Marco: The branding looked like a cross maybe? 
+Raul: So the church could be a lead on our culprit 
+<<AddPage Church>>
+<<Clickable Bus_Stop Bus_Stop_Button>>
+<<EndDialogue>>
+===
+title: Bus_Stop
+position: 351,675
+---
+<<Destory Bus_Stop Bus_Stop_Button>>
+<<Hide Marco>>
+<<Act Marco Marco_Think left center green>>
+<<Hide Raul>>
+<<Act Raul Raul_Question right center blue>>
+Marco: What's the third option 
+Raul: We can check around the forest maybe the Bus Stop
+Marco: The Bus Stop?
+<<AddPage Bus>>
+Raul: Maybe they were hoping on a Bus Stop
+Raul: And the stop's pretty close to the Forest.. maybe there's clues? 
 <<jump Ending_Choices>>
 ===
 
@@ -462,24 +427,27 @@ position: 656,412
 ---
 <<Hide Raul>>
 <<Act Raul Raul_Con right center blue>>
-Raul: Or maybe... listeng
+<<Hide Marco>>
+<<Act Marco Marco_Think left center green>>
+Raul: So those are all our options.. 
+Raul: Or maybe... listen
 <<wait  1>>
 Raul: sigh...
 Raul: We can leave.. first thing in the morning...
 <<Hide Marco>>
 <<Act Marco Marco_Mad left center green>>
 Marco: But you just said we'll keep looking... 
-Raul: I don't want you getting hurt 
-Raul: We can pack our bags and leave town!
+Raul: I don't want you.. I don't want us getting hurt 
+Raul: We can just pack our bags and leave town!
 <<Hide Marco>>
 <<Act Marco Marco_Relieved left center green>>
 Marco:...
 
 -> We'll go (Leave Town)
    Marco: We'll go..
-   Raul: Alright.. we should pack our bags
+   Raul: We should pack our bags
    Marco: ...
-   Raul: Are you sure?
+   Raul: You look like you don't wanna.. Are you sure?
    <<jump YourChoice>>
 -> We can't (Stay in Town)
    Marco: We can't what about everyone in town...
@@ -501,7 +469,7 @@ Raul: Same...
 Marco: First thing?
 Raul: First thing.
 
-
+<<Scene Deserter_Scene>>
 The End
 <<Fade Black 0.0 1.0 2.0>>
 ===
@@ -510,9 +478,32 @@ The End
 title: beginning
 position: 1018,235
 ---
-// This is where the Board goes
-Raul: if were gonna do this lets use this old scrap 
-Marco: We have our clues so maybe (Press Q to Open the Board and Q to close it)
+Raul: If we're gonna do this let's use this old scrap..
+Marco: What happened? and Possible leads
+<<Fade Black 0.0 1.0 2.0>>
+<<MurderBoard>>
+<<EndDialogue>>
+===
+
+
+title: YourChoice
+position: 644,143
+---
+-> Go
+       Marco: I'm sure
+       Raul: Ok
+       <<jump Deserter>>
+-> Stay
+       Marco: I think we should stay, it's just everyone in town...
+       Raul: I'm not fully convinced it's real and if it is I don't want you getting hurt..
+       <<jump beginning>>
+===
+title: MurderBoard1End
+position: 644,143
+---
+<<Scene Hallway>>
+<<Act Marco Marco_Relieved left center green>>
+<<Act Raul Raul_Con right center blue>>
 Marco: We have a few places we can follow up on..
 Raul: We can decide where to go in the morning
 Marco: Alright
@@ -530,33 +521,6 @@ Marco: I can't believe what I saw...
 Marco: Will others...
 Marco: I swear I'll figure out what happened..
 Marco: Let me get my thoughts together
-//<<StopAudioAll>>
-
-
-<<Fade Black 0.0 1.0 2.0>>
-<<MurderBoard>>
-<<EndDialogue>>
-===
-
-
-title: YourChoice
-position: 644,143
----
--> Go
-       Marco: I'm sure
-       Raul: Ok
-       <<jump Deserter>>
--> Stay
-       Marco: I think we should stay, it's just everyone in town...
-       Raul: I'm not fully convinced but I don't want you getting hurt..
-       <<jump beginning>>
-===
-title: MurderBoard1End
-position: 644,143
----
-Marco: That seems right
-Marco: I can look for more clues in the morning
-The End for now...
 <<EndDialogue>>
 ===
 

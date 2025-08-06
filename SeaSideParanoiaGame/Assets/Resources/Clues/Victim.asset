@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Victim
   id: 8
-  question: 1
+  question: 0
   itemDescription: a dead body...
   worldSprite: {fileID: 21300000, guid: 2ea65407ee87146d7a065ecc6650e571, type: 3}
   journalPage: {fileID: 21300000, guid: 3e53a1c604bb84dfebcdd7695f342372, type: 3}
