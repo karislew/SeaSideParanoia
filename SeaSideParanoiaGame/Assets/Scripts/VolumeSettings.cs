@@ -13,6 +13,7 @@ public class VolumeSettings : MonoBehaviour
     [SerializeField] private Slider masterSlider;
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider sfxSlider;
+    [SerializeField] private Slider ypSlider;
 
 
     void Start()
@@ -20,10 +21,12 @@ public class VolumeSettings : MonoBehaviour
         masterSlider.value = initialVolumeMaster;
         bgmSlider.value = initialVolumeBGM;
         sfxSlider.value = initialVolumeSFX;
+        ypSlider.value = initialVolumeSFX;
 
         myMixer.SetFloat("VolumeMaster", Mathf.Log10(initialVolumeMaster)*20);
         myMixer.SetFloat("VolumeBGM", Mathf.Log10(initialVolumeBGM)*20);
         myMixer.SetFloat("VolumeSFX", Mathf.Log10(initialVolumeSFX)*20);
+        myMixer.SetFloat("VolumeYP", Mathf.Log10(initialVolumeSFX)*20);
     }
 
 
@@ -32,9 +35,11 @@ public class VolumeSettings : MonoBehaviour
         float volumeMaster = masterSlider.value;
         float volumeBGM = bgmSlider.value;
         float volumeSFX = sfxSlider.value;
+        float volumeYP = ypSlider.value;
 
         myMixer.SetFloat("VolumeMaster", Mathf.Log10(volumeMaster)*20);
         myMixer.SetFloat("VolumeBGM", Mathf.Log10(volumeBGM)*20);
         myMixer.SetFloat("VolumeSFX", Mathf.Log10(volumeSFX)*20);
+        myMixer.SetFloat("VolumeYP", Mathf.Log10(volumeYP)*20);
     }
 }
