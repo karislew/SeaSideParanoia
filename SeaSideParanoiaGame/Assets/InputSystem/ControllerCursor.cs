@@ -60,7 +60,7 @@ public class ControllerCursor : Singleton<ControllerCursor>
 
         InputSystem.onAfterUpdate += UpdateMotion;
         playerInput.onControlsChanged += OnControlsChanged;
-        Debug.Log("virtual mouse enabled");
+        //Debug.Log("virtual mouse enabled");
     }
 
     void OnDisable()
@@ -103,7 +103,6 @@ public class ControllerCursor : Singleton<ControllerCursor>
         }
 
         AnchorCursor(newPosition);
-
         HandleRaycasting();
     }
 
@@ -145,11 +144,18 @@ public class ControllerCursor : Singleton<ControllerCursor>
         RaycastHit hit = cursorCaster.Cast();
         Transform hitTransform = hit.transform;
 
+        if (hitTransform != null)
+        {
+            Debug.Log("hit");
+        }
+
         if (previousHit == null && hitTransform != null)
         {
+            Debug.Log("does this print?");
             // TODO: sent GPEnter signal
             if(hitTransform.TryGetComponent(out IEnterable gpinterface))
             {
+                Debug.Log("Entered " + hitTransform.gameObject.name);
                 gpinterface.OnGPEnter();
             }
         }
@@ -158,6 +164,7 @@ public class ControllerCursor : Singleton<ControllerCursor>
             // TODO: send GPExit signal
             if(previousHit.TryGetComponent(out IExitable gpinterface))
             {
+                Debug.Log("Exited " + hitTransform.gameObject.name);
                 gpinterface.OnGPExit();
             }
         }
@@ -166,6 +173,7 @@ public class ControllerCursor : Singleton<ControllerCursor>
             // TODO: send GPHover signal
             if(hitTransform.TryGetComponent(out IHoverable gpinterface))
             {
+                Debug.Log("Hovering " + hitTransform.gameObject.name);
                 gpinterface.OnGPHover();
             }
         }

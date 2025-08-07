@@ -3,27 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class dummy : MonoBehaviour, IPointerEnterHandler
+public class dummy : MonoBehaviour, IClickable, IEnterable, IExitable, IHoverable
 {
-    // Start is called before the first frame update
-    void Start()
+    public void OnGPClick()
     {
-        
+        Debug.Log("Clicked " + gameObject.name);
     }
-
-    // Update is called once per frame
-    void Update()
+    public void OnGPEnter()
     {
-        
+        Debug.Log("Entered " + gameObject.name);
     }
-
-    public void OnPointerEnter(PointerEventData pointerEventData)
+    public void OnGPHover()
     {
-        Debug.Log("hi");
+        Debug.Log("Hovering " + gameObject.name);
     }
-
-    public void Something()
+    public void OnGPExit()
     {
-        Debug.Log("ih");
+        Debug.Log("Exited " + gameObject.name);
     }
 }

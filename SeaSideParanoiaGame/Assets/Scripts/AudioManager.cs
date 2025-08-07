@@ -52,5 +52,20 @@ public class AudioManager : Singleton<AudioManager>
         source.loop = s.loop;
 
         source.Play();
+        Debug.Log("playing " + s.name);
+    }
+
+    public void StopBGM()
+    {
+        bgmSource.Stop();
+    }
+    public void StopSFX()
+    {
+        sfxSource.Stop();
+    }
+    public void StopAll()
+    {
+        StopBGM();
+        StopSFX();
     }
 }
