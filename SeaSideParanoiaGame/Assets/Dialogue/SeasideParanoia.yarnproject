@@ -1,4 +1,4 @@
-﻿{
+{
   "projectFileVersion": 2,
   "sourceFiles": [
     "**/*.yarn"
@@ -6,7 +6,11 @@
   "excludeFiles": [
     "**/*~/*"
   ],
-  "localisation": {},
+  "localisation": {
+    "en": {
+      "assets": "SFX Speech"
+    }
+  },
   "baseLanguage": "en",
   "compilerOptions": {}
 }

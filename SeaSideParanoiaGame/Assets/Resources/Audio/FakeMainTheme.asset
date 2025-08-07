@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FakeMainTheme
   m_EditorClassIdentifier: 
   type: 0
-  clip: {fileID: 8300000, guid: 1f9607a7d89d843439ab1d3467d2f54a, type: 3}
-  volume: 0.3
+  clip: {fileID: 8300000, guid: e9ec0b0fdc6e640dab538752c5aaaaf5, type: 3}
+  volume: 0
   pitch: 1
   loop: 1
