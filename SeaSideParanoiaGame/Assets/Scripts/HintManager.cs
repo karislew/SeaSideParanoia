@@ -11,9 +11,6 @@ public class HintManager : MonoBehaviour
    [SerializeField] GameObject hintImage;
     private bool hintShowing =false;
 
-    [SerializeField]
-    private ControllerCursor controllerCursor;
-
     private void Awake()
     {
         if (instance != null)
@@ -35,7 +32,7 @@ public class HintManager : MonoBehaviour
     void Update()
     {
      
-        transform.position = controllerCursor.GetPosition();
+        transform.position = ControllerCursor.Instance.GetPosition();
         //transform.position = cam.ScreenToWorldPoint(Input.mousePosition);
         //Debug.Log(transform.position);
 

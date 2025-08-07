@@ -3,23 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Hint : MonoBehaviour
+public class Hint : MonoBehaviour, IEnterable, IExitable
 {
-   // Start is called before the first frame update
-   
+    // Start is called before the first frame update
 
+    private void OnMouseEnter()
+    {
+        CallShowHint();
+    }
+    private void OnMouseExit()
+    {
+        CallHideHint();
+    }
 
-   private void OnMouseEnter()
-   {
-       
-       HintManager.instance.ShowHint();
+    public void OnGPEnter()
+    {
+        CallShowHint();
+    }
+    public void OnGPExit()
+    {
+        CallHideHint();
+    }
 
-
-   }
-   private void OnMouseExit()
-   {
-       HintManager.instance.HideHint();
-   }
-
-
+    private void CallShowHint()
+    {
+        HintManager.instance.ShowHint();
+    }
+    private void CallHideHint()
+    {
+        HintManager.instance.HideHint();
+    }
 }

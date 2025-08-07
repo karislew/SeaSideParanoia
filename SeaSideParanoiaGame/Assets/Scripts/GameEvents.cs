@@ -64,4 +64,7 @@ namespace GHEvtSystem
         public Vector2 amount;
     }
     public class GPClick : Event {}
+    public class GPStartDrag : Event {}
+    public class GPDrag : Event {}
+    public class GPEndDrag : Event {}
 }

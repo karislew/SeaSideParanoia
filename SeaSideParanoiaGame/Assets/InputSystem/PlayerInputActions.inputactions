@@ -307,6 +307,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Drag",
+                    "type": "Button",
+                    "id": "164c7fc4-ae03-4bf5-9a68-cf55501c9e73",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -318,6 +327,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SelectClue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1b3d1509-d228-44b3-af60-355fbb972221",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Drag",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

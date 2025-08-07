@@ -30,21 +30,6 @@ public class ClickableCaster : MonoBehaviour
         Cast();
     }
 
-    /* TODO
-    Call this function when cursor collider detects collision
-
-    void HandleGPHover(GPHover evt)
-    {
-        RaycastHit hit = cursorCaster.Cast();
-        Transform hitTransform = hit.transform;
-
-        if(hitTransform != null && hitTransform.TryGetComponent(out IClickable clickable))
-        {
-            clickable.OnGPHover();
-        }
-    }
-    */
-
     void OnDestroy()
     {
         EventDispatcher.Instance.RemoveListener<GPClick>(HandleGPClick);

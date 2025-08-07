@@ -329,6 +329,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drag"",
+                    ""type"": ""Button"",
+                    ""id"": ""164c7fc4-ae03-4bf5-9a68-cf55501c9e73"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -340,6 +349,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SelectClue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1b3d1509-d228-44b3-af60-355fbb972221"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Drag"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -958,6 +978,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         // Murder Board
         m_MurderBoard = asset.FindActionMap("Murder Board", throwIfNotFound: true);
         m_MurderBoard_SelectClue = m_MurderBoard.FindAction("SelectClue", throwIfNotFound: true);
+        m_MurderBoard_Drag = m_MurderBoard.FindAction("Drag", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1210,11 +1231,13 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_MurderBoard;
     private List<IMurderBoardActions> m_MurderBoardActionsCallbackInterfaces = new List<IMurderBoardActions>();
     private readonly InputAction m_MurderBoard_SelectClue;
+    private readonly InputAction m_MurderBoard_Drag;
     public struct MurderBoardActions
     {
         private @PlayerInputActions m_Wrapper;
         public MurderBoardActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @SelectClue => m_Wrapper.m_MurderBoard_SelectClue;
+        public InputAction @Drag => m_Wrapper.m_MurderBoard_Drag;
         public InputActionMap Get() { return m_Wrapper.m_MurderBoard; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1227,6 +1250,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SelectClue.started += instance.OnSelectClue;
             @SelectClue.performed += instance.OnSelectClue;
             @SelectClue.canceled += instance.OnSelectClue;
+            @Drag.started += instance.OnDrag;
+            @Drag.performed += instance.OnDrag;
+            @Drag.canceled += instance.OnDrag;
         }
 
         private void UnregisterCallbacks(IMurderBoardActions instance)
@@ -1234,6 +1260,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @SelectClue.started -= instance.OnSelectClue;
             @SelectClue.performed -= instance.OnSelectClue;
             @SelectClue.canceled -= instance.OnSelectClue;
+            @Drag.started -= instance.OnDrag;
+            @Drag.performed -= instance.OnDrag;
+            @Drag.canceled -= instance.OnDrag;
         }
 
         public void RemoveCallbacks(IMurderBoardActions instance)
@@ -1407,6 +1436,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     public interface IMurderBoardActions
     {
         void OnSelectClue(InputAction.CallbackContext context);
+        void OnDrag(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

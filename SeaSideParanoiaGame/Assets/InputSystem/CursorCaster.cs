@@ -21,9 +21,9 @@ public class CursorCaster : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray;
-        if (controllerCursor.IsGamepadScheme())
+        if (ControllerCursor.Instance.IsGamepadScheme())
         {
-            ray = mainCamera.ScreenPointToRay(controllerCursor.GetVirtualMousePosition());
+            ray = mainCamera.ScreenPointToRay(ControllerCursor.Instance.GetVirtualMousePosition());
         }
         else
         {

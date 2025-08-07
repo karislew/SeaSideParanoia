@@ -56,4 +56,24 @@ public class ControllerInputTest : MonoBehaviour
         // TODO
         EventDispatcher.Instance.RaiseEvent<GPClick>(new GPClick {});
     }
+
+    public void Drag(InputAction.CallbackContext context)
+    {
+        if (context.action.name != "Drag")
+        {
+            return;
+        }
+
+        if (context.started)
+        {
+            EventDispatcher.Instance.RaiseEvent<GPStartDrag>(new GPStartDrag {});
+        } else if (context.performed)
+        {
+            EventDispatcher.Instance.RaiseEvent<GPDrag>(new GPDrag {});
+        }
+        else if (context.canceled)
+        {
+            EventDispatcher.Instance.RaiseEvent<GPEndDrag>(new GPEndDrag {});
+        }
+    }
 }

@@ -7,7 +7,7 @@ using UnityEngine.InputSystem.Users;
 using UnityEngine.InputSystem.LowLevel;
 
 
-public class ControllerCursor : MonoBehaviour
+public class ControllerCursor : Singleton<ControllerCursor>
 {
     [SerializeField]
     private float speed = 1000;
@@ -21,6 +21,8 @@ public class ControllerCursor : MonoBehaviour
     private Canvas canvas;
     [SerializeField]
     private float padding = 35f;
+    [SerializeField]
+    private CursorCaster cursorCaster;
 
     //private Collider2D collider;
     private Mouse virtualMouse;
@@ -31,6 +33,8 @@ public class ControllerCursor : MonoBehaviour
     private string previousControlScheme = "";
     private const string gamepadScheme = "Gamepad";
     private const string keyboardMouseScheme = "Keyboard+Mouse";
+
+    private Transform previousHit = null;
 
     void OnEnable()
     {
@@ -99,6 +103,8 @@ public class ControllerCursor : MonoBehaviour
         }
 
         AnchorCursor(newPosition);
+
+        HandleRaycasting();
     }
 
     void AnchorCursor(Vector2 position)
@@ -132,6 +138,39 @@ public class ControllerCursor : MonoBehaviour
             AnchorCursor(currentMouse.position.ReadValue());
             previousControlScheme = gamepadScheme;
         }
+    }
+
+    void HandleRaycasting()
+    {
+        RaycastHit hit = cursorCaster.Cast();
+        Transform hitTransform = hit.transform;
+
+        if (previousHit == null && hitTransform != null)
+        {
+            // TODO: sent GPEnter signal
+            if(hitTransform.TryGetComponent(out IEnterable gpinterface))
+            {
+                gpinterface.OnGPEnter();
+            }
+        }
+        else if (previousHit != null && hitTransform == null)
+        {
+            // TODO: send GPExit signal
+            if(previousHit.TryGetComponent(out IExitable gpinterface))
+            {
+                gpinterface.OnGPExit();
+            }
+        }
+        else if (previousHit == hitTransform && hitTransform != null)
+        {
+            // TODO: send GPHover signal
+            if(hitTransform.TryGetComponent(out IHoverable gpinterface))
+            {
+                gpinterface.OnGPHover();
+            }
+        }
+        
+        previousHit = hitTransform;
     }
 
     public bool IsGamepadScheme()
