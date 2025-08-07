@@ -46,7 +46,7 @@ namespace GHEvtSystem
     }
     public class ToggleMurderBoard : Event {}
     public class NextQuestion : Event {}
-    public class ToggleSettings : Event {}
+    public class TogglePause : Event {}
 
     /*** Mode Manager Signals ***/
     public class ChangeMode : Event

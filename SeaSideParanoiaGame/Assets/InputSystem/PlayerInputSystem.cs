@@ -16,7 +16,7 @@ public class PlayerInputSystem : MonoBehaviour
         playerInput.onActionTriggered += ToggleJournal;
         playerInput.onActionTriggered += PageLeft;
         playerInput.onActionTriggered += PageRight;
-        playerInput.onActionTriggered += ToggleSettings;
+        playerInput.onActionTriggered += TogglePause;
     }
     
     public void ToggleJournal(InputAction.CallbackContext context) {
@@ -24,8 +24,6 @@ public class PlayerInputSystem : MonoBehaviour
         {
             return;
         }
-
-        Debug.Log("hello");
 
         EventDispatcher.Instance.RaiseEvent<ToggleJournal>(new ToggleJournal { });
 
@@ -72,7 +70,7 @@ public class PlayerInputSystem : MonoBehaviour
             return;
         }
         
-        EventDispatcher.Instance.RaiseEvent<ToggleSettings>(new ToggleSettings { });
+        EventDispatcher.Instance.RaiseEvent<TogglePause>(new TogglePause { });
         if (playerInput.currentActionMap.name.Equals("Game")) {
             EventDispatcher.Instance.RaiseEvent<ChangeMode>(new ChangeMode
             {
@@ -86,9 +84,5 @@ public class PlayerInputSystem : MonoBehaviour
             });
             playerInput.SwitchCurrentActionMap("Game");
         }
-    }
-
-    public void ToggleSettings(InputAction.CallbackContext context) {
-        // TODO: delete?
     }
 }
