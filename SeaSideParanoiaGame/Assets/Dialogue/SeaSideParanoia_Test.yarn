@@ -12,16 +12,18 @@ position: 137,-554
 <<Scene ForestScene_01>>
 // start playing audioclip "ambient_birds" at 50% volume, loop forever
 //<<PlayAudio PlaceHolder 0.5 loop>>
-// Can Change volume by 0.5=50 0.20% and to loop just put loop at end
+// Can Change volume by 0.5=50 0.20% and to loop just put loop at end 
+// Adding talking, #line: 
+// Marco talking - marco_talk_(long/medium/short)
 
 
 Prologue
 // adds actor named "Eve" using sprite "cool-girl", placed in left-half + center of screen, with green text label
 <<Act Marco Marco_Think left center green>>
-Marco: Which should I sketch?
+Marco: Which should I sketch? #line:marco_talk_medium
 //<<AddPage Missing_Person>>
 //<<AddPage Victim>>
-Marco: Maybe...
+Marco: Maybe... #line:marco_talk_short
 <<Hide Marco>>
 <<Clickable Mushroom SSP_asset_mushroom_1>>
 <<Clickable Flower SSP_asset_daisy_1>>
@@ -36,7 +38,7 @@ position: -88,-458
 <<Destory Mushroom SSP_asset_mushroom_1>>
 <<Destory Flower SSP_asset_daisy_1>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: I remember giving Raul a daisy on our first date... I wonder if he still has it?
+Marco: I remember giving Raul a daisy on our first date... I wonder if he still has it? #line:marco_talk_long
 
 
 <<Hide Marco>>
@@ -50,7 +52,7 @@ position: 375,-488
 <<Destory Mushroom SSP_asset_mushroom_1>>
 <<Destory Flower SSP_asset_daisy_1>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: I remember learning about these before I came back to town..
+Marco: I remember learning about these before I came back to town.. 
 <<Hide Marco>>
 <<jump Panic>>
 ===
