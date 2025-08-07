@@ -38,7 +38,7 @@ position: -88,-458
 <<Destory Mushroom SSP_asset_mushroom_1>>
 <<Destory Flower SSP_asset_daisy_1>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: I remember giving Raul a daisy on our first date... I wonder if he still has it? #line:marco_talk_long
+Marco: I remember giving Raul a daisy on our first date... I wonder if he still has it? #line:marco_talk_medium_1
 
 
 <<Hide Marco>>
@@ -52,7 +52,7 @@ position: 375,-488
 <<Destory Mushroom SSP_asset_mushroom_1>>
 <<Destory Flower SSP_asset_daisy_1>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: I remember learning about these before I came back to town.. 
+Marco: I remember learning about these before I came back to town.. #line:marco_talk_medium_2
 <<Hide Marco>>
 <<jump Panic>>
 ===
@@ -63,18 +63,18 @@ position: 140,-313
 ---
 <<Scene SSP_background_forest_02>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: Alright this seems like a good spot to stop writing things.
-Marco: Let me check my Journal (Press E) 
-Marco: It's getting late...
-Marco: I should probably head back hom-
+Marco: Alright this seems like a good spot to stop writing things. #line:marco_talk_long_1
+Marco: Let me check my Journal (Press E) #line:marco_talk_medium_3
+Marco: It's getting late... #line:marco_talk_short_1
+Marco: I should probably head back hom- #line:marco_talk_medium_4
 //<<Hide Marco>>
 <<Hide Marco>>
 <<Act Marco Marco_Shocked left center green>>
 ???: AHHHHHHHH!
 <<Shake Marco>>
-Marco: What was that?!
-Marco: Was that a scream?!
-Marco: Maybe I should go check it out...
+Marco: What was that?! #line:marco_talk_short_2
+Marco: Was that a scream?! #line:marco_talk_short_3
+Marco: Maybe I should go check it out... #line:marco_talk_short_4
 <<jump Forest_Maze>>
 ===
 
@@ -83,11 +83,11 @@ title: Forest_Maze
 position: 420,-248
 ---
 <<Scene SSP_BranchingPath_01>>
-Marco: It's probably nothing...
-Marco: Right..?
-Marco: Who would be letting out a blood curdling scream in the forest...
-Marco: Two paths from here...
-Marco: Which way should I go...
+Marco: It's probably nothing... #line:marco_talk_short_5
+Marco: Right..? #line:marco_talk_short_6
+Marco: Who would be letting out a blood curdling scream in the forest... #line:marco_talk_medium_5
+Marco: Two paths from here... #line:marco_talk_short_7
+Marco: Which way should I go... #line:marco_talk_short_8
 <<Clickable Path_1 Path_01_clickable>>
 <<Clickable Go_Back Empty_Path>>
 <<EndDialogue>>
@@ -96,7 +96,7 @@ Marco: Which way should I go...
 
 title: Back
 ---
-Marco: ...That doesn't seem to be the right way
+Marco: ...That doesn't seem to be the right way #line:marco_talk_medium_6
 <<Destory Go_Back Empty_Path>>
 <<Clickable Path_1 Path_01_clickable>>
 <<EndDialogue>>
@@ -108,11 +108,11 @@ title: Path_2
 <<Destory Go_Back Empty_Path>>
 <<Destory Path_1 Path_01_clickable>>
 <<Scene SSP_BranchingPath_02>>
-Marco: There's blood and cuts in the wood here...
+Marco: There's blood and cuts in the wood here... #line:marco_talk_short_9
 <<AddPage Blood>>
 <<AddPage Wood>>
-Marco: ...the footprints aren't animal tracks
-Marco: I should keep going..
+Marco: ...the footprints aren't animal tracks #line:marco_talk_medium_7
+Marco: I should keep going.. #line:marco_talk_short_10
 <<Clickable Path_2 Path_02_clickable>>
 <<EndDialogue>>
 ===
@@ -120,9 +120,9 @@ title: Path_3
 ---
 <<Destory Path_2 Path_02_clickable>>
 <<Scene SSP_BranchingPath_03>>
-Marco: It's getting darker..
+Marco: It's getting darker.. #line:marco_talk_short_11
 <<wait 0.5>>
-Marco: the screaming stopped
+Marco: the screaming stopped #line:marco_talk_short_12
 <<Clickable Path_3 Path_03_clickable>>
 <<EndDialogue>>
 ===
@@ -135,7 +135,7 @@ position: -186,-186
 <<wait 1>>
 <<Scene SSP_BranchingPath_04>>
 Crack
-Marco: Is that...
+Marco: Is that... #line:marco_talk_smoll_1
 <<Clickable Path_4 Path_04_clickable>>
 <<EndDialogue>>
 ===
@@ -143,16 +143,16 @@ title: Found_Body
 ---
 <<Destory Path_4 Path_04_clickable>>
 <<Scene SSP_background_forest_04>>
-Marco: a body!
-Marco: This can't be real...
-Marco: This... This can't be real
+Marco: a body! #line:marco_talk_smoll_2
+Marco: This can't be real... #line:marco_talk_short_13
+Marco: This... This can't be real #line:marco_talk_short_14
 <<Hide Marco>>
 <<Act Marco Marco_Sick left center green>>
-Marco: I feel sick..
-Marco: Who would do this...
-Marco: Why Why..
+Marco: I feel sick.. #line:marco_talk_short_15
+Marco: Who would do this... #line:marco_talk_short_16
+Marco: Why Why.. #line:marco_talk_smoll_3
 Crack
-Marco: What was that?
+Marco: What was that? 
 <<Shake Marco>>
 Marco: I need to go...
 //<<StopAudioAll>>
