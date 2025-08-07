@@ -11,15 +11,16 @@ public class AudioManager : Singleton<AudioManager>
     public Sound[] sounds;
 
     // Start is called before the first frame update
-    void Start()
+    public override void Awake()
     {
+        base.Awake();
         DontDestroyOnLoad(gameObject);
 
         //source = GetComponent<AudioSource>();
         sounds = Resources.LoadAll<Sound>(path);
 
         // TODO: add main theme to play on game start
-        Play("MainTheme");
+        //Play("MainTheme");
     }
 
     public void Play(string name)
