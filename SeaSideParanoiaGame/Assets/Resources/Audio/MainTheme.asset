@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 832bb0409ab738b789cf49ecf1f58190, type: 3}
-  m_Name: FakeMainTheme
+  m_Name: MainTheme
   m_EditorClassIdentifier: 
   type: 0
   clip: {fileID: 8300000, guid: e9ec0b0fdc6e640dab538752c5aaaaf5, type: 3}
-  volume: 0
+  volume: 0.2
   pitch: 1
   loop: 1

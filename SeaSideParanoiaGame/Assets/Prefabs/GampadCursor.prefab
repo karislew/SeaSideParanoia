@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7707511216809599632}
   - component: {fileID: 88578812354734445}
   - component: {fileID: 5233063246923761651}
+  - component: {fileID: 2044860346438993593}
   m_Layer: 0
   m_Name: GampadCursor
   m_TagString: Untagged
@@ -54,6 +55,7 @@ MonoBehaviour:
   canvasTransform: {fileID: 0}
   canvas: {fileID: 0}
   padding: 35
+  cursorCaster: {fileID: 88578812354734445}
 --- !u!114 &5290463224697070062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,13 +212,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a60082eefa9106683b38ab1b793a8097, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectObject:
-    m_Name: Select Object
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: f969d5b0-3ad7-42ab-bde6-32dda9a9dafd
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  controls: {fileID: 0}
+--- !u!114 &2044860346438993593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3139178034957437429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd16c315885591b0c9788ad3e4ae2deb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

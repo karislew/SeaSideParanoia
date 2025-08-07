@@ -19,7 +19,7 @@ public class AudioManager : Singleton<AudioManager>
         sounds = Resources.LoadAll<Sound>(path);
 
         // TODO: add main theme to play on game start
-        Play("FakeMainTheme");
+        Play("MainTheme");
     }
 
     public void Play(string name)

@@ -6,6 +6,7 @@ public class MainMenu : MonoBehaviour
 {
     public void StartGame()
     {
+        AudioManager.Instance.StopBGM();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void QuitGame()
