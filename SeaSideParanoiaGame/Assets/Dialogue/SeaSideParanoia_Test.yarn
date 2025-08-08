@@ -522,10 +522,12 @@ Raul: Alright #line:raul_talk_smoll_7
 <<PlayAudio Ending_bgm 1.0 loop>>
 <<wait  3>>
 <<Act Marco narrator_sprite offleft center green>>
-Marco: I can't believe what I saw... #line:marco_talk_short_53 
-Marco: Will others... #line:marco_talk_smoll_11 
-Marco: I swear I'll figure out what happened.. #line:marco_talk_short_54 
+Marco: I can't believe what I saw... #line:0f66218 
+Marco: Will others... #line:05c4f18 
+Marco: I swear I'll figure out what happened.. #line:07bbbf1 
+<<wait  1.5>>
 <<EndDialogue>>
+<<ResetGame>>
 ===
 
 // horizontally flips Marco actor to face Adam

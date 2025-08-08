@@ -8,6 +8,7 @@ using System.Data.Common;
 using UnityEngine.Rendering;
 using System.ComponentModel;
 using GHEvtSystem;
+using UnityEngine.SceneManagement;
 
 public class VNManager : DialogueViewBase
 {
@@ -73,6 +74,7 @@ public class VNManager : DialogueViewBase
         runner.AddCommandHandler<string>("Hide", HideSprite);
         runner.AddCommandHandler("HideAll", HideAllSprites);
         runner.AddCommandHandler("Reset", ResetScene);
+        runner.AddCommandHandler("ResetGame", ResetGame);
 
         runner.AddCommandHandler("MurderBoard", MurderBoard);
 
@@ -125,9 +127,13 @@ public class VNManager : DialogueViewBase
     {
         murderBoard.SetActive(true);
     }
+    public void ResetGame()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
     public void SetObject(string actorName, string objectName)
     {
-       
+
 
         foreach (GameObject obj in loadObjects)
         {
