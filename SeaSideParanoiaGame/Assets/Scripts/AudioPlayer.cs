@@ -1,18 +1,38 @@
 using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class AudioPlayer : MonoBehaviour, IClickable, IEnterable
+public class AudioPlayer : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IClickable, IEnterable
 {
+    public Sound bgm;
     public Sound clickSFX;
     public Sound enterSFX;
-    
+
+    void Start()
+    {
+        if (bgm == null)
+        {
+            return;
+        }
+
+        AudioManager.Instance.Play(bgm.name);
+    }
+
     void OnMouseDown()
     {
         PlayClickSFX();
     }
     void OnMouseEnter()
     {
-        Debug.Log("hellp");
+        PlayEnterSFX();
+    }   
+    
+    public void OnPointerDown(PointerEventData evt)
+    {
+        PlayClickSFX();
+    }
+    public void OnPointerEnter(PointerEventData evt)
+    {
         PlayEnterSFX();
     }   
 
@@ -22,7 +42,6 @@ public class AudioPlayer : MonoBehaviour, IClickable, IEnterable
     }
     public void OnGPEnter()
     {
-        Debug.Log("hellp");
         PlayEnterSFX();
     }
 
