@@ -524,7 +524,7 @@ Raul: Alright #line:raul_talk_smoll_7
 Marco: I can't believe what I saw... #line:marco_talk_short_56 
 Marco: Will others... #line:marco_talk_short_57 
 Marco: I swear I'll figure out what happened.. #line:marco_talk_short_58 
-<<wait  1.5>>
+<<wait  2.0>>
 <<EndDialogue>>
 <<ResetGame>>
 ===
