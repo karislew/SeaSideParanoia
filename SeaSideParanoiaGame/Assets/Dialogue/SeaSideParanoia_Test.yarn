@@ -22,6 +22,7 @@ Prologue #line:06a070d
 // adds actor named "Eve" using sprite "cool-girl", placed in left-half + center of screen, with green text label
 <<Act Marco Marco_Think left center green>>
 Marco: Which should I sketch? #line:marco_talk_medium
+To click press the left mouse button and A on the Gamepad, to move around use the game stick or mouse
 //<<AddPage Missing_Person>>
 //<<AddPage Victim>>
 Marco: Maybe... #line:marco_talk_short
@@ -65,14 +66,17 @@ position: 140,-313
 <<Scene SSP_background_forest_02>>
 <<Act Marco Marco_Neutral left center green>>
 Marco: Alright this seems like a good spot to stop writing things. #line:marco_talk_long_1
-Marco: Let me check my Journal (Press E) #line:marco_talk_medium_3
+Marco: Let me check my Journal #line:marco_talk_medium_3
+(Press E on Keyboard and Y on Controller, to flip pages press A & D and left and right on the D-pad)
 Marco: It's getting late... #line:marco_talk_short_1
 Marco: I should probably head back hom- #line:marco_talk_medium_4
 //<<Hide Marco>>
 <<Hide Marco>>
 <<Act Marco Marco_Shocked left center green>>
-<<StopAudioAll>>
+<<StopAudioAll>> 
+<<Act ??? narrator_sprite center center red>>
 ???: AHHHHHHHH! #line:Scream_04
+<<Hide ???>>
 <<Shake Marco>>
 Marco: What was that?! #line:marco_talk_short_2
 Marco: Was that a scream?! #line:marco_talk_short_3
@@ -86,21 +90,13 @@ position: 420,-248
 ---
 <<Scene SSP_BranchingPath_01>>
 <<PlayAudio Snowstorm_bgm 1.0 loop>>
+<<Hide Marco>>
+<<Act Marco Marco_Nervous left center green>>
 Marco: It's probably nothing... #line:marco_talk_short_5
 Marco: Right..? #line:marco_talk_short_6
 Marco: Who would be letting out a blood curdling scream in the forest... #line:marco_talk_medium_5
-Marco: Two paths from here... #line:marco_talk_short_7
-Marco: Which way should I go... #line:marco_talk_short_8
-<<Clickable Path_1 Path_01_clickable>>
-<<Clickable Go_Back Empty_Path>>
-<<EndDialogue>>
-===
-
-
-title: Back
----
-Marco: ...That doesn't seem to be the right way #line:marco_talk_medium_6
-<<Destory Go_Back Empty_Path>>
+Marco: It seems something happened from here... #line:marco_talk_short_7
+Marco: Breathe Marco.. #line:marco_talk_short_8
 <<Clickable Path_1 Path_01_clickable>>
 <<EndDialogue>>
 ===
@@ -108,10 +104,11 @@ Marco: ...That doesn't seem to be the right way #line:marco_talk_medium_6
 
 title: Path_2
 ---
-<<Destory Go_Back Empty_Path>>
 <<Destory Path_1 Path_01_clickable>>
 <<Scene SSP_BranchingPath_02>>
 Marco: There's blood and cuts in the wood here... #line:marco_talk_short_9
+<<Hide Marco>>
+<<Act Marco Marco_Shocked left center green>>
 <<AddPage Blood>>
 <<AddPage Wood>>
 Marco: ...the footprints aren't animal tracks #line:marco_talk_medium_7
@@ -302,9 +299,11 @@ title: Hallway_Hearsay
 position: -221,489
 ---
 Knock Knock Knock #line:Knock 
+<<Act ??? narrator_sprite center center magenta>>
 ???: Marco, Raul? #line:rose_talk_short 
 Marco: Hey... Ms. Rose  #line:marco_talk_short_30 
-<<Act Rose Rose_Neut center center pink>>
+<<Hide Rose>>
+<<Act Rose Rose_Neut center center magenta>>
 Rose: Are you boys alright? I heard some hurried footsteps in the hall #line:rose_talk_medium 
 Marco: ...Um #line:marco_talk_short_31 
 Raul: Yeah we're ok.. #line:raul_talk_short_13 
@@ -312,15 +311,15 @@ Raul: Yeah we're ok.. #line:raul_talk_short_13
 <<Act Raul Raul_Skeptic right center blue>>
 <<wait  1>>
 Marco: Have you heard of anyone going missing lately #line:marco_talk_medium_13 
+<<Hide Rose>>
+<<Act Rose Rose_Con center center magenta>>
 Rose: Missing people...? #line:rose_talk_short_1 
 Rose: Now why would you go asking about that? #line:rose_talk_short_2
-<<Hide Rose>>
-<<Act Rose Rose_Con center center pink>>
-Rose: You sure nothin happened?? #line:rose_talk_short_3
+Rose: You sure nothin happened? #line:rose_talk_short_3
 Marco: Oh Um! #line:marco_talk_smoll_10 
 Raul: Yeah we're just wondering #line:raul_talk_short_14 
 <<Hide Rose>>
-<<Act Rose Rose_Neut center center pink>>
+<<Act Rose Rose_Neut center center magenta>>
 Rose: I haven't heard of anyone going missing lately #line:rose_talk_short_4 
 Rose: But I think you can go to the Library and check out old news articles..  #line:rose_talk_medium_1 
 Rose: Come by sometime and I can show you #line:rose_talk_medium_2
@@ -519,7 +518,7 @@ Raul: Alright #line:raul_talk_smoll_7
 <<Hide Marco>>
 <<Hide Raul>>
 <<Scene Marco_Bathroom_Scene>>
-<<PlayAudio Ending_bgm 1.0 loop>>
+<<PlayAudio ending_bgm 1.0 loop>>
 <<wait  3>>
 <<Act Marco narrator_sprite offleft center green>>
 Marco: I can't believe what I saw... #line:marco_talk_short_56 
