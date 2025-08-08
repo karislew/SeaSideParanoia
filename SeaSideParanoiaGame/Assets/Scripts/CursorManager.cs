@@ -26,7 +26,7 @@ public class CursorManager : MonoBehaviour
         {
             thisImage.sprite = pencil;
         }
-        if (currentMode == "Game")
+        if (currentMode == "Game" || currentMode == "Dialogue")
         {
             thisImage.sprite = game;
         }
