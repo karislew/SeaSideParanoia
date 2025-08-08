@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using GHEvtSystem;
+using System.Runtime.Serialization;
 
 public class PlayerInputSystem : MonoBehaviour
 {
-    private PlayerInput playerInput; 
+    private PlayerInput playerInput;
+    [SerializeField] Journal journalObject;
 
     void Start() {
         playerInput = GetComponent<PlayerInput>();
@@ -24,7 +26,11 @@ public class PlayerInputSystem : MonoBehaviour
         {
             return;
         }
-
+        if (journalObject != null && journalObject.rotate)
+        {
+            Debug.Log("The page is still rotating fool");
+            return;
+        }
         EventDispatcher.Instance.RaiseEvent<ToggleJournal>(new ToggleJournal { });
 
         if (playerInput.currentActionMap.name.Equals("Game")) {

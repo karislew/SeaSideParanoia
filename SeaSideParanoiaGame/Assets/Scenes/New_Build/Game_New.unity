@@ -1106,6 +1106,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2044860346438993593, guid: 30d1e1e1d577d3c42ba6ecb50c3bcc38, type: 3}
+      propertyPath: journalObject
+      value: 
+      objectReference: {fileID: 973784862}
     - target: {fileID: 2856269825694331279, guid: 30d1e1e1d577d3c42ba6ecb50c3bcc38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1939,6 +1943,7 @@ GameObject:
   - component: {fileID: 317893922}
   - component: {fileID: 317893924}
   - component: {fileID: 317893923}
+  - component: {fileID: 317893925}
   m_Layer: 5
   m_Name: GP_Cursor
   m_TagString: Untagged
@@ -2003,6 +2008,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 317893921}
   m_CullTransparentMesh: 1
+--- !u!114 &317893925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317893921}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d06ef578043d4e8bb8525bddf75edb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  modeManager: {fileID: 490772109}
+  pencil: {fileID: 21300000, guid: e218cce4796fd4dcbac2a2b2b43268f6, type: 3}
+  game: {fileID: 21300000, guid: ca5b267455a62c6ffa19b7c0c44cb70b, type: 3}
+  murderBoard: {fileID: 21300000, guid: 8b16a7ebf2eb64f52bc32b339f72385d, type: 3}
 --- !u!1 &323495040
 GameObject:
   m_ObjectHideFlags: 0
@@ -2260,7 +2281,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -780, y: 540}
+  m_AnchoredPosition: {x: -779.99994, y: 540}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &330084434
@@ -2475,6 +2496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsParent: {fileID: 0}
   journalUI: {fileID: 605333074}
+  journalObject: {fileID: 973784862}
 --- !u!1 &350813964
 GameObject:
   m_ObjectHideFlags: 0
@@ -2835,6 +2857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsParent: {fileID: 0}
   journalUI: {fileID: 0}
+  journalObject: {fileID: 0}
 --- !u!114 &396894884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6464,6 +6487,7 @@ MonoBehaviour:
   - {fileID: 453004026}
   - {fileID: 652848950}
   - {fileID: 385114684}
+  rotate: 0
   lastPage: {fileID: 823611562}
 --- !u!1 &978456835
 GameObject:

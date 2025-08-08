@@ -14,7 +14,7 @@ public enum Mode {
 public class ModeManager : Singleton<ModeManager>
 {
     public Mode initialMode = Mode.Game;
-    [SerializeField] private Mode currentMode;
+    [SerializeField] public Mode currentMode;
     private Stack modeHistory = new Stack(5);
 
 

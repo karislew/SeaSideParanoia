@@ -9,7 +9,7 @@ public class Journal : MonoBehaviour
 
     public List<Transform> pages;
     int index = -1;
-    bool rotate = false;
+    public bool rotate = false;
     public GameObject lastPage;
     
 

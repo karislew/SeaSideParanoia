@@ -12,6 +12,8 @@ public class JournalUI : MonoBehaviour
     CluePage[] clueSlots;
     public GameObject journalUI;
 
+    [SerializeField] Journal journalObject;
+
     void Start()
     {
         journal = JournalManager.instance;
@@ -26,7 +28,12 @@ public class JournalUI : MonoBehaviour
 
     void HandleToggleJournal(ToggleJournal evt)
     {
-        if (journalUI.activeSelf == true)
+        if (journalObject != null && journalObject.rotate)
+        {
+            Debug.Log("I SAIDD the journal is still rotating");
+            return;
+        }
+        if (journalUI.activeSelf)
         {
             // to deselect all board slots
             EventDispatcher.Instance.RaiseEvent<StateChangeResponse>(new StateChangeResponse
