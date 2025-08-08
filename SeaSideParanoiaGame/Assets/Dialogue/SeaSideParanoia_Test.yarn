@@ -291,7 +291,6 @@ Marco: I feel sick.. #line:marco_talk_smoll_9
 Raul: We should go #line:raul_talk_short_10 
 <<StopAudioAll>>
 <<Scene Hallway>>
-<<PlayAudio Apartment_bgm 1.0 loop>>
 <<Hide Marco>>
 <<Act Marco Marco_Nervous left center green>>
 Raul: Back home... #line:raul_talk_short_11 
