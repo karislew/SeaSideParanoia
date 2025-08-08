@@ -207,7 +207,7 @@ Raul: Marco, maybe you saw some things? #line:raul_talk_medium
 
 //Could start adding If stuff here but we'll talk later
 //<<PlayAudio Placeholder>>
-<<Scene SSP_background_forest_04>>
+<<Scene SSP_BranchingPath_01>>
 <<Hide Marco>>
 <<Act Marco Marco_Relieved left center green>>
 Marco: Cmon It's just up ahead #line:marco_talk_short_24 
