@@ -25,7 +25,6 @@ position: 137,-554
 <<Act Marco Marco_Think left center green>>
 Marco: Which should I Sketch #line:marco_talk_medium
 To click press the left mouse button or press A on the Gamepad, to move around use the game stick or mouse
-<<Fade Black 0.0 1.0 2.0>>
 //<<AddPage Missing_Person>>
 //<<AddPage Victim>>
 Marco: Maybe... #line:marco_talk_short
@@ -44,8 +43,6 @@ position: -88,-458
 <<Destory Flower SSP_asset_daisy_1>>
 <<Act Marco Marco_Neutral left center green>>
 Marco: I remember giving Raul a daisy on our first date... I wonder if he still has it? #line:marco_talk_medium_1
-
-
 <<Hide Marco>>
 <<jump Panic>>
 ===
@@ -172,7 +169,7 @@ Marco: I need to go to Raul's.. #line:marco_talk_short_19
 <<Act Marco Marco_Panic left center green>>
 Marco: Raul! Raul! Wake up #line:marco_talk_short_20 
 <<Act Raul Raul_Static right center blue>>
-Raul: Baby! What! What Happened? #line:raul_talk_short
+Raul: Marco! What! What Happened? #line:raul_talk_short
 <<Shake Marco>>
 Marco: There was... #line:marco_talk_short_21
 <<Hide Raul>>
