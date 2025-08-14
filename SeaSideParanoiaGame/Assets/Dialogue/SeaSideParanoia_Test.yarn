@@ -165,7 +165,7 @@ Marco: This can't be happening... #line:marco_talk_short_18
 Marco: I need to go to Raul's.. #line:marco_talk_short_19 
 //<<PlayAudio Placeholder>>
 <<Hide Marco>>
-<<Scene Hallway>>
+<<Scene hallway_bg>>
 <<Act Marco Marco_Panic left center green>>
 Marco: Raul! Raul! Wake up #line:marco_talk_short_20 
 <<Act Raul Raul_Static right center blue>>
@@ -289,7 +289,7 @@ Marco:...
 Marco: Who killed them #line:marco_talk_smoll_9 
 Raul: We should go #line:raul_talk_short_10 
 <<StopAudioAll>>
-<<Scene Hallway>>
+<<Scene livingroom_bg>>
 <<Hide Marco>>
 <<Act Marco Marco_Nervous left center green>>
 Raul: Marco you should sit down on the couch #line:raul_talk_short_11 
