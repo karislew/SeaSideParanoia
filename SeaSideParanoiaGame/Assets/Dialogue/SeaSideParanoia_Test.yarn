@@ -487,6 +487,7 @@ position: 1018,235
 Raul: Fine... If we're gonna do this let's use this old scrap.. #line:raul_talk_medium_12 
 Marco: What happened? and Possible leads #line:marco_talk_short_48 
 //<<Fade Black 0.0 1.0 2.0>>
+//<<Credits>>
 <<MurderBoard>>
 <<EndDialogue>>
 ===
@@ -529,7 +530,8 @@ Marco: Will others... #line:marco_talk_short_57
 Marco: I swear I'll figure out what happened.. #line:marco_talk_short_58 
 <<wait  2.0>>
 <<EndDialogue>>
-<<ResetGame>>
+<<Credits>>
+//<<ResetGame>>
 ===
 
 // horizontally flips Marco actor to face Adam

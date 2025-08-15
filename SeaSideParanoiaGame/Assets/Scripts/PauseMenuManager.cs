@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GHEvtSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseMenuManager : MonoBehaviour
 {
@@ -28,6 +29,10 @@ public class PauseMenuManager : MonoBehaviour
         
         // TODO: remove, was only for testing :)
         AudioManager.Instance.Play("Sound01");
+    }
+    public void GotoStartScreen()
+    {
+        SceneManager.LoadScene("StartScene");
     }
 
     public void GoToSettings()
