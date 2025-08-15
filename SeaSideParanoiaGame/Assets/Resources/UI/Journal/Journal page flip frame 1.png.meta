@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,7 +95,406 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Journal page flip frame 1_0
+      rect:
+        serializedVersion: 2
+        x: 2165
+        y: 5487
+        width: 5
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23c4f2d803a534186b970e3d6887489e
+      internalID: -206332558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_1
+      rect:
+        serializedVersion: 2
+        x: 2197
+        y: 5487
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7edc6b76d995446a1a0aa2a184397d43
+      internalID: -759896245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_2
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 2091
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff208977ba7764d309533b1fe4638eea
+      internalID: -2124039162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_3
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 653
+        width: 6746
+        height: 4727
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 8, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d6d164525b8e47eaa8386a98f2b5da2
+      internalID: -745780080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_4
+      rect:
+        serializedVersion: 2
+        x: 3294
+        y: 467
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f79bbfb820e3749a0876e632148acca8
+      internalID: 599151064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_5
+      rect:
+        serializedVersion: 2
+        x: 3315
+        y: 457
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e16ffee0cc2bc45d8a9e8f45e9673cc9
+      internalID: -377063428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_6
+      rect:
+        serializedVersion: 2
+        x: 3407
+        y: 467
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2caecddd5e1db43a59c98969b2ceca2f
+      internalID: -1974128955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_7
+      rect:
+        serializedVersion: 2
+        x: 3431
+        y: 468
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22a900509e2ed48fd924181ffa5d3615
+      internalID: 740117133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_8
+      rect:
+        serializedVersion: 2
+        x: 3255
+        y: 457
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a757c638b8a5462cb1c7740fdb0853f
+      internalID: -2068076129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_9
+      rect:
+        serializedVersion: 2
+        x: 3340
+        y: 450
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2e9d839e77f44470a04d2c13e087dfa
+      internalID: 1315092049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_10
+      rect:
+        serializedVersion: 2
+        x: 3431
+        y: 450
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abba1189138324646b35752ce41543e6
+      internalID: -2134606893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_11
+      rect:
+        serializedVersion: 2
+        x: 3508
+        y: 453
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b70569102f4b4248b82fa048098145a
+      internalID: 1037236845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_12
+      rect:
+        serializedVersion: 2
+        x: 3333
+        y: 439
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46bcec0b9343041ea897dc7f0cf473ce
+      internalID: 847019559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_13
+      rect:
+        serializedVersion: 2
+        x: 3365
+        y: 446
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec1a9008ff8fd4e57b9a81f52bbecf75
+      internalID: 2122416744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_14
+      rect:
+        serializedVersion: 2
+        x: 3392
+        y: 446
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 708a9a43fae124160875c5ed7b02ab37
+      internalID: 804942755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_15
+      rect:
+        serializedVersion: 2
+        x: 3407
+        y: 449
+        width: 17
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5876200a29aed4a06b73a8ed87a2f2ab
+      internalID: 910870389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_16
+      rect:
+        serializedVersion: 2
+        x: 3449
+        y: 446
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba17e6aca7d8d411ba67498ac7ed4f68
+      internalID: -796242098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_17
+      rect:
+        serializedVersion: 2
+        x: 3473
+        y: 439
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b476518b2da741b2aacb55a29d0aac5
+      internalID: 839206277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Journal page flip frame 1_18
+      rect:
+        serializedVersion: 2
+        x: 3494
+        y: 432
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d753ebacd519f48aa9ef1cb501ed1ea1
+      internalID: 1082216006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +505,26 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Journal page flip frame 1_0: -206332558
+      Journal page flip frame 1_1: -759896245
+      Journal page flip frame 1_10: -2134606893
+      Journal page flip frame 1_11: 1037236845
+      Journal page flip frame 1_12: 847019559
+      Journal page flip frame 1_13: 2122416744
+      Journal page flip frame 1_14: 804942755
+      Journal page flip frame 1_15: 910870389
+      Journal page flip frame 1_16: -796242098
+      Journal page flip frame 1_17: 839206277
+      Journal page flip frame 1_18: 1082216006
+      Journal page flip frame 1_2: -2124039162
+      Journal page flip frame 1_3: -745780080
+      Journal page flip frame 1_4: 599151064
+      Journal page flip frame 1_5: -377063428
+      Journal page flip frame 1_6: -1974128955
+      Journal page flip frame 1_7: 740117133
+      Journal page flip frame 1_8: -2068076129
+      Journal page flip frame 1_9: 1315092049
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

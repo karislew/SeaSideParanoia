@@ -9,6 +9,7 @@ using UnityEngine.Rendering;
 using System.ComponentModel;
 using GHEvtSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class VNManager : DialogueViewBase
 {
@@ -20,6 +21,8 @@ public class VNManager : DialogueViewBase
     List<GameObject> loadObjects = new List<GameObject>();
     List<AudioClip> loadAudio = new List<AudioClip>();
     List<Clue> loadClue = new List<Clue>();
+    public VideoPlayer videoPlayer;
+    public GameObject creditPlayer;
 
 
     [Tooltip("if enabled: will automatically load all Sprites and AudioClips in any /Resources/ folder including any subfolders")]
@@ -75,6 +78,7 @@ public class VNManager : DialogueViewBase
         runner.AddCommandHandler("HideAll", HideAllSprites);
         runner.AddCommandHandler("Reset", ResetScene);
         runner.AddCommandHandler("ResetGame", ResetGame);
+        runner.AddCommandHandler("Credits", PlayCredits);
 
         runner.AddCommandHandler("MurderBoard", MurderBoard);
 
@@ -131,6 +135,12 @@ public class VNManager : DialogueViewBase
     {
         SceneManager.LoadScene("StartScene");
     }
+    public void PlayCredits()
+    {
+        creditPlayer.SetActive(true);
+        videoPlayer.Play();
+    }
+     
     public void SetObject(string actorName, string objectName)
     {
 
