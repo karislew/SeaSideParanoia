@@ -63,7 +63,7 @@ Marco: Me and Raul saw a lot of these on our hike, it was a fun date #line:marco
 title: Panic
 position: 140,-313
 ---
-<<Scene SSP_background_forest_02>>
+<<Scene baseforest_bg>>
 <<Act Marco Marco_Neutral left center green>>
 Marco: Alright this seems like a good journal page. #line:marco_talk_long_1
 Marco: Let me stop here.. probably should head back to my place #line:marco_talk_medium_3
@@ -142,7 +142,7 @@ Marco: Is that... #line:marco_talk_smoll_1
 title: Found_Body
 ---
 <<Destory Path_4 Path_04_clickable>>
-<<Scene SSP_background_forest_04>>
+<<Scene deadbody_bg>>
 Marco: A body! #line:marco_talk_smoll_2
 Marco: This can't be real... #line:marco_talk_short_13
 Marco: This... This can't be real #line:marco_talk_short_14
@@ -215,9 +215,9 @@ Raul:... #line:062f422
 
 
 //<<Scene SSP_background_forest_05>>
-<<Scene SSP_background_forest_05>>
+<<Scene alterstate_bg>>
 Marco: See it's right there! #line:marco_talk_short_26 
-<<Scene BG_nobody>>
+<<Scene nothing_bg>>
 <<Hide Marco>>
 <<Hide Raul>>
 <<wait  3>>
@@ -226,8 +226,8 @@ Raul: Marco.. there's nothing there.. #line:raul_talk_medium_2
 <<Act Marco Marco_Panic left center green>>
 Marco: What? #line:marco_talk_smoll_6 
 Marco: It's.... It's right there I can see it #line:marco_talk_medium_10 
-<<Scene SSP_background_forest_05>>
-Raul:... #line:06fda1c 
+<<Scene alterstate_bg>>
+Raul:...  
 
 
 ->Please, I swear it's right here... 
