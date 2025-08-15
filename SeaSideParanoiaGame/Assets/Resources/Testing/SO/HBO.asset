@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: HBO
   m_EditorClassIdentifier: 
   name: HBO Max
+  id: -2
+  question: 0
   itemDescription: 
   worldSprite: {fileID: 21300000, guid: b932f8b93f2c6bd608b7b79e72081845, type: 3}
   journalPage: {fileID: 21300000, guid: b932f8b93f2c6bd608b7b79e72081845, type: 3}
-  connections:
-  - {fileID: 11400000, guid: e60bcfe1c29b119ec9c3180a408e1567, type: 2}

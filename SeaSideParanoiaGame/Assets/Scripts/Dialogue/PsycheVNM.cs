@@ -4,14 +4,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Yarn.Unity;
+using System.Data.Common;
+using UnityEngine.Rendering;
+using System.ComponentModel;
+using GHEvtSystem;
 
 public class VNManager : DialogueViewBase
 {
     [SerializeField] DialogueRunner runner;
+    public GameObject murderBoard;
 
     [Header("Assets"), Tooltip("you can manually assign various assets here if you don't want to use /Resources/ folder")]
-    public List<Sprite> loadSprites = new List<Sprite>();
-    public List<AudioClip> loadAudio = new List<AudioClip>();
+    List<Sprite> loadSprites = new List<Sprite>();
+    List<GameObject> loadObjects = new List<GameObject>();
+    List<AudioClip> loadAudio = new List<AudioClip>();
+    List<Clue> loadClue = new List<Clue>();
+
 
     [Tooltip("if enabled: will automatically load all Sprites and AudioClips in any /Resources/ folder including any subfolders")]
     public bool useResourcesFolders = false;
@@ -31,7 +39,10 @@ public class VNManager : DialogueViewBase
 
     // big lists to keep track of all instantiated objects
     List<AudioSource> sounds = new List<AudioSource>(); // big list of all instantiated sounds
-    List<Image> sprites = new List<Image>(); // big list of all instantianted sprites
+    public List<Image> sprites = new List<Image>(); // big list of all instantianted sprites
+    List<GameObject> objects = new List<GameObject>();
+
+    
 
     // store sprite references for "actors" (characters, etc.)
     [HideInInspector] public Dictionary<string, VNActor> actors = new Dictionary<string, VNActor>(); // tracks names to sprites
@@ -43,6 +54,8 @@ public class VNManager : DialogueViewBase
     public RectTransform canvasDims;
     public Vector2 screenSize = new Vector2(1280f, 720f);
     public string activeSpeaker;
+    private GameObject prefabObject;
+    private GameObject instObj;
 
     void Awake()
     {
@@ -51,11 +64,17 @@ public class VNManager : DialogueViewBase
         // gives us a performance increase by avoiding GameObject.Find)
         runner.AddCommandHandler<string>("Scene", DoSceneChange);
         runner.AddCommandHandler<string, string, string, string, string>("Act", SetActor);
-        runner.AddCommandHandler<string, string, string>("Draw", SetSpriteYarn);
+        runner.AddCommandHandler<string, string>("Clickable", SetObject);
+        runner.AddCommandHandler<string>("AddPage", AddPage);
+        runner.AddCommandHandler<string, string>("Destory", DeleteObject);
 
+        runner.AddCommandHandler<string, string, string>("Draw", SetSpriteYarn);
+        runner.AddCommandHandler("EndDialogue", ChangeState);
         runner.AddCommandHandler<string>("Hide", HideSprite);
         runner.AddCommandHandler("HideAll", HideAllSprites);
         runner.AddCommandHandler("Reset", ResetScene);
+
+        runner.AddCommandHandler("MurderBoard", MurderBoard);
 
         runner.AddCommandHandler<string, string, string, float>("Move", MoveSprite);
         runner.AddCommandHandler<string, string>("Flip", FlipSprite);
@@ -77,6 +96,8 @@ public class VNManager : DialogueViewBase
         {
             var allSpritesInResources = Resources.LoadAll<Sprite>("");
             loadSprites.AddRange(allSpritesInResources);
+            var allObjectsInResources = Resources.LoadAll<GameObject>("");
+            loadObjects.AddRange(allObjectsInResources);
             var allAudioInResources = Resources.LoadAll<AudioClip>("");
             loadAudio.AddRange(allAudioInResources);
         }
@@ -92,6 +113,77 @@ public class VNManager : DialogueViewBase
     public void DoSceneChange(string spriteName)
     {
         bgImage.sprite = FetchAsset<Sprite>(spriteName);
+    }
+    public void ChangeState()
+    {
+        EventDispatcher.Instance.RaiseEvent<ChangeMode>(new ChangeMode
+        {
+            newMode = Mode.Game
+        });
+    }
+    public void MurderBoard()
+    {
+        murderBoard.SetActive(true);
+    }
+    public void SetObject(string actorName, string objectName)
+    {
+       
+
+        foreach (GameObject obj in loadObjects)
+        {
+            Debug.Log(obj.name);
+            if (obj.name == objectName)
+            {
+                prefabObject = obj;
+                Debug.Log("object found");
+
+                break;
+            }
+
+
+        }
+
+        instObj = Instantiate(prefabObject);
+        Debug.Log(instObj != null);
+        //i have to set the name to be the same or it cant be found in Destory Function
+        instObj.name = prefabObject.name;
+        objects.Add(instObj);
+
+    }
+    public void AddPage(string clueName)
+    {
+
+
+        EventDispatcher.Instance.RaiseEvent<FoundClue>(new FoundClue
+        {
+            clueID = ClueManager.Instance.GetID(clueName)
+        });
+        Debug.Log("it be working yo");
+    
+    }
+    public void DeleteObject(string actorName, string objectName)
+    {
+        //maybe add list 
+        Debug.Log("Deleting");
+        foreach (GameObject obj in objects)
+        {
+            Debug.Log("looking for assets");
+            if (obj.name == objectName)
+            {
+                Debug.Log("deleting: " + obj.name);
+                instObj = obj;
+                objects.Remove(instObj);
+                break;
+
+
+            }
+
+        }
+
+        Destroy(instObj);
+        HintManager.instance.HideHint(); 
+
+
     }
 
     /// <summary>
@@ -109,6 +201,10 @@ public class VNManager : DialogueViewBase
         if (colorHex != string.Empty && ColorUtility.TryParseHtmlString(colorHex, out actorColor) == false)
         {
             Debug.LogErrorFormat(this, "VN Manager can't parse [{0}] as an HTML color (e.g. [#FFFFFF] or certain keywords like [white])", colorHex);
+        }
+        foreach (var sprite in sprites)
+        {
+            Debug.Log("Sprite Image " + sprite.name + "" + sprite);
         }
 
         // if the actor is using a sprite already, then clone any
@@ -134,13 +230,17 @@ public class VNManager : DialogueViewBase
             }
             newActor.rectTransform.anchoredPosition = newPos;
             // clean-up
+            sprites.Remove(actors[actorName].actorImage);
             Destroy(actors[actorName].gameObject);
             actors.Remove(actorName);
             actors.Remove(actorName);
+            
+
         }
 
         // save actor data
         actors.Add(actorName, new VNActor(newActor, actorColor));
+       
     }
 
     ///<summary> Draw(spriteName,positionX,positionY) generic function
@@ -152,7 +252,7 @@ public class VNManager : DialogueViewBase
 
     public Image SetSpriteUnity(string spriteName, string positionX = "", string positionY = "")
     {
-
+       
         // position sprite
         var pos = new Vector2(0.5f, 0.5f);
 
@@ -168,6 +268,7 @@ public class VNManager : DialogueViewBase
 
         // actually instantiate and draw sprite now
         return SetSpriteActual(spriteName, pos);
+        
     }
 
     ///<summary>Hide(spriteName). "spriteName" can use wildcards, e.g.
@@ -187,6 +288,10 @@ public class VNManager : DialogueViewBase
         {
             if (wildcard.IsMatch(actor.Key) || wildcard.IsMatch(actor.Value.actorImage.name))
             {
+                if (activeSpeaker.Equals(actor.Key))
+                {
+                    activeSpeaker = "";
+                }
                 actorKeysToRemove.Add(actor.Key);
                 imagesToDestroy.Add(actor.Value.actorImage);
             }
@@ -196,6 +301,7 @@ public class VNManager : DialogueViewBase
         {
             if (wildcard.IsMatch(sprite.name))
             {
+               
                 imagesToDestroy.Add(sprite);
             }
         }
@@ -209,14 +315,25 @@ public class VNManager : DialogueViewBase
                 actors.Remove(actorKeysToRemove[i]);
             }
         }
+        foreach (var sprite in sprites)
+        {
+           
+            //sprites.Remove(sprite);
+        }
 
         for (int i = 0; i < imagesToDestroy.Count; i++)
         {
             if (imagesToDestroy[i] != null)
             { // this should never be false, but let's be safe
                 CleanDestroy<Image>(imagesToDestroy[i].gameObject);
+               
+                    //sprites.Remove(sprite);
+                
+                //imagesToDestroy[i].gameObject.SetActive(false);
             }
         }
+
+       
 
     }
 
@@ -470,6 +587,11 @@ public class VNManager : DialogueViewBase
 
     public void HighlightSprite(Image sprite)
     {
+        Debug.Log(sprite);
+        if (sprite == null)
+        {
+            return;
+        }
         StopCoroutine("HighlightSpriteCoroutine"); // use StartCoroutine(string) overload so that we can Stop and Start the coroutine (it doesn't work otherwise?)
         StartCoroutine("HighlightSpriteCoroutine", sprite);
     }
@@ -480,6 +602,8 @@ public class VNManager : DialogueViewBase
         float t = 0f;
         // over time, gradually change sprites to be "normal" or
         // "highlighted"
+        
+        
         while (t < 1f)
         {
             t += Time.deltaTime / 2f;
@@ -549,12 +673,19 @@ public class VNManager : DialogueViewBase
 
     Image SetSpriteActual(string spriteName, Vector2 position)
     {
+       
         var newSpriteObject = Instantiate<Image>(genericSprite, genericSprite.transform.parent);
+       
         sprites.Add(newSpriteObject);
+       
         newSpriteObject.name = spriteName;
+        
         newSpriteObject.sprite = FetchAsset<Sprite>(spriteName);
+    
+        
         newSpriteObject.SetNativeSize();
         newSpriteObject.rectTransform.anchoredPosition = Vector2.Scale(position, screenSize);
+     
         return newSpriteObject;
     }
 
@@ -703,6 +834,7 @@ public class VNManager : DialogueViewBase
                 }
             }
         }
+
         else if (typeof(T) == typeof(AudioClip))
         {
             foreach (var ac in loadAudio)
@@ -713,6 +845,17 @@ public class VNManager : DialogueViewBase
                 }
             }
         }
+        else if (typeof(T) == typeof(GameObject))
+        {
+            foreach (var obj in loadObjects)
+            {
+                if (obj.name == assetName)
+                {
+                    return obj as T;
+                }
+            }
+        }
+        
 
         // by default, we load all Resources assets into the asset
         // arrays already, but if you don't want that, then uncomment

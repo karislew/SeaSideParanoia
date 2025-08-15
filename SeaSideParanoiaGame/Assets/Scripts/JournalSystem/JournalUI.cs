@@ -19,33 +19,29 @@ public class JournalUI : MonoBehaviour
         journalUI.SetActive(false);
 
         itemSlots = GetComponentsInChildren<JournalPage>(true);
-        clueSlots = GetComponentsInChildren<CluePage>(true);
-     
+        //clueSlots = GetComponentsInChildren<CluePage>(true);
+
+        EventDispatcher.Instance.AddListener<ToggleJournal>(HandleToggleJournal);
     }
-    void Update()
+
+    void HandleToggleJournal(ToggleJournal evt)
     {
-        
-        if (Input.GetKeyDown(KeyCode.E))
+        if (journalUI.activeSelf == true)
         {
-            if (journalUI.activeSelf == true)
+            // to deselect all board slots
+            EventDispatcher.Instance.RaiseEvent<StateChangeResponse>(new StateChangeResponse
             {
-                
-                EventDispatcher.Instance.RaiseEvent<StateChangeResponse>(new StateChangeResponse
-                {
-                    callerName = "all",
-                    newState = ButtonState.NORMAL
-                });
-            }
-           
-            journalUI.SetActive(!journalUI.activeSelf);
+                callerName = "all",
+                newState = ButtonState.NORMAL
+            });
         }
-
-
+        
+        journalUI.SetActive(!journalUI.activeSelf);
     }
+
     void UpdateUI()
     {
-        Debug.Log("getig slots");
-        Debug.Log("itemslots count" +  itemSlots.Length);
+        Debug.Log("Starting to update UI");
         //going through the inventory slots and adding items from the list 
         for (int i = 0; i < itemSlots.Length; i++)
         {
@@ -58,7 +54,17 @@ public class JournalUI : MonoBehaviour
                 itemSlots[i].ClearSlot();
             }
         }
-        for (int i = 0; i < clueSlots.Length; i++)
+        
+
+        Debug.Log("Updated UI");
+    }
+
+    void OnDestroy() {
+
+        EventDispatcher.Instance.RemoveListener<ToggleJournal>(HandleToggleJournal);
+    }
+}
+/*for (int i = 0; i < clueSlots.Length; i++)
         {
             if (i < journal.items.Count)
             {
@@ -69,7 +75,4 @@ public class JournalUI : MonoBehaviour
                 clueSlots[i].ClearSlot();
             }
         }
-
-        Debug.Log("Update that UI");
-    }
-}
+*/

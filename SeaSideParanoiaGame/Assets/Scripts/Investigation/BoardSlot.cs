@@ -43,7 +43,8 @@ public class BoardSlot : MonoBehaviour
 
     public void DoSomething()
     {
-        if (state == ButtonState.DISABLED)
+        if ((state == ButtonState.DISABLED) ||
+        (ModeManager.Instance.GetCurrentMode() != Mode.Journal))
         {
             Debug.Log("button not enabled!");
             return;

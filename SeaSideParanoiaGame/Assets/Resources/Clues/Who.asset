@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a9872d94a892432bc664583ab550d6, type: 3}
+  m_Name: Who
+  m_EditorClassIdentifier: 
+  name: Who
+  id: 9
+  question: 0
+  itemDescription: 
+  worldSprite: {fileID: 21300000, guid: 389d9699f05b24692a3ca75c2fcdc965, type: 3}
+  journalPage: {fileID: 21300000, guid: d55c2f86919bf45ee832de920836ac9d, type: 3}

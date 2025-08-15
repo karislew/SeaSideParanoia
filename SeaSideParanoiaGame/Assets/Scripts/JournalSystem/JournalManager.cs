@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 using GHEvtSystem;
 
@@ -8,6 +7,7 @@ public class JournalManager : MonoBehaviour
 {
     public List<Clue> items = new List<Clue>();
     public static JournalManager instance;
+    public GameObject journalPopup;
     public delegate void onUpdateJournal();
 
     public int inventorySpace;
@@ -27,25 +27,29 @@ public class JournalManager : MonoBehaviour
     void Start()
     {
         EventDispatcher.Instance.AddListener<FoundClue>(AddClue);
+        journalPopup.SetActive(false);
     }
 
     public void AddClue(FoundClue evt)
     {
-        Clue clue = ClueManager.Instance.GetClue(evt.clueName);
+        Clue clue = ClueManager.Instance.GetClue(evt.clueID);
         if (clue == null)
         {
-            Debug.Log("\"" + evt.clueName + "\" does not exit.");
+            Debug.Log("\"" + evt.clueID + "\" does not exit.");
             return;
         }
-        
+
         if (items.Contains(clue))
         {
-            Debug.Log("\"" + evt.clueName + "\" has already been found.");
+            Debug.Log("\"" + evt.clueID + "\" has already been found.");
             return;
         }
 
         items.Add(clue);
-        Debug.Log("Found \"" + evt.clueName + "\".");
+        journalPopup.SetActive(true);
+        StartCoroutine(JournalPopupCount());
+        MurderBoardSlots.instance.CreateSlot(clue);
+        Debug.Log("Found \"" + evt.clueID + "\".");
 
         if (onJournalChangedCallback != null)
         {
@@ -94,9 +98,14 @@ public class JournalManager : MonoBehaviour
             Debug.Log("Item: " + i.name);
         }
     }
-    
+
     void OnDestroy()
     {
         EventDispatcher.Instance.RemoveListener<FoundClue>(AddClue);
+    }
+    IEnumerator JournalPopupCount()
+    {
+        yield return new WaitForSeconds(1);
+        journalPopup.SetActive(false);
     }
 }

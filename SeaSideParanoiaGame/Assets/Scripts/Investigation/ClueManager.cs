@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using GHEvtSystem;
 
+
 public class ClueManager : Singleton<ClueManager>
 {
     public string path = "Testing/SO";
     protected int count = 0;
-    protected Dictionary<string, Clue> clues = new Dictionary<string, Clue>();
-    protected Dictionary<string, bool> clueStatus = new Dictionary<string, bool>();
-    protected Dictionary<string, List<Clue>> connectionData = new Dictionary<string, List<Clue>>();
+    protected Dictionary<int, Clue> clues = new Dictionary<int, Clue>();
+    protected Dictionary<int, bool> clueStatus = new Dictionary<int, bool>();
+    protected Dictionary<Clue[], bool> connectionStatus = new Dictionary<Clue[], bool>();
+
+    protected List<int> question1 = new List<int>();
+    protected List<int> question2 = new List<int>();
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +23,30 @@ public class ClueManager : Singleton<ClueManager>
         foreach (Clue clue in clue_arr)
         {
             count += 1;
-            clues[clue.name] = clue;
-            clueStatus[clue.name] = false;
-            connectionData[clue.name] = clue.connections;
+            clues[clue.id] = clue;
+            clueStatus[clue.id] = false;
+            switch (clue.question)
+            {
+                case 1:
+                    question1.Add(clue.id);
+                    break;
+                case 2:
+                    question2.Add(clue.id);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        Debug.Log("--- Question One Asnwers ---");
+        foreach (int ans in question1)
+        {
+            Debug.Log(ans);
+        }
+        Debug.Log("--- Question Two Asnwers ---");
+        foreach (int ans in question2)
+        {
+            Debug.Log(ans);
         }
 
         EventDispatcher.Instance.AddListener<FoundClue>(UpdateStatus);
@@ -32,10 +57,10 @@ public class ClueManager : Singleton<ClueManager>
         return count;
     }
 
-    public Clue GetClue(string clueName)
+    public Clue GetClue(int id)
     {
         Clue target = null;
-        bool ret = clues.TryGetValue(clueName, out target);
+        bool ret = clues.TryGetValue(id, out target);
         if (ret == false)
         {
             return null;
@@ -43,9 +68,32 @@ public class ClueManager : Singleton<ClueManager>
         return target;
     }
 
-    public string GetDesciption(string clueName)
+    public int GetID(string clueName)
     {
-        Clue target = GetClue(clueName);
+        foreach (KeyValuePair<int, Clue> entry in clues)
+        {
+            if (entry.Value.name.Equals(clueName))
+            {
+                return entry.Key;
+            }
+        }
+
+        return 0;
+    }
+
+    public int GetQuestion(int id)
+    {
+        Clue target = GetClue(id);
+        if (target == null)
+        {
+            return -1;
+        }
+        return target.question;
+    }
+
+    public string GetDesciption(int id)
+    {
+        Clue target = GetClue(id);
         if (target == null)
         {
             return "";
@@ -53,9 +101,9 @@ public class ClueManager : Singleton<ClueManager>
         return target.itemDescription;
     }
 
-    public Sprite GetWorldSprite(string clueName)
+    public Sprite GetWorldSprite(int id)
     {
-        Clue target = GetClue(clueName);
+        Clue target = GetClue(id);
         if (target == null)
         {
             return null;
@@ -63,9 +111,9 @@ public class ClueManager : Singleton<ClueManager>
         return target.worldSprite;
     }
 
-    public Sprite GetJournalPage(string clueName)
+    public Sprite GetJournalPage(int id)
     {
-        Clue target = GetClue(clueName);
+        Clue target = GetClue(id);
         if (target == null)
         {
             return null;
@@ -73,10 +121,10 @@ public class ClueManager : Singleton<ClueManager>
         return target.journalPage;
     }
 
-    public bool GetStatus(string clueName)
+    public bool GetStatus(int id)
     {
         bool status = true;
-        bool ret = clueStatus.TryGetValue(clueName, out status);
+        bool ret = clueStatus.TryGetValue(id, out status);
         if (ret == false)
         {
             // Tells game to *not* try to add clue to inventory
@@ -85,21 +133,23 @@ public class ClueManager : Singleton<ClueManager>
         return status;
     }
 
-    public List<Clue> GetConnections(string clueName)
+    public List<int> GetTrueAnswer(int question)
     {
-        List<Clue> connections = new List<Clue>();
-        bool ret = connectionData.TryGetValue(clueName, out connections);
-        if (ret == false)
+        switch (question)
         {
-            return new List<Clue>();
+            case 1:
+                return question1;
+            case 2:
+                return question2;
         }
-        return connections;
+
+        return new List<int>();
     }
 
     void UpdateStatus(FoundClue evt)
     {
         bool status;
-        bool ret = clueStatus.TryGetValue(evt.clueName, out status);
+        bool ret = clueStatus.TryGetValue(evt.clueID, out status);
         if (ret == false)
         {
             return;
@@ -108,7 +158,7 @@ public class ClueManager : Singleton<ClueManager>
         {
             return;
         }
-        clueStatus[evt.clueName] = true;
+        clueStatus[evt.clueID] = true;
     }
 
     void OnDestroy()
