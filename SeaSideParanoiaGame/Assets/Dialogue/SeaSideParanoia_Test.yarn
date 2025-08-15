@@ -11,6 +11,8 @@ position: 137,-554
 // sets background image to sprite called "bg_office"
 <<Scene ForestScene_01>>
 <<PlayAudio Birdchirp_bgm 1.0 loop>>
+<<Fade Black 1.0 0.0 2.0>>
+<<wait 2>>
 // start playing audioclip "ambient_birds" at 50% volume, loop forever
 //<<PlayAudio PlaceHolder 0.5 loop>>
 // Can Change volume by 0.5=50 0.20% and to loop just put loop at end 
@@ -23,7 +25,7 @@ position: 137,-554
 <b>Prologue</b>, To continue press Space or left click on the keyboard, or A on the Gamepad
 // adds actor named "Eve" using sprite "cool-girl", placed in left-half + center of screen, with green text label
 <<Act Marco Marco_Think left center green>>
-Marco: Which should I Sketch #line:marco_talk_medium
+Marco: Which one should I sketch? #line:marco_talk_medium
 To click press the left mouse button or press A on the Gamepad, to move around use the game stick or mouse
 //<<AddPage Missing_Person>>
 //<<AddPage Victim>>
@@ -63,9 +65,12 @@ Marco: Me and Raul saw a lot of these on our hike, it was a fun date #line:marco
 title: Panic
 position: 140,-313
 ---
+<<Fade Black 0.0 1.0 2.0>> 
+<<wait 2.0>>
 <<Scene baseforest_bg>>
+<<Fade Black 1.0 0.0 2.0>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: Alright this seems like a good journal page. #line:marco_talk_long_1
+Marco: Alright this seems like a good journal page. #line:marco_talk_medium_20
 Marco: Let me stop here.. probably should head back to my place #line:marco_talk_medium_3
 (Press E on Keyboard and Y on Controller, to flip pages press A & D and left and right on the D-pad)
 Marco: It's getting late... #line:marco_talk_short_1
@@ -88,8 +93,12 @@ Marco: Maybe I should go check it out... #line:marco_talk_short_4
 title: Forest_Maze
 position: 420,-248
 ---
+<<Fade Black 0.0 1.0 1.0>> 
+<<wait 1.0>>
 <<Scene SSP_BranchingPath_01>>
 <<PlayAudio Snowstorm_bgm 1.0 loop>>
+<<Fade Black 1.0 0.0 2.0>>
+<<wait 2.0>>
 <<Hide Marco>>
 <<Act Marco Marco_Nervous left center green>>
 Marco: It's probably nothing... #line:marco_talk_short_5
@@ -105,7 +114,11 @@ Marco: just breathe Marco.. #line:marco_talk_short_8
 title: Path_2
 ---
 <<Destory Path_1 Path_01_clickable>>
+<<Fade Black 0.0 1.0 1.0>> 
+<<wait 1.0>>
 <<Scene SSP_BranchingPath_02>>
+<<Fade Black 1.0 0.0 2.0>>
+<<wait 2.0>>
 Marco: There's <b>blood</b> and <b>cuts</b> in the wood here... leading up here #line:marco_talk_short_9
 <<Hide Marco>>
 <<Act Marco Marco_Shocked left center green>>
@@ -119,7 +132,11 @@ Marco: I should keep going.. #line:marco_talk_short_10
 title: Path_3
 ---
 <<Destory Path_2 Path_02_clickable>>
+<<Fade Black 0.0 1.0 1.0>> 
+<<wait 1.0>>
 <<Scene SSP_BranchingPath_03>>
+<<Fade Black 1.0 0.0 1.8>>
+<<wait 2.0>>
 Marco: It's getting darker.. #line:marco_talk_short_11
 <<wait 0.5>>
 Marco: the screaming stopped #line:marco_talk_short_12
@@ -132,8 +149,8 @@ title: The_body
 position: -186,-186
 ---
 <<Destory Path_3 Path_03_clickable>>
-<<wait 1>>
 <<Scene SSP_BranchingPath_04>>
+<<Fade Black 1.0 0.0 1.8>>
 <i>Crack<i>
 Marco: Is that... #line:marco_talk_smoll_1
 <<Clickable Path_4 Path_04_clickable>>
@@ -142,7 +159,10 @@ Marco: Is that... #line:marco_talk_smoll_1
 title: Found_Body
 ---
 <<Destory Path_4 Path_04_clickable>>
+<<Fade Black 0.0 1.0 1.3>>
 <<Scene deadbody_bg>>
+<<Fade Black 1.0 0.0 1.8>>
+<<wait 1>>
 Marco: A body! #line:marco_talk_smoll_2
 Marco: This can't be real... #line:marco_talk_short_13
 Marco: This... This can't be real #line:marco_talk_short_14
@@ -259,7 +279,7 @@ position: -266,3
 ---
 <<Destory Glasses Dead_Glasses_clickable>>
 <<Destory Stab Dead_Stab_clickable>>
-<<Scene BG_nobody>>
+<<Scene nothing_bg>>
 <<Act Marco Marco_Dereal left center green>>
 <<Act Raul Raul_Skeptic right center blue>>
 Marco: There's...  #line:marco_talk_short_28 
