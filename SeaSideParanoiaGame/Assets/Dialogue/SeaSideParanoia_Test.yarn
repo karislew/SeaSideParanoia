@@ -179,7 +179,7 @@ Marco: What was that?  #line:marco_talk_smoll_4
 Marco: I need to go... #line:marco_talk_short_17 
 <<StopAudioAll>>
 //Maybe StopAudio will specifically stop a certain audio? Test Later 
-<<Scene SSP_background_forest_03>>
+<<Scene returnpath_bg>>
 Marco: This can't be happening... #line:marco_talk_short_18 
 <<wait  1>>
 Marco: I need to go to Raul's.. #line:marco_talk_short_19 
@@ -225,17 +225,17 @@ Raul: Marco, maybe you saw some things? #line:raul_talk_medium
 
 //Could start adding If stuff here but we'll talk later
 //<<PlayAudio Placeholder>>
-<<Scene SSP_BranchingPath_01>>
+<<Scene returnpath_bg>>
 <<Hide Marco>>
 <<Act Marco Marco_Relieved left center green>>
 Marco: Cmon It's just up ahead #line:marco_talk_short_24 
 Raul: Marco the snow is starting to pick up #line:raul_talk_short_4 
 Marco: It's not far.. #line:marco_talk_short_25 
-Raul:... #line:062f422 
+Raul:... 
 
 
 //<<Scene SSP_background_forest_05>>
-<<Scene alterstate_bg>>
+<<Scene alterstate_bg_02>>
 Marco: See it's right there! #line:marco_talk_short_26 
 <<Scene nothing_bg>>
 <<Hide Marco>>
@@ -246,14 +246,14 @@ Raul: Marco.. there's nothing there.. #line:raul_talk_medium_2
 <<Act Marco Marco_Panic left center green>>
 Marco: What? #line:marco_talk_smoll_6 
 Marco: It's.... It's right there I can see it #line:marco_talk_medium_10 
-<<Scene alterstate_bg>>
+<<Scene alterstate_bg_02>>
 Raul:...  
 
 
 ->Please, I swear it's right here... 
    Marco: Please I swear it's right here.. #line:marco_talk_medium_11 
    Raul: Marco... Can you describe the body #line:raul_talk_medium_3 
-   Marco: ... #line:0f97afb 
+   Marco: ... 
 ->Why can't you just... 
    Marco: Why can't you just.. #line:marco_talk_short_27 
     <<Hide Marco>>
@@ -269,7 +269,7 @@ Raul:...
 title: Dead
 ---
 <<PlayAudio Alterstate_bgm 1.0 loop>>
-<<Scene SSP_Deadbody_view>>
+<<Scene deadbody_close_bg>>
 <<Clickable Glassses Dead_Glasses_clickable>>
 <<Clickable Stab Dead_Stab_clickable>>
 <<EndDialogue>>
