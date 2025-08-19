@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1736088871865681032}
   - component: {fileID: 2949571978330425439}
   - component: {fileID: 6201343603631952332}
+  - component: {fileID: 6712031580788746739}
   m_Layer: 6
   m_Name: Path_03_clickable
   m_TagString: Untagged
@@ -147,3 +148,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad2fe018c6eb4fe7949dd1dc9eadcb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6712031580788746739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3839704429732150603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3531654b7b13869cbf558c43769eab3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgm: {fileID: 0}
+  clickSFX: {fileID: 11400000, guid: 399e58220f8224445a42202d12fda45f, type: 2}
+  enterSFX: {fileID: 0}

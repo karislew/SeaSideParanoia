@@ -144,14 +144,8 @@ public class ControllerCursor : Singleton<ControllerCursor>
         RaycastHit hit = cursorCaster.Cast();
         Transform hitTransform = hit.transform;
 
-        if (hitTransform != null)
-        {
-            Debug.Log("hit");
-        }
-
         if (previousHit == null && hitTransform != null)
         {
-            Debug.Log("does this print?");
             // TODO: sent GPEnter signal
             if(hitTransform.TryGetComponent(out IEnterable gpinterface))
             {
@@ -164,7 +158,7 @@ public class ControllerCursor : Singleton<ControllerCursor>
             // TODO: send GPExit signal
             if(previousHit.TryGetComponent(out IExitable gpinterface))
             {
-                Debug.Log("Exited " + hitTransform.gameObject.name);
+                Debug.Log("Exited " + previousHit.gameObject.name);
                 gpinterface.OnGPExit();
             }
         }
