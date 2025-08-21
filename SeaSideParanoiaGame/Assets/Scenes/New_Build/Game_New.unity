@@ -2545,7 +2545,6 @@ RectTransform:
   - {fileID: 1424302658}
   - {fileID: 872198869}
   - {fileID: 1085952263}
-  - {fileID: 968268502}
   - {fileID: 605333077}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3076,6 +3075,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1303255616}
+  - {fileID: 968268502}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6358,7 +6358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &968268502
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6371,7 +6371,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 340482980}
+  m_Father: {fileID: 396894887}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -8969,7 +8969,7 @@ MonoBehaviour:
   - {fileID: 872198871}
   - {fileID: 1085952264}
   - {fileID: 594207750}
-  startNode: beginning
+  startNode: Start
   startAutomatically: 1
   runSelectedOptionAsLine: 0
   lineProvider: {fileID: 594207749}
