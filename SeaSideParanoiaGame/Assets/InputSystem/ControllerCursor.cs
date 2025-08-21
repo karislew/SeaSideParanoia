@@ -29,12 +29,28 @@ public class ControllerCursor : Singleton<ControllerCursor>
     private bool previousMouseState;
     private Camera mainCamera;
     private Mouse currentMouse;
+   
+    
 
-    private string previousControlScheme = "";
+    public string previousControlScheme = "";
+    //private string currentControlScheme = "";
     private const string gamepadScheme = "Gamepad";
     private const string keyboardMouseScheme = "Keyboard+Mouse";
+    
+  
 
     private Transform previousHit = null;
+
+    
+
+    void Start()
+    {
+       
+    }
+    void Update()
+    {
+        
+    }
 
     void OnEnable()
     {
@@ -126,7 +142,9 @@ public class ControllerCursor : Singleton<ControllerCursor>
             cursorTransform.gameObject.SetActive(false);
             Cursor.visible = true;
             currentMouse.WarpCursorPosition(virtualMouse.position.ReadValue());
+            
             previousControlScheme = keyboardMouseScheme;
+            
         }
         else if (playerInput.currentControlScheme == gamepadScheme &&
         previousControlScheme != gamepadScheme)
@@ -136,6 +154,7 @@ public class ControllerCursor : Singleton<ControllerCursor>
             InputState.Change(virtualMouse.position, currentMouse.position.ReadValue());
             AnchorCursor(currentMouse.position.ReadValue());
             previousControlScheme = gamepadScheme;
+            
         }
     }
 
