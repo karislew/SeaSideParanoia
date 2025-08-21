@@ -9,7 +9,7 @@ public class HintManager : MonoBehaviour
    public static HintManager instance;
     private Camera cam;
    [SerializeField] GameObject hintImage;
-    private bool hintShowing =false;
+    public bool hintShowing =false;
 
     private void Awake()
     {
@@ -44,13 +44,15 @@ public class HintManager : MonoBehaviour
     public void ShowHint()
     {
         //transform.position = UIposition.position;
+        hintShowing = true;
         gameObject.SetActive(true);
         Cursor.visible = false;
         
-        hintShowing = true;
+
     }
     public void HideHint()
     {
+       
         gameObject.SetActive(false);
         hintShowing = false;
         Cursor.visible = true;
