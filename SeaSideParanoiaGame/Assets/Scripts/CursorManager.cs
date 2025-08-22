@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.Serialization;
 using UnityEngine;
-using UnityEngine.UI;
-
+using UnityEngine.UI; 
 public class CursorManager : MonoBehaviour
 {
     [SerializeField] ModeManager modeManager;
@@ -28,7 +26,15 @@ public class CursorManager : MonoBehaviour
         }
         if (currentMode == "Game" || currentMode == "Dialogue")
         {
-            thisImage.sprite = game;
+            if (HintManager.instance.hintShowing == true )
+            {
+                thisImage.enabled = false;
+            }
+            else
+            {
+                thisImage.enabled = true;
+                thisImage.sprite = game;
+            }
         }
         if (currentMode == "Murder Board")
         {

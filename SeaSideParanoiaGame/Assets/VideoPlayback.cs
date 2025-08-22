@@ -14,7 +14,7 @@ public class VideoPlayback : MonoBehaviour
     {
         videoPlayer = GetComponent<VideoPlayer>();
         videoPlayer.time = 0;
-        videoPlayer.loopPointReached += LoopPointReached;
+        //videoPlayer.loopPointReached += LoopPointReached;
     }
     // Start is called before the first frame update
     void LoopPointReached(VideoPlayer vp)
@@ -22,8 +22,16 @@ public class VideoPlayback : MonoBehaviour
         StartCoroutine(Wait());
         SceneManager.LoadScene("StartScene");
     }
+    void Update()
+    {
+        if ((videoPlayer.frame>0) && (videoPlayer.isPlaying==false))
+        {
+            StartCoroutine(Wait());
+            SceneManager.LoadScene("StartScene");
+        }
+    }
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3f);
     }
 }

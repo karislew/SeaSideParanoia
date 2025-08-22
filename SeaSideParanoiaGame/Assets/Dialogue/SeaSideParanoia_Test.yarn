@@ -19,14 +19,14 @@ position: 137,-554
 // Adding talking, #line: 
 // Marco talking - marco_talk_(long/medium/short)
 //<b>bold!</b>
-//<i>italics<i/>
+//<i>italics</i>
 //<
 
-<b>Prologue</b>, To continue press Space or left click on the keyboard, or A on the Gamepad
+<b>Prologue</b>, (To continue press Space or left click on the keyboard, or A on the Gamepad)
 // adds actor named "Eve" using sprite "cool-girl", placed in left-half + center of screen, with green text label
 <<Act Marco Marco_Think left center green>>
 Marco: Which one should I sketch? #line:marco_talk_medium
-To click press the left mouse button or press A on the Gamepad, to move around use the game stick or mouse
+(To click press the left mouse button or press A on the Gamepad, to move around use the game stick or mouse)
 //<<AddPage Missing_Person>>
 //<<AddPage Victim>>
 Marco: Maybe... #line:marco_talk_short
@@ -70,9 +70,9 @@ position: 140,-313
 <<Scene baseforest_bg>>
 <<Fade Black 1.0 0.0 2.0>>
 <<Act Marco Marco_Neutral left center green>>
-Marco: Alright this seems like a good journal page. #line:marco_talk_medium_20
+Marco: Alright, this seems like a good journal page. #line:marco_talk_medium_20
 Marco: Let me stop here.. probably should head back to my place #line:marco_talk_medium_3
-(Press E on Keyboard and Y on Controller, to flip pages press A & D and left and right on the D-pad)
+(To open your journal Press E on Keyboard and Y on Controller, to flip pages press A & D and left and right on the D-pad)
 Marco: It's getting late... #line:marco_talk_short_1
 Marco: I should probably head back hom- #line:marco_talk_medium_4
 //<<Hide Marco>>
@@ -120,12 +120,12 @@ title: Path_2
 <<Scene SSP_BranchingPath_02>>
 <<Fade Black 1.0 0.0 2.0>>
 <<wait 2.0>>
-Marco: There's <b>blood</b> and <b>cuts</b> in the wood here... leading up here #line:marco_talk_short_9
+Marco: There's <b>blood splattered on the snow</b> and <b>cuts</b> in the wood here... what happened.. #line:marco_talk_short_9
 <<Hide Marco>>
 <<Act Marco Marco_Shocked left center green>>
 <<AddPage Blood>>
 <<AddPage Wood>>
-Marco: ...these footprints aren't animal tracks #line:marco_talk_medium_7
+Marco: ...these footprints, aren't animal tracks #line:marco_talk_medium_7
 Marco: I should keep going.. #line:marco_talk_short_10
 <<Clickable Path_2 Path_02_clickable>>
 <<EndDialogue>>
@@ -140,7 +140,7 @@ title: Path_3
 <<wait 2.0>>
 Marco: It's getting darker.. #line:marco_talk_short_11
 <<wait 0.5>>
-Marco: the screaming stopped #line:marco_talk_short_12
+Marco: Please be alright.. #line:marco_talk_short_12
 <<Clickable Path_3 Path_03_clickable>>
 <<EndDialogue>>
 ===
@@ -175,7 +175,7 @@ Marco: This... This can't be real #line:marco_talk_short_14
 <<Act Marco Marco_Sick left center green>>
 Marco: I feel sick.. #line:marco_talk_short_15
 Marco: Who would do this... #line:marco_talk_short_16
-Marco: Why Why.. #line:marco_talk_smoll_3
+Marco: Why, Why.. #line:marco_talk_smoll_3
 <i>Crack</i> #line:crack_02_sfx
 <<Hide Marco>>
 <<Act Marco Marco_Shocked left center green>>
@@ -188,15 +188,14 @@ Marco: I need to go... #line:marco_talk_short_17
 Marco: This can't be happening... #line:marco_talk_short_18 
 <<wait  1>>
 Marco: I need to go to Raul's.. #line:marco_talk_short_19 
-//<<PlayAudio Placeholder>>
 <<Hide Marco>>
 <<Fade Black 0.0 1.0 1.0>>
 <<wait 1.5>>
-<<Scene hallway_bg>>
+<<Scene livingroom_bg>>
 <<Fade Black 1.0 0.0 2.0>>
 <<wait 2.0>>
 <<Act Marco Marco_Panic left center green>>
-Marco: Raul! Raul! Wake up #line:marco_talk_short_20 
+Marco: Raul! Raul! Are you awake? #line:marco_talk_short_20 
 <<Act Raul Raul_Static right center blue>>
 Raul: Marco! What! What Happened? #line:raul_talk_short
 <<Shake Marco>>
@@ -204,11 +203,11 @@ Marco: There was... #line:marco_talk_short_21
 <<Hide Raul>>
 <<Act Raul Raul_Question right center blue>>
 Raul: Marco.. are you okay? #line:raul_talk_short_1 
-Marco: There was a body in the woods! #line:marco_talk_short_22
+Marco: There was a body, in the woods! #line:marco_talk_short_22
 Raul: What do you mean a body? #line:raul_talk_smoll 
 <<Hide Raul>>
 <<Act Raul Raul_Skeptic right center blue>>
-Marco: I'm telling you there was a dead body in the woods Raul! #line:marco_talk_medium_8 
+Marco: I'm telling you, there was a dead body in the woods Raul! #line:marco_talk_medium_8 
 <<Hide Raul>>
 <<Act Raul Raul_Con right center blue>>
 Raul: Marco, maybe you saw some things? #line:raul_talk_medium 
@@ -217,7 +216,7 @@ Raul: Marco, maybe you saw some things? #line:raul_talk_medium
 ->I'm telling you I didn't!  
     <<Hide Marco>>
     <<Act Marco Marco_Mad left center green>>
-    Marco: I'm telling you I didn't! #line:marco_talk_smoll_5 
+    Marco: I'm telling you, I didn't! #line:marco_talk_smoll_5 
     Raul: ...  
     <<Hide Raul>>
     <<Act Raul Raul_Skeptic right center blue>>
@@ -227,7 +226,7 @@ Raul: Marco, maybe you saw some things? #line:raul_talk_medium
     <<Hide Marco>>
     <<Act Marco Marco_Mad left center green>>
     Marco: Why won't you believe me! #line:marco_talk_short_59 
-    Raul: Listen it sounds crazy but I wanna believe you so.. #line:raul_talk_medium_1 
+    Raul: Listen, it sounds crazy but I wanna believe you so.. #line:raul_talk_medium_1 
     Raul: Show me where.. #line:raul_talk_short_3
     Marco: Thank you... #line:marco_talk_short_23
 
@@ -241,8 +240,8 @@ Raul: Marco, maybe you saw some things? #line:raul_talk_medium
 <<wait 1.5>>
 <<Hide Marco>>
 <<Act Marco Marco_Relieved left center green>>
-Marco: Cmon It's just up ahead #line:marco_talk_short_24 
-Raul: Marco the snow is starting to pick up #line:raul_talk_short_4 
+Marco: C'mon, It's just up ahead #line:marco_talk_short_24 
+Raul: Marco, the snow is starting to pick up #line:raul_talk_short_4 
 Marco: It's not far.. #line:marco_talk_short_25 
 Raul:... 
 
@@ -253,7 +252,7 @@ Raul:...
 <<Scene alterstate_bg_02>>
 <<Fade Black 1.0 0.0 1.5>>
 <<wait 1.5>>
-Marco: See it's right there! #line:marco_talk_short_26 
+Marco: See, it's right there! #line:marco_talk_short_26 
 <<Scene nothing_bg>>
 <<Hide Marco>>
 <<Hide Raul>>
@@ -262,13 +261,13 @@ Marco: See it's right there! #line:marco_talk_short_26
 Raul: Marco.. there's nothing there.. #line:raul_talk_medium_2 
 <<Act Marco Marco_Panic left center green>>
 Marco: What? #line:marco_talk_smoll_6 
-Marco: It's.... It's right there I can see it #line:marco_talk_medium_10 
+Marco: It's.... It's right there, I can see it #line:marco_talk_medium_10 
 <<Scene alterstate_bg_02>>
 Raul:...  
 
 
 ->Please, I swear it's right here... 
-   Marco: Please I swear it's right here.. #line:marco_talk_medium_11 
+   Marco: Please, I swear, it's right here.. #line:marco_talk_medium_11 
    Raul: Marco... Can you describe the body #line:raul_talk_medium_3 
    Marco: ... 
 ->Why can't you just... 
@@ -300,12 +299,14 @@ position: -266,3
 <<Act Marco Marco_Dereal left center green>>
 <<Act Raul Raul_Skeptic right center blue>>
 Marco: There's...  #line:marco_talk_short_28 
-Marco: There was a <b>scar on the body in the shape of a cross</b>... and I found some <b>broken glasses</b> #line:marco_talk_medium_12 
-<<AddPage Who>>
+Marco: There was a <b>scar on the body, in the shape of a cross</b>... #line:marco_talk_medium_12 
 <<Hide Raul>>
 <<Act Raul Raul_Con right center blue>>
-Raul: Holy shit... Glasses? #line:raul_talk_short_7 
-Raul: Can you make out the person's face? #line:raul_talk_short_8 
+Raul: Holy shit... #line:raul_talk_short_7 
+Marco: and I found some <b>broken glasses</b> in the snow.
+Raul: Wait, these are real!?
+<<AddPage Who>>
+Raul: Can you make out who this is? #line:raul_talk_short_8 
 Marco:... I can't... #line:marco_talk_smoll_8
 <<jump Calm>>
 ===
@@ -323,7 +324,7 @@ Raul: Marco.. you need to breathe... #line:raul_talk_medium_15
 Marco:... 
 <<Hide Marco>>
 <<Act Marco Marco_Sick left center green>>
-Marco: Who killed them #line:marco_talk_smoll_9 
+Marco: Who would do this #line:marco_talk_smoll_9 
 Raul: We should go #line:raul_talk_short_10 
 <<StopAudioAll>>
 <<Fade Black 0.0 1.0 1.5>>
@@ -333,41 +334,43 @@ Raul: We should go #line:raul_talk_short_10
 <<wait 1.5>>
 <<Hide Marco>>
 <<Act Marco Marco_Nervous left center green>>
-Raul: Marco you should sit down on the couch #line:raul_talk_medium_16
-Raul: Shit if there was a body <b>who</b> was it then #line:raul_talk_medium_17
+Raul: Marco, you should sit down breathe #line:raul_talk_medium_16
+Raul: Shit, if there was a body <b>who</b> was it then. #line:raul_talk_medium_17
 <<jump Hallway_Hearsay>>
 ===
 title: Hallway_Hearsay
 position: -221,489
 ---
-Knock Knock Knock #line:Knock 
+<i>Knock Knock Knock</i> #line:Knock 
 <<Act ??? narrator_sprite center center magenta>>
 ???: Raul? #line:rose_talk_short 
+<<Scene hallway_bg>>
 Marco: Hey... Ms. Rose  #line:marco_talk_short_30 
 <<Hide Rose>>
 <<Act Rose Rose_Neut center center magenta>>
 Rose: Oh hi Marco, Are you boys alright? I heard some hurried footsteps in the hall #line:rose_talk_medium 
 Marco: ...Um #line:marco_talk_short_31 
-Raul: Yeah we're ok.. #line:raul_talk_short_13 
+Raul: Yeah, we're ok.. #line:raul_talk_short_13 
 <<Hide Raul>>
 <<Act Raul Raul_Skeptic right center blue>>
 <<wait  1>>
-Marco: Have you heard of anyone going missing lately #line:marco_talk_medium_13 
+Marco: Y'know, those old missing people news reports at the library #line:marco_talk_medium_13 
+Marco: Do you still... have them?
 <<Hide Rose>>
 <<Act Rose Rose_Con center center magenta>>
 Rose: Missing people...? #line:rose_talk_short_1 
 Rose: Now why would you go asking about that? #line:rose_talk_medium_4
 Rose: You sure nothin happened? #line:rose_talk_short_3
-Marco: Oh Um! #line:marco_talk_smoll_10 
-Raul: Yeah we're just wondering #line:raul_talk_short_14 
+Marco: Oh, Um! #line:marco_talk_smoll_10 
+Raul: Yeah, we're just wondering #line:raul_talk_short_14 
 <<Hide Rose>>
 <<Act Rose Rose_Neut center center magenta>>
-Rose: I haven't heard of anyone going missing.. #line:rose_talk_short_4 
+Rose: I haven't heard of anyone going missing lately.. #line:rose_talk_short_4 
 Rose: There were some <b>past news articles</b>  #line:rose_talk_medium_1 
 Rose: Come to the library and I can show you #line:rose_talk_medium_2
 <<AddPage Missing_Person>>
-Raul: Alright thank you Rose Goodnight #line:raul_talk_medium_18
-Marco: Thank you... Goodnight Ms. Rose #line:marco_talk_medium_22
+Raul: Alright thank you Rose, Goodnight #line:raul_talk_medium_18
+Marco: Thank you... Goodnight, Ms. Rose #line:marco_talk_medium_22
 Rose: Goodnight.. make sure to get home safely Marco.. #line:rose_talk_medium_3
 <<Hide Rose>>
 <<jump Leading_Clues>>
@@ -381,32 +384,36 @@ Rose: Goodnight.. make sure to get home safely Marco.. #line:rose_talk_medium_3
 title: Leading_Clues
 position: 88,364
 ---
+<<Scene livingroom_bg>>
 <<Hide Marco>>
 <<Act Marco Marco_Relieved left center green>>
 Marco: Maybe... we should investigate more? #line:marco_talk_short_32 
 Raul: Why? #line:raul_talk_smoll_3 
-Marco: Well shouldn't we try and see how this happened!, who did it? Who even died?! #line:marco_talk_medium_14 
+Marco: Well shouldn't we try and see why this happened!, who did it?, Who even died?! #line:marco_talk_medium_14 
 <<Hide Raul>>
 <<Act Raul Raul_Question right center blue>>
-Raul: There's too many questions, Marco! #line:raul_talk_medium_4 
-Marco: But isn't it weird how something this big went unnoticed?  #line:marco_talk_medium_15 
-Marco: What if it happens again? #line:marco_talk_short_33 
-Raul: ... Marco  #line:raul_talk_smoll_4 
-Raul: Think about it, We don't know who died, Who killed them or If it was even real..  #line:raul_talk_medium_5 
+Raul: Why even do that, this town doesn't care about us Marco! #line:raul_talk_medium_4 
+Marco: Still! isn't it weird how something this big went unnoticed?  #line:marco_talk_medium_15 
+Marco: What if it happens again? What if someone get's hurt #line:marco_talk_short_33 
+Raul: ... Marco, why do you care so much  #line:raul_talk_smoll_4 
+Marco: I just don't- 
+Raul: We don't know who died, Who killed them, or If it was even real..  #line:raul_talk_medium_5 
 <<Hide Marco>>
 <<Act Marco Marco_Mad left center green>>
-Marco: It was real! and we have the <b>glasses!</b>  #line:marco_talk_medium_23 
-Raul: Marco that's not enough proof and you know it! #line:raul_talk_medium_6 
+Marco: It was real! Stop saying it's not, and we have the <b>glasses!</b>  #line:marco_talk_medium_23 
+Raul: Marco, that's not enough proof and you know it! #line:raul_talk_medium_6 
 <<Hide Raul>>
 <<Act Raul Raul_Con right center blue>>
 Marco: Then help me prove it's real! #line:marco_talk_short_35 
 <<Hide Marco>>
 <<Act Marco Marco_Relieved left center green>>
-Raul: Y'know what... Let's see  #line:raul_talk_short_16 
-Marco: So far in leads we have the <b>old missing Persons Report</b> from Rose #line:marco_talk_medium_16 
+Raul: Y'know what... Let's see what we have  #line:raul_talk_short_16 
+Marco: So far in leads we can visit the library to get the <b>old missing Persons Report</b> from Rose #line:marco_talk_medium_16 
 Marco: That <b>weird rosary managled</b> into.. John Doe's back.. #line:marco_talk_medium_24
 Marco: That's all we have for our leads to follow.. #line:marco_talk_medium_25
-Raul: Maybe there's a third option? #line:raul_talk_short_17 
+Raul: and you think that's enough? 
+Marco: What other clues are there then? 
+Raul: ever consider there's a third option? #line:raul_talk_short_17 
 <<jump Debrief>>
 ===
 
@@ -446,6 +453,8 @@ position: 349,541
 Marco: The <b>Scar cut into the persons back it looked like a cross..</b>  #line:marco_talk_short_39 
 Marco: They must've bled out.. #line:marco_talk_short_29
 Raul: ...So <b>the church</b> could be a lead on our culprit  #line:raul_talk_medium_19
+Marco: You don't have to come with me- 
+Raul: It's fine, what else do we have
 <<AddPage Church>>
 <<Clickable Bus_Stop Bus_Stop_Button>>
 <<EndDialogue>>
@@ -458,11 +467,12 @@ position: 351,675
 <<Act Marco Marco_Think left center green>>
 <<Hide Raul>>
 <<Act Raul Raul_Question right center blue>>
-Marco: What's the third option?  #line:marco_talk_short_40 
-Raul: If you want we can check around the forest.. maybe the Bus Stop? #line:raul_talk_medium_7 
-Marco: do you think we might find something at the Bus Stop? #line:marco_talk_medium_27
+Marco: What's the third option then?  #line:marco_talk_short_40 
+Raul: If you think it's real, we can check around the forest.. maybe the Bus Stop? #line:raul_talk_medium_7 
+Marco: It's real...
+Marco: What do you think we might find something at the Bus Stop? #line:marco_talk_medium_27
 <<AddPage Bus>>
-Raul: Maybe <b>whoever died were hoping on a Bus out of here?</b> #line:raul_talk_medium_20
+Raul: Maybe <b>whoever died was hopping on a Bus, out of this awful towm?</b> #line:raul_talk_medium_20
 Raul: And the stop's pretty close to the <b>Forest..</b> maybe there's clues?  #line:raul_talk_medium_8 
 <<jump Ending_Choices>>
 ===
@@ -475,10 +485,10 @@ position: 656,412
 <<Act Raul Raul_Con right center blue>>
 <<Hide Marco>>
 <<Act Marco Marco_Think left center green>>
-Raul: So those are all our options..  #line:raul_talk_short_22 
-Raul: Or maybe... just listen #line:raul_talk_short_23 
+Raul: those are all your options...  #line:raul_talk_short_22 
+Raul: Or maybe... just, listen #line:raul_talk_short_23 
 <<wait  1>>
-Raul: sigh... #line:raul_talk_smoll_5 
+Raul: Sigh... #line:raul_talk_smoll_5 
 Raul: We can leave.. first thing in the morning... #line:raul_talk_medium_9 
 <<Hide Marco>>
 <<Act Marco Marco_Mad left center green>>
@@ -491,9 +501,9 @@ Marco:...
 
 -> (Leave Town)  
    Marco: We'll go.. #line:marco_talk_short_43 
-   Raul: We should pack our bags #line:raul_talk_short_25 
+   Raul: Good let's pack our bags #line:raul_talk_short_25 
    Marco: ...  
-   Raul: You look like you don't wanna.. Are you sure? #line:raul_talk_medium_11 
+   Raul: Sigh.. just say you don't want to go.. #line:raul_talk_medium_11 
    <<jump YourChoice>>
 -> (Stay in Town)  
    Marco: We can't what about everyone in town... #line:marco_talk_short_44
@@ -507,9 +517,7 @@ color: blue
 position: 1004,-13
 ---
 <<StopAudioAll>>
-//<<PlayAudio Placeholder>>
-//<<Scene Placeholder>>
-Marco: Ok  #line:marco_talk_short_45 
+Marco: ...  #line:marco_talk_short_45 
 Marco: Packed... #line:marco_talk_short_46 
 Raul: Same... #line:raul_talk_short_26 
 Marco: First thing? #line:marco_talk_short_47 
@@ -517,7 +525,9 @@ Raul: First thing. #line:raul_talk_short_27
 
 <<Scene Deserter_Scene>>
 The End  
-<<ResetGame>>
+<<Fade Black 0.0 1.0 4.0>>
+<<EndDialogue>>
+<<Credits>>
 //<<Fade Black 0.0 1.0 2.0>>
 ===
 
@@ -525,8 +535,8 @@ The End
 title: beginning
 position: 1018,235
 ---
-Raul: Fine... If we're gonna do this let's use this old scrap.. #line:raul_talk_medium_12 
-Marco: What happened? and Possible leads #line:marco_talk_medium_28
+Raul: Fine... If we're gonna do this, let's use this old scrap.. #line:raul_talk_medium_12 
+Marco: Let's figure out what happened? and possible leads #line:marco_talk_medium_28
 //<<Fade Black 0.0 1.0 2.0>>
 //<<Credits>>
 <<MurderBoard>>
@@ -538,12 +548,12 @@ title: YourChoice
 position: 644,143
 ---
 -> Go #line:06530b7 
-       Marco: I'm sure #line:marco_talk_short_49 
-       Raul: Ok #line:raul_talk_smoll_6 
+       Marco: ...I'm sure #line:marco_talk_short_49 
+       Raul: Ok..let's get packed #line:raul_talk_smoll_6 
        <<jump Deserter>>
 -> Stay #line:090f2fc 
-       Marco: I think we should stay, it's just everyone in town... #line:marco_talk_medium_18 
-       Raul: I'm not fully convinced it's real and if it is I don't want you getting hurt.. #line:raul_talk_medium_13 
+       Marco: We should stay, everyone in town... they could get hurt.. #line:marco_talk_medium_18 
+       Raul: Look i'm not fully convinced, but I don't want you getting hurt..so #line:raul_talk_medium_13 
        <<jump beginning>>
 ===
 title: MurderBoard1End
@@ -552,14 +562,14 @@ position: 644,143
 <<Scene Hallway>>
 <<Act Marco Marco_Relieved left center green>>
 <<Act Raul Raul_Con right center blue>>
-Marco: We have a few places we can follow up on.. #line:marco_talk_medium_19
-Raul: We can decide where to go in the morning #line:raul_talk_medium_14
-Marco: Alright #line:marco_talk_short_50 
+Marco: see, we have a few places we can follow up on.. #line:marco_talk_medium_19
+Raul: Alright fine, we can decide where to go in the morning #line:raul_talk_medium_14
+Marco: Raul..I- #line:marco_talk_short_50 
 Raul: Wanna spend the night? #line:raul_talk_short_28 
-Marco: Yeah probably safer #line:marco_talk_short_51 
+Marco: Yeah probably safer then being alone #line:marco_talk_short_51 
 Raul: Coming to bed?  #line:raul_talk_short_29 
 Marco: In a bit.. #line:marco_talk_short_52 
-Raul: Alright #line:raul_talk_smoll_7 
+Raul: Night #line:raul_talk_smoll_7 
 <<Hide Marco>>
 <<Hide Raul>>
 <<Scene Marco_Bathroom_Scene>>
@@ -568,7 +578,7 @@ Raul: Alright #line:raul_talk_smoll_7
 <<Act Marco narrator_sprite offleft center green>>
 Marco: I can't believe what I saw... #line:marco_talk_short_56 
 Marco: Will others... #line:marco_talk_short_57 
-Marco: I swear I'll figure out what happened.. #line:marco_talk_short_58 
+Marco: I swear, I'll figure out what happened.. #line:marco_talk_short_58 
 <<wait  4.0>>
 <<Fade Black 0.0 1.0 4.0>>
 <<EndDialogue>>
