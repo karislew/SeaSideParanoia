@@ -568,7 +568,7 @@ position: 644,143
 title: MurderBoard1End
 position: 644,143
 ---
-<<Scene hallway_bg>>
+<<Scene livingroom_bg>>
 <<Act Marco Marco_Relieved left center green>>
 <<Act Raul Raul_Con right center blue>>
 Marco: see, we have a few places we can follow up on.. #line:marco_talk_medium_19
