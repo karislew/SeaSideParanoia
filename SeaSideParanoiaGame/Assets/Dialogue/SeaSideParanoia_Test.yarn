@@ -303,8 +303,8 @@ Marco: There was a <b>scar on the body, in the shape of a cross</b>... #line:mar
 <<Hide Raul>>
 <<Act Raul Raul_Con right center blue>>
 Raul: Holy shit... #line:raul_talk_short_7 
-Marco: and I found some <b>broken glasses</b> in the snow.
-Raul: Wait, these are real!?
+Marco: and I found some <b>broken glasses</b> in the snow. #line:marco_talk_short_34
+Raul: Wait, these are real!? #line:raul_talk_short_30
 <<AddPage Who>>
 Raul: Can you make out who this is? #line:raul_talk_short_8 
 Marco:... I can't... #line:marco_talk_smoll_8
@@ -355,7 +355,7 @@ Raul: Yeah, we're ok.. #line:raul_talk_short_13
 <<Act Raul Raul_Skeptic right center blue>>
 <<wait  1>>
 Marco: Y'know, those old missing people news reports at the library #line:marco_talk_medium_13 
-Marco: Do you still... have them?
+Marco: Do you still... have them? #line:marco_talk_short_45
 <<Hide Rose>>
 <<Act Rose Rose_Con center center magenta>>
 Rose: Missing people...? #line:rose_talk_short_1 
@@ -395,24 +395,24 @@ Marco: Well shouldn't we try and see why this happened!, who did it?, Who even d
 Raul: Why even do that, this town doesn't care about us Marco! #line:raul_talk_medium_4 
 Marco: Still! isn't it weird how something this big went unnoticed?  #line:marco_talk_medium_15 
 Marco: What if it happens again? What if someone get's hurt #line:marco_talk_short_33 
-Raul: ... Marco, why do you care so much  #line:raul_talk_smoll_4 
-Marco: I just don't- 
+Raul: ... Marco, why do you care so much  #line:raul_talk_short_31
+Marco: I just don't- #line:marco_talk_short_36
 Raul: We don't know who died, Who killed them, or If it was even real..  #line:raul_talk_medium_5 
 <<Hide Marco>>
 <<Act Marco Marco_Mad left center green>>
-Marco: It was real! Stop saying it's not, and we have the <b>glasses!</b>  #line:marco_talk_medium_23 
+Marco: It was real! Stop saying it's not, and we have the <b>glasses!</b>  #line:marco_talk_long
 Raul: Marco, that's not enough proof and you know it! #line:raul_talk_medium_6 
 <<Hide Raul>>
 <<Act Raul Raul_Con right center blue>>
 Marco: Then help me prove it's real! #line:marco_talk_short_35 
 <<Hide Marco>>
 <<Act Marco Marco_Relieved left center green>>
-Raul: Y'know what... Let's see what we have  #line:raul_talk_short_16 
+Raul: Y'know what... Let's see what we have  #line:raul_talk_medium_21 
 Marco: So far in leads we can visit the library to get the <b>old missing Persons Report</b> from Rose #line:marco_talk_medium_16 
 Marco: That <b>weird rosary managled</b> into.. John Doe's back.. #line:marco_talk_medium_24
 Marco: That's all we have for our leads to follow.. #line:marco_talk_medium_25
-Raul: and you think that's enough? 
-Marco: What other clues are there then? 
+Raul: and you think that's enough? #line:raul_talk_short_32
+Marco: What other clues are there then? #line:marco_talk_short_37
 Raul: ever consider there's a third option? #line:raul_talk_short_17 
 <<jump Debrief>>
 ===
@@ -450,11 +450,11 @@ position: 349,541
 <<Act Marco Marco_Think left center green>>
 <<Hide Raul>>
 <<Act Raul Raul_Question right center blue>>
-Marco: The <b>Scar cut into the persons back it looked like a cross..</b>  #line:marco_talk_short_39 
+Marco: The <b>Scar cut into the persons back it looked like a cross..</b>  #line:marco_talk_medium_23 
 Marco: They must've bled out.. #line:marco_talk_short_29
 Raul: ...So <b>the church</b> could be a lead on our culprit  #line:raul_talk_medium_19
-Marco: You don't have to come with me- 
-Raul: It's fine, what else do we have
+Marco: You don't have to come with me- #line:marco_talk_short_38
+Raul: It's fine, what else do we have #line:raul_talk_medium_22
 <<AddPage Church>>
 <<Clickable Bus_Stop Bus_Stop_Button>>
 <<EndDialogue>>
@@ -469,7 +469,7 @@ position: 351,675
 <<Act Raul Raul_Question right center blue>>
 Marco: What's the third option then?  #line:marco_talk_short_40 
 Raul: If you think it's real, we can check around the forest.. maybe the Bus Stop? #line:raul_talk_medium_7 
-Marco: It's real...
+Marco: It's real... #line:marco_talk_short_41
 Marco: What do you think we might find something at the Bus Stop? #line:marco_talk_medium_27
 <<AddPage Bus>>
 Raul: Maybe <b>whoever died was hopping on a Bus, out of this awful towm?</b> #line:raul_talk_medium_20
@@ -494,7 +494,7 @@ Raul: We can leave.. first thing in the morning... #line:raul_talk_medium_9
 <<Act Marco Marco_Mad left center green>>
 Marco: But you just said we'll keep looking...  #line:marco_talk_short_42
 Raul: I don't want you.. I don't want us getting hurt  #line:raul_talk_medium_10 
-Raul: We can just pack our bags and leave town! #line:raul_talk_short_24 
+Raul: We can just pack our bags and leave town! #line:raul_talk_medium_23
 <<Hide Marco>>
 <<Act Marco Marco_Relieved left center green>>
 Marco:...  
@@ -517,7 +517,7 @@ color: blue
 position: 1004,-13
 ---
 <<StopAudioAll>>
-Marco: ...  #line:marco_talk_short_45 
+Marco: ...  
 Marco: Packed... #line:marco_talk_short_46 
 Raul: Same... #line:raul_talk_short_26 
 Marco: First thing? #line:marco_talk_short_47 
@@ -526,6 +526,7 @@ Raul: First thing. #line:raul_talk_short_27
 <<Scene Deserter_Scene>>
 The End  
 <<Fade Black 0.0 1.0 4.0>>
+<<wait 4.0>>
 <<EndDialogue>>
 <<Credits>>
 //<<Fade Black 0.0 1.0 2.0>>
