@@ -559,7 +559,7 @@ position: 644,143
 title: MurderBoard1End
 position: 644,143
 ---
-<<Scene Hallway>>
+<<Scene hallway_bg>>
 <<Act Marco Marco_Relieved left center green>>
 <<Act Raul Raul_Con right center blue>>
 Marco: see, we have a few places we can follow up on.. #line:marco_talk_medium_19
@@ -579,8 +579,8 @@ Raul: Night #line:raul_talk_smoll_7
 Marco: I can't believe what I saw... #line:marco_talk_short_56 
 Marco: Will others... #line:marco_talk_short_57 
 Marco: I swear, I'll figure out what happened.. #line:marco_talk_short_58 
-<<wait  4.0>>
 <<Fade Black 0.0 1.0 4.0>>
+<<wait 4.0>>
 <<EndDialogue>>
 <<Credits>>
 //<<ResetGame>>
