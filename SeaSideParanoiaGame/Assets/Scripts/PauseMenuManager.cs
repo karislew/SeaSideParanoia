@@ -28,7 +28,7 @@ public class PauseMenuManager : MonoBehaviour
         }
         
         // TODO: remove, was only for testing :)
-        AudioManager.Instance.Play("Sound01");
+        //AudioManager.Instance.Play("Sound01");
     }
     public void GotoStartScreen()
     {
