@@ -233,13 +233,15 @@ Raul: Marco, maybe you saw some things? #line:raul_talk_medium
 
 //Could start adding If stuff here but we'll talk later
 //<<PlayAudio Placeholder>>
+<<Hide Marco>>
+<<Hide Raul>>
 <<Fade Black 0.0 1.0 1.0>>
 <<wait 1.0>>
 <<Scene returnpath_bg>>
 <<Fade Black 1.0 0.0 1.5>>
 <<wait 1.5>>
-<<Hide Marco>>
 <<Act Marco Marco_Relieved left center green>>
+<<Act Raul Raul_Con right center blue>>
 Marco: C'mon, It's just up ahead #line:marco_talk_short_24 
 Raul: Marco, the snow is starting to pick up #line:raul_talk_short_4 
 Marco: It's not far.. #line:marco_talk_short_25 
@@ -247,11 +249,14 @@ Raul:...
 
 
 //<<Scene SSP_background_forest_05>>
+<<Hide Marco>>
+<<Hide Raul>>
 <<Fade Black 0.0 1.0 1.0>>
 <<wait 1.0>>
 <<Scene alterstate_bg_02>>
 <<Fade Black 1.0 0.0 1.5>>
 <<wait 1.5>>
+<<Act Marco Marco_Relieved left center green>>
 Marco: See, it's right there! #line:marco_talk_short_26 
 <<Scene nothing_bg>>
 <<Hide Marco>>
@@ -327,11 +332,14 @@ Marco:...
 Marco: Who would do this #line:marco_talk_smoll_9 
 Raul: We should go #line:raul_talk_short_10 
 <<StopAudioAll>>
+<<Hide Marco>>
+<<Hide Raul>>
 <<Fade Black 0.0 1.0 1.5>>
 <<wait 1.5>>
 <<Scene livingroom_bg>>
 <<Fade Black 1.0 0.0 1.5>>
 <<wait 1.5>>
+<<Act Raul Raul_Con right center blue>>
 <<Hide Marco>>
 <<Act Marco Marco_Nervous left center green>>
 Raul: Marco, you should sit down breathe #line:raul_talk_medium_16
