@@ -21,7 +21,7 @@ public class VNManager : DialogueViewBase
     List<GameObject> loadObjects = new List<GameObject>();
     List<AudioClip> loadAudio = new List<AudioClip>();
     List<Clue> loadClue = new List<Clue>();
-    public VideoPlayer videoPlayer;
+    //public VideoPlayer videoPlayer;
     public GameObject creditPlayer;
 
 
@@ -63,6 +63,7 @@ public class VNManager : DialogueViewBase
 
     void Awake()
     {
+        creditPlayer.SetActive(false);
         // manually add all Yarn command handlers, so that we don't
         // have to type out game object names in Yarn scripts (also
         // gives us a performance increase by avoiding GameObject.Find)
@@ -138,7 +139,7 @@ public class VNManager : DialogueViewBase
     public void PlayCredits()
     {
         creditPlayer.SetActive(true);
-        videoPlayer.Play();
+        //videoPlayer.Play();
     }
      
     public void SetObject(string actorName, string objectName)
