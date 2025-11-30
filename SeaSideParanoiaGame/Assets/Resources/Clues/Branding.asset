@@ -16,5 +16,5 @@ MonoBehaviour:
   id: 2
   question: 1
   itemDescription: 
-  worldSprite: {fileID: 21300000, guid: 6c7dffeb7cab143bb9db861e53e3379c, type: 3}
+  worldSprite: {fileID: 21300000, guid: 988fbcfedc9534fbb819cf782b13a351, type: 3}
   journalPage: {fileID: 21300000, guid: 329bff4bb313e4e43b00400ddcbc058a, type: 3}
