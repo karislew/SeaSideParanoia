@@ -6,6 +6,7 @@ using UnityEngine.Video;
 public class VideoPlayback : MonoBehaviour
 {
     private VideoPlayer videoPlayer;
+    [SerializeField] string videoFileName;
     void Awake()
     {
         
@@ -13,8 +14,18 @@ public class VideoPlayback : MonoBehaviour
     void Start()
     {
         videoPlayer = GetComponent<VideoPlayer>();
+        string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath, videoFileName);
+        videoPlayer.url = videoPath;
+        videoPlayer.Prepare();
+        videoPlayer.prepareCompleted += PrepareCompleted;
         videoPlayer.time = 0;
+        //videoPlayer.Play();
         //videoPlayer.loopPointReached += LoopPointReached;
+      
+    }
+    void PrepareCompleted(VideoPlayer videoPlayer)
+    {
+        videoPlayer.Play();
     }
     // Start is called before the first frame update
     void LoopPointReached(VideoPlayer vp)
