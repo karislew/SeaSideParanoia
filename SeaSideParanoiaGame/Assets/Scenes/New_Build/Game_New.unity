@@ -2488,7 +2488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -780.00024, y: 540}
+  m_AnchoredPosition: {x: -780.0002, y: 540}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &330084434
@@ -3116,7 +3116,7 @@ VideoPlayer:
   m_TargetMaterialProperty: <noninit>
   m_RenderMode: 2
   m_AspectRatio: 2
-  m_DataSource: 0
+  m_DataSource: 1
   m_TimeUpdateMode: 2
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
@@ -3144,6 +3144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8431d5b358ae943f3a499780d5052a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  videoFileName: End_Credits_Seaside_V2.mp4
 --- !u!1 &379607624
 GameObject:
   m_ObjectHideFlags: 0
@@ -9530,7 +9531,7 @@ MonoBehaviour:
   - {fileID: 872198871}
   - {fileID: 1085952264}
   - {fileID: 594207750}
-  startNode: Start
+  startNode: MurderBoard1End
   startAutomatically: 1
   runSelectedOptionAsLine: 0
   lineProvider: {fileID: 594207749}
