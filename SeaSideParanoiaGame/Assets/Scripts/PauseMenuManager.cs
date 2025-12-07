@@ -9,6 +9,7 @@ public class PauseMenuManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject mainArea;
     public GameObject settingsMenu;
+    public bool isPaused = false;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +24,14 @@ public class PauseMenuManager : MonoBehaviour
         {
             // already on, so turn off
             pauseMenu.SetActive(false);
+           
+            isPaused = false;
         } else {
             // already off, so turn on
             pauseMenu.SetActive(true);
+            Debug.Log("Pause Menu Activated");
+            //Time.timeScale = 0f;
+            isPaused = true;
         }
         
         // TODO: remove, was only for testing :)
@@ -65,4 +71,6 @@ public class PauseMenuManager : MonoBehaviour
         EventDispatcher.Instance.RemoveListener<TogglePause>(HandlePauseToggle);
         EventDispatcher.Instance.RemoveListener<ToggleSettings>(HandleSettingsToggle);
     }
+
+    
 }
