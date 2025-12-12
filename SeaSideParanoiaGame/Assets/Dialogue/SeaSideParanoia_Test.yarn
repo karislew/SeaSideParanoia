@@ -530,7 +530,8 @@ Marco: Packed... #line:marco_talk_short_46
 Raul: Same... #line:raul_talk_short_26 
 Marco: First thing? #line:marco_talk_short_47 
 Raul: First thing. #line:raul_talk_short_27 
-
+<<Hide Marco>>
+<<Hide Raul>>
 <<Scene Deserter_Scene>>
 The End  
 <<Fade Black 0.0 1.0 4.0>>
