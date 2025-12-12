@@ -31,6 +31,8 @@ namespace Yarn.Unity
    /// </remarks>
    public class DialogueAdvanceInput : MonoBehaviour
    {
+       public PauseMenuManager pauseMenuManager; 
+       public ModeManager modeManager;
        /// <summary>
        /// The button/keycode action type, should the button be fired on release or press?
        /// </summary>
@@ -316,7 +318,7 @@ namespace Yarn.Unity
            var advance = false;
 
 
-           if (continueActionType == ContinueActionType.KeyCode)
+           if (continueActionType == ContinueActionType.KeyCode && (modeManager.currentModeString != "Pause" && modeManager.currentModeString != "Journal"))
            {
                if (this.continueActionOnButtonRelease == ContinueButtonActionType.Up)
                {

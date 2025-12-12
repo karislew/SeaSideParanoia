@@ -16,6 +16,7 @@ public class ModeManager : Singleton<ModeManager>
     public Mode initialMode = Mode.Game;
     [SerializeField] public Mode currentMode;
     private Stack modeHistory = new Stack(5);
+    [HideInInspector] public string currentModeString;
 
 
     // Start is called before the first frame update
@@ -29,6 +30,7 @@ public class ModeManager : Singleton<ModeManager>
     public Mode GetCurrentMode()
     {
         currentMode = (Mode)modeHistory.Peek();
+        currentModeString = currentMode.ToString();
         return (Mode)modeHistory.Peek();
     }
 
