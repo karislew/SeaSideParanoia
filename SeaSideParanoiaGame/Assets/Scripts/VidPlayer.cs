@@ -24,18 +24,18 @@ public class VidPlayer : MonoBehaviour
 
     public void PlayVideo()
     {
-        VideoPlayer videoPlayer = GetComponent<VideoPlayer>();
+        videoPlayer = GetComponent<VideoPlayer>();
 
         if (videoPlayer)
         {
             videoPlayer.time = 0;
-
+            videoPlayer.waitForFirstFrame = true;
             string videoPath = System.IO.Path.Combine(Application.streamingAssetsPath, videoFileName);
             Debug.Log("Playing video from: " + videoPath);
             videoPlayer.url = videoPath;
             videoPlayer.Prepare();
-         
-            videoPlayer.Play();
+            StartCoroutine(PlayingVideo(videoPlayer));
+            
             videoPlayer.loopPointReached += LoopPointReached;
         }
         
@@ -56,9 +56,18 @@ public class VidPlayer : MonoBehaviour
         StartCoroutine(Wait());
         
     }
+    
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("StartScene");
+    }
+    IEnumerator PlayingVideo(VideoPlayer videoPlayer)
+    {
+       yield return new WaitForSeconds(1.5f);
+       videoPlayer.frame = 0;
+        
+        videoPlayer.Play();
+
     }
 }
